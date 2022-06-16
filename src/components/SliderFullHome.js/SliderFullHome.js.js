@@ -72,19 +72,19 @@ const SliderFullHome = () => {
   }, [])
 
   return (
-    <div className="relative w-full xl:h-[400px] lg:h-[400px] md:h-[300px] h-[150px] max-w-[1550px] mx-auto">
+    <section className="relative w-full xl:h-[400px] lg:h-[350px] md:h-[280px] h-[160px] max-w-[1550px] mx-auto">
 
       <div ref={photoSlider} className="w-full h-full peer">
         {dataSlider.map(data => {
           return (
-            <a key={data.id} href={data.url} className="w-full h-full overflow-hidden hidden">
+            <a key={data.id} href={data.url} className="w-full h-full overflow-hidden hidden mx-auto">
               <img className="object-cover h-full" src={data.src} alt={data.id} />
             </a>
           )
         })}
       </div>
 
-      <div className="gap-x-2 absolute right-10 bottom-10 hidden peer-hover:flex hover:flex duration-300 z-20 ">
+      <div className="gap-x-2 absolute right-10 bottom-10 hidden md:peer-hover:flex hover:flex duration-300 z-20 ">
         <span onClick={prevSlideHandler} className="border border-slate-500 flex items-center justify-center bg-white shadow w-11 h-11 rounded-full cursor-pointer"><BiChevronRight className="text-2xl" /></span>
         <span onClick={nextSlideHandler} className="border border-slate-500 flex items-center justify-center bg-white shadow w-11 h-11 rounded-full cursor-pointer"><BiChevronLeft className="text-2xl" /></span>
       </div>
@@ -97,7 +97,7 @@ const SliderFullHome = () => {
         })}
       </div>
 
-    </div>
+    </section>
   );
 }
 

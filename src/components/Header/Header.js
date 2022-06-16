@@ -6,11 +6,14 @@ import { BiBasket } from "react-icons/bi";
 import { BiMenu } from "react-icons/bi";
 import { FiZap } from "react-icons/fi";
 import { FiShoppingCart } from "react-icons/fi";
+import { FiInfo } from "react-icons/fi";
+import { FiX } from "react-icons/fi";
 import { useRef } from 'react';
 
 const Header = () => {
 
   const navigatNavbar = useRef()
+  const nav = useRef()
 
   const trakerHoverHandler = (e) => {
     let locationTarget = e.target.getBoundingClientRect();
@@ -21,64 +24,89 @@ const Header = () => {
     navigatNavbar.current.style.width = '0';
   }
 
+  const openNavHandler = () => {
+    nav.current.classList.replace("left-full", "left-0")
+  }
+  const cluseNavHandler = () => {
+    nav.current.classList.replace("left-0", "left-full")
+  }
+
   return (
-    <header className="w-fyll pt-4 bg-white border-b">
-      <div className="container font-sans text-xl w-full flex items-center justify-center">
-        <Link to={'/'} className="ml-6">
-          <img className="max-w-[100px]" src={"/image/logo/logo.svg"} alt="logo" />
-        </Link>
-        <div className="relative w-full h-full flex items-center justify-start">
-          <BiSearch className="absolute right-3 text-gray-400 text-2xl" />
-          <input type={"text"} className="bg-gray-100 pl-4 text-gray-600 pr-12 py-3 w-full max-w-[600px] rounded-lg outline-none text-sm" placeholder="جسنوجو" />
-        </div>
-        <div className="flex items-center justify-center">
-          <Link to={'/'} className="after:content-['|'] after:h-full after:w-2 after:top-0.5 after:absolute after:-left-7 after:text-gray-300 after: relative flex items-center justify-center py-2 px-6 border rounded-lg border-gray-400">
-            <BiLogIn className="text-2xl" />
-            <span className="text-sm whitespace-nowrap">ورود | ثبت نام</span>
+    <>
+      <header className="sticky top-0 w-fyll pt-4 md:pb-4 px-2 bg-white z-10">
+        <div className="container font-sans text-xl w-full flex flex-wrap md:flex-nowrap items-center justify-center">
+          <button className="md:hidden w-1/3 flex justify-start">
+            <BiMenu onClick={openNavHandler} className="text-2xl" />
+          </button>
+          <Link to={'/'} className="md:ml-6 md:w-auto w-1/3">
+            <img className="max-w-[100px]" src={"/image/logo/logo.svg"} alt="logo" />
           </Link>
-          <Link to={'/'} className="mr-10">
-            <FiShoppingCart className="text-2xl" />
-          </Link>
+          <button className="md:hidden w-1/3 flex justify-end">
+            <FiInfo className="text-2xl" />
+          </button>
+          <span className="w-full h-0.5 bg-gray-200 block my-2 md:hidden"></span>
+          <div className="relative md:right-0 md:top-0 md:w-full w-2/3 h-full flex items-center justify-start">
+            <BiSearch className="absolute right-3 text-gray-400 text-2xl" />
+            <input type={"text"} className="bg-gray-100 pl-4 text-gray-600 pr-12 py-3 w-full max-w-[600px] rounded-lg outline-none text-sm" placeholder="جسنوجو" />
+          </div>
+          <div className="flex items-center md:justify-center justify-between md:w-auto w-1/3">
+            <Link to={'/'} className="hidden after:content-['|'] after:h-full after:w-2 after:top-0.5 after:absolute after:-left-7 after:text-gray-300 after: relative md:flex items-center justify-center py-2 px-6 border rounded-lg border-gray-400">
+              <BiLogIn className="text-2xl" />
+              <span className="text-sm whitespace-nowrap">ورود | ثبت نام</span>
+            </Link>
+            <Link to='#' className="flex mr-6 md:hidden justify-center items-center">
+              <BiLogIn className="text-2xl" />
+              <span className="text-sm font-sans text-slate-800">ورود</span>
+            </Link>
+            <Link to='#' className="md:mr-10">
+              <FiShoppingCart className="text-2xl" />
+            </Link>
+          </div>
+          <span className="w-full h-0.5 bg-gray-200 block mt-2 md:hidden"></span>
         </div>
-      </div>
-      <nav className="relative w-full flex justify-between items-center container">
-        <ul className="h-14 flex items-center justify-center text-sm font-sans text-gray-700">
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] relative h-full pl-4 flex items-center">
-            <BiMenu className="text-xl ml-1 select-none" />
+      </header>
+      <nav ref={nav} className="md:sticky md:z-0 md:left-0 w-full bg-white left-full top-0 absolute h-screen md:h-12 z-30 flex justify-between items-center container">
+        <ul className="md:h-10 h-full w-full flex flex-col md:flex-row items-start md:items-center px-4 md:px-0 overflow-scroll justify-start text-sm font-sans text-gray-700">
+          <li className="md:hidden w-full py-4 flex items-center justify-between border-b">
+            <FiX onClick={cluseNavHandler} className="text-2xl cursor-pointer" />
+            <img src="/image/logo/logo.svg" />
+          </li>
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden whitespace-nowrap font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] relative h-full pl-4 flex items-center">
+            <BiMenu className="text-xl ml-1 select-none hidden md:block" />
             دسته بندی کالا ها
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden  h-full px-2 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden whitespace-nowrap  h-full md:px-2 flex items-center">
             <BiBasket className="text-xl ml-1" />
             سوپرمارکت
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden  h-full px-2 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden whitespace-nowrap  h-full md:px-2 flex items-center">
             <FiZap className="text-xl ml-1" />
             پرفروش ترین
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden  h-full px-2 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden whitespace-nowrap  h-full md:px-2 flex items-center">
             <BiMapAlt className="text-xl ml-1" />
             تخفیف ها
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden relative after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] h-full pl-4 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden whitespace-nowrap relative after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] h-full pl-4 flex items-center">
             <BiMapAlt className="text-xl ml-1" />
             شگفت انگیزها
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden  h-full px-2 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden whitespace-nowrap  h-full md:px-2 flex items-center">
             سوالی دارید؟
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden  h-full px-2 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden whitespace-nowrap  h-full md:px-2 flex items-center">
             فروشنده شوید!
           </li>
         </ul>
-        <ul className="h-16 text-sm font-sans text-gray-700">
-          <li className="cursor-pointer overflow-hidden h-full flex items-center px-2 ">
+        <ul className="lg:block hidden h-16 text-sm font-sans text-gray-700">
+          <li className="whitespace-nowrap cursor-pointer overflow-hidden h-full flex items-center px-2 ">
             <BiMapAlt className="text-xl" />
             مطفا شهر خود را انتخاب کنید
           </li>
         </ul>
-        <span ref={navigatNavbar} className="duration-200 transition-all block h-[3px] rounded-full bg-red-600 absolute bottom-0"></span>
+        <span ref={navigatNavbar} className="hidden duration-200 transition-all md:block h-[3px] rounded-full bg-red-600 absolute bottom-0"></span>
       </nav>
-    </header>
+    </>
   );
 }
 
