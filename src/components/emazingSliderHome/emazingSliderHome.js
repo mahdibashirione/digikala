@@ -10,7 +10,7 @@ import { Pagination } from "swiper";
 
 const EmazingSliderHome = () => {
   return (
-    <section className="container bg-red-600 rounded-lg py-4 px-0.5">
+    <section className="container bg-red-500 rounded-lg py-4 px-0.5">
       <div className="scrollbar-hidden w-full h-[245px] overflow-x-scroll overflow-y-hidden flex flex-nowrap items-center justify-start gap-x-1">
 
         <Link to="#" className="h-full min-w-[175px] flex flex-col justify-center items-center">
@@ -21,7 +21,6 @@ const EmazingSliderHome = () => {
             <FiChevronLeft className="!text-xl" />
           </span>
         </Link>
-
 
         <Link to="#" className="block h-full min-w-[175px] bg-white">
           <div className="w-full h-[150px] flex items-center justify-center">

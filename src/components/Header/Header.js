@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 w-fyll pt-4 md:pb-4 px-2 bg-white z-10">
+      <header className="sticky top-0 w-fyll pt-4 md:pb-4 px-2 bg-white z-40">
         <div className="container font-sans text-xl w-full flex flex-wrap md:flex-nowrap items-center justify-center">
           <button className="md:hidden w-1/3 flex justify-start">
             <BiMenu onClick={openNavHandler} className="text-2xl" />
@@ -65,41 +65,51 @@ const Header = () => {
           <span className="w-full h-0.5 bg-gray-200 block mt-2 md:hidden"></span>
         </div>
       </header>
-      <nav ref={nav} className="md:sticky md:z-0 md:left-0 w-full bg-white left-full top-0 absolute h-screen md:h-12 z-30 flex justify-between items-center container">
-        <ul className="md:h-10 h-full w-full flex flex-col md:flex-row items-start md:items-center px-4 md:px-0 overflow-scroll justify-start text-sm font-sans text-gray-700">
+      <nav ref={nav} className="md:relative md:top-auto md:left-0 w-full bg-white left-full top-0 fixed h-screen md:h-12 z-50 flex justify-between items-center container">
+        <ul className="h-full w-full flex flex-col md:flex-row items-start md:items-center px-4 md:px-0 overflow-scroll justify-start text-sm font-sans text-gray-700">
           <li className="md:hidden w-full py-4 flex items-center justify-between border-b">
             <FiX onClick={cluseNavHandler} className="text-2xl cursor-pointer" />
             <img src="/image/logo/logo.svg" />
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden whitespace-nowrap font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] relative h-full pl-4 flex items-center">
-            <BiMenu className="text-xl ml-1 select-none hidden md:block" />
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="group cursor-pointer whitespace-nowrap  md:h-full h-14  font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex items-center">
+            <BiMenu className="text-xl ml-1 select-none hidden md:block relative" />
             دسته بندی کالا ها
+            <ul className="bg-white font-normal absolute hidden rounded-br-lg overflow-hidden w-36 border border-t-0 top-full right-0 group-hover:flex flex-col items-start">
+              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">کالای دیجیتال</li>
+              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">ابزار و تجهیزات صنعتی</li>
+              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">مد و پوشاک</li>
+              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">کودک و نوزاد</li>
+              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">کالاهای سوپرمارکتی</li>
+              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">زیبایی و سلامت</li>
+              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">خانه و اشپزخانه</li>
+              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">لوازم و التحریر</li>
+            </ul>
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden whitespace-nowrap  h-full md:px-2 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer whitespace-nowrap  md:h-full h-14 md:px-2 flex items-center">
             <BiBasket className="text-xl ml-1" />
             سوپرمارکت
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden whitespace-nowrap  h-full md:px-2 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer whitespace-nowrap  md:h-full h-14 md:px-2 flex items-center">
             <FiZap className="text-xl ml-1" />
             پرفروش ترین
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden whitespace-nowrap  h-full md:px-2 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer whitespace-nowrap  md:h-full h-14 md:px-2 flex items-center">
             <BiMapAlt className="text-xl ml-1" />
             تخفیف ها
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden whitespace-nowrap relative after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] h-full pl-4 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer whitespace-nowrap  md:h-full h-14    relative after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex items-center">
             <BiMapAlt className="text-xl ml-1" />
             شگفت انگیزها
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden whitespace-nowrap  h-full md:px-2 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer whitespace-nowrap  md:h-full h-14 md:px-2 flex items-center">
             سوالی دارید؟
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer overflow-hidden whitespace-nowrap  h-full md:px-2 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer whitespace-nowrap  md:h-full h-14 md:px-2 flex items-center">
             فروشنده شوید!
           </li>
         </ul>
-        <ul className="lg:block hidden h-16 text-sm font-sans text-gray-700">
-          <li className="whitespace-nowrap cursor-pointer overflow-hidden h-full flex items-center px-2 ">
+        <ul className="lg:block hidden h-full text-sm font-sans text-gray-700">
+          <li className="whitespace-nowrap cursor-pointer h-full flex items-center px-2 ">
             <BiMapAlt className="text-xl" />
             مطفا شهر خود را انتخاب کنید
           </li>
