@@ -14,6 +14,7 @@ const Header = () => {
 
   const navigatNavbar = useRef()
   const nav = useRef()
+  const cluseNavbar = useRef()
 
   const trakerHoverHandler = (e) => {
     let locationTarget = e.target.getBoundingClientRect();
@@ -25,10 +26,12 @@ const Header = () => {
   }
 
   const openNavHandler = () => {
-    nav.current.classList.replace("left-full", "left-0")
+    nav.current.classList.replace("right-full", "right-0")
+    cluseNavbar.current.classList.replace("hidden", "block")
   }
   const cluseNavHandler = () => {
-    nav.current.classList.replace("left-0", "left-full")
+    nav.current.classList.replace("right-0", "right-full")
+    cluseNavbar.current.classList.replace("block", "hidden")
   }
 
   return (
@@ -65,47 +68,50 @@ const Header = () => {
           <span className="w-full h-0.5 bg-gray-200 block mt-2 md:hidden"></span>
         </div>
       </header>
-      <nav ref={nav} className="md:relative md:top-auto md:left-0 w-full bg-white left-full top-0 fixed h-screen md:h-12 z-50 flex justify-between items-center container">
-        <ul className="h-full w-full flex flex-col md:flex-row items-start md:items-center px-4 md:px-0 overflow-scroll justify-start text-sm font-sans text-gray-700">
-          <li className="md:hidden w-full py-4 flex items-center justify-between border-b">
-            <FiX onClick={cluseNavHandler} className="text-2xl cursor-pointer" />
-            <img src="/image/logo/logo.svg" />
-          </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="group cursor-pointer whitespace-nowrap  md:h-full h-14  font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex items-center">
-            <BiMenu className="text-xl ml-1 select-none hidden md:block relative" />
+      <nav ref={nav} className="md:relative md:top-auto md:right-0 md:w-full w-3/4 bg-white right-full top-0 fixed h-screen md:h-12 z-50 flex justify-between items-center container">
+        <ul className="w-full max-h-screen md:h-auto flex flex-col-reverse md:flex-row items-start md:items-center px-4 md:px-0 justify-end md:justify-start text-sm font-sans text-gray-700">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="pt-5 md:pt-0 w-full h-full overflow-y-auto md:w-auto md:hover:text-red-500 border-t md:border-0 group cursor-pointer whitespace-nowrap md:h-14 font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex flex-col md:flex-row items-start md:items-center">
+            <BiMenu className="text-xl ml-1 select-none hidden md:block" />
             دسته بندی کالا ها
-            <ul className="bg-white font-normal absolute hidden rounded-br-lg overflow-hidden w-36 border border-t-0 top-full right-0 group-hover:flex flex-col items-start">
-              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">کالای دیجیتال</li>
-              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">ابزار و تجهیزات صنعتی</li>
-              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">مد و پوشاک</li>
-              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">کودک و نوزاد</li>
-              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">کالاهای سوپرمارکتی</li>
-              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">زیبایی و سلامت</li>
-              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">خانه و اشپزخانه</li>
-              <li className="w-full py-4 hover:bg-gray-200 hover:text-red-500 pr-2">لوازم و التحریر</li>
+            <ul className="text-slate-800 md:shadow md:rounded-br-lg md:border-l border-slate-800 mt-2 md:mt-0 w-full flex flex-col font-normal md:absolute md:right-0 md:top-full md:w-auto z-30 md:hidden md:group-hover:flex md:bg-white">
+              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">کالای دیجیتال</li>
+              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">ابزار و تجهیزات صنعتی</li>
+              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">مد و پوشاک</li>
+              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">کودک و نوزاد</li>
+              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">کالاهای سوپرمارکتی</li>
+              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">زیبایی و سلامت</li>
+              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">خانه و اشپزخانه</li>
+              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">لوازم و التحریر</li>
             </ul>
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer whitespace-nowrap  md:h-full h-14 md:px-2 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
             <BiBasket className="text-xl ml-1" />
             سوپرمارکت
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer whitespace-nowrap  md:h-full h-14 md:px-2 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
             <FiZap className="text-xl ml-1" />
             پرفروش ترین
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer whitespace-nowrap  md:h-full h-14 md:px-2 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
             <BiMapAlt className="text-xl ml-1" />
             تخفیف ها
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer whitespace-nowrap  md:h-full h-14    relative after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:after:absolute after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:hidden after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex items-center">
             <BiMapAlt className="text-xl ml-1" />
             شگفت انگیزها
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer whitespace-nowrap  md:h-full h-14 md:px-2 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
             سوالی دارید؟
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="cursor-pointer whitespace-nowrap  md:h-full h-14 md:px-2 flex items-center">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
             فروشنده شوید!
+          </li>
+          <li className="w-full py-4 flex items-center justify-between border-b md:hidden">
+            <div className="w-full flex items-center justify-center">
+              <div className="max-w-[95px] w-full">
+                <img className="w-full object-cover" src="/image/logo/digikala-logo.png" />
+              </div>
+            </div>
           </li>
         </ul>
         <ul className="lg:block hidden h-full text-sm font-sans text-gray-700">
@@ -116,6 +122,7 @@ const Header = () => {
         </ul>
         <span ref={navigatNavbar} className="hidden duration-200 transition-all md:block h-[3px] rounded-full bg-red-600 absolute bottom-0"></span>
       </nav>
+      <span onClick={cluseNavHandler} ref={cluseNavbar} className="md:hidden cursor-pointer hidden fixed z-50 top-0 left-0 w-1/4 h-screen bg-[rgba(0,0,0,0.8)]"></span>
     </>
   );
 }
