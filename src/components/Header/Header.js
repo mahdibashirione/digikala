@@ -53,11 +53,11 @@ const Header = () => {
             <input type={"text"} className="bg-gray-100 pl-4 text-gray-600 pr-12 py-3 w-full max-w-[600px] rounded-lg outline-none text-sm" placeholder="جسنوجو" />
           </div>
           <div className="flex items-center md:justify-center justify-between md:w-auto w-1/3">
-            <Link to={'/login'} className="hidden after:content-['|'] after:h-full after:w-2 after:top-0.5 after:absolute after:-left-7 after:text-gray-300 after: relative md:flex items-center justify-center py-2 px-6 border rounded-lg border-gray-400">
+            <Link to={'/product'} className="hidden after:content-['|'] after:h-full after:w-2 after:top-0.5 after:absolute after:-left-7 after:text-gray-300 after: relative md:flex items-center justify-center py-2 px-6 border rounded-lg border-gray-400">
               <BiLogIn className="text-2xl" />
               <span className="text-sm whitespace-nowrap">ورود | ثبت نام</span>
             </Link>
-            <Link to={"/login"} className="flex mr-6 md:hidden justify-center items-center">
+            <Link to={"/product"} className="flex mr-6 md:hidden justify-center items-center">
               <BiLogIn className="text-2xl" />
               <span className="text-sm font-sans text-slate-800">ورود</span>
             </Link>
@@ -68,7 +68,7 @@ const Header = () => {
           <span className="w-full h-0.5 bg-gray-200 block mt-2 md:hidden"></span>
         </div>
       </header>
-      <nav ref={nav} className="md:relative md:top-auto md:right-0 md:w-full w-3/4 bg-white right-full top-0 fixed h-screen md:h-12 z-50 flex justify-between items-center container">
+      <nav ref={nav} className="md:relative md:top-auto md:right-0 md:w-full w-3/4 bg-white right-full top-0 fixed h-screen md:h-12 z-30 flex justify-between items-center container">
         <ul className="w-full max-h-screen md:h-auto flex flex-col-reverse md:flex-row items-start md:items-center px-4 md:px-0 justify-end md:justify-start text-sm font-sans text-gray-700">
           <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="pt-5 md:pt-0 w-full h-full overflow-y-auto md:w-auto md:hover:text-red-500 border-t md:border-0 group cursor-pointer whitespace-nowrap md:h-14 font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex flex-col md:flex-row items-start md:items-center">
             <BiMenu className="text-xl ml-1 select-none hidden md:block" />
