@@ -53,11 +53,11 @@ const Header = () => {
             <input type={"text"} className="bg-gray-100 pl-4 text-gray-600 pr-12 py-3 w-full max-w-[600px] rounded-lg outline-none text-sm" placeholder="جسنوجو" />
           </div>
           <div className="flex items-center md:justify-center justify-between md:w-auto w-1/3">
-            <Link to={'/product'} className="hidden after:content-['|'] after:h-full after:w-2 after:top-0.5 after:absolute after:-left-7 after:text-gray-300 after: relative md:flex items-center justify-center py-2 px-6 border rounded-lg border-gray-400">
+            <Link to={'/login'} className="hidden after:content-['|'] after:h-full after:w-2 after:top-0.5 after:absolute after:-left-7 after:text-gray-300 after: relative md:flex items-center justify-center py-2 px-6 border rounded-lg border-gray-400">
               <BiLogIn className="text-2xl" />
               <span className="text-sm whitespace-nowrap">ورود | ثبت نام</span>
             </Link>
-            <Link to={"/product"} className="flex mr-6 md:hidden justify-center items-center">
+            <Link to={"/login"} className="flex mr-6 md:hidden justify-center items-center">
               <BiLogIn className="text-2xl" />
               <span className="text-sm font-sans text-slate-800">ورود</span>
             </Link>

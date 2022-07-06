@@ -4,13 +4,15 @@ import Home from './page/Home';
 import LoginPage from './page/LoginPage';
 import Layout from "./layout/Layout"
 import ProductDetail from './components/productDetail';
+import CartPage from './page/CartPage';
 
 function App() {
   return (
     <Routes>
       <Route path='/product' element={<ProductDetail />} />
-      <Route path='/' element={<Home />} />
+      <Route path="/cart" element={<CartPage />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path='/' element={<Home />} />
     </Routes>
   );
 }
