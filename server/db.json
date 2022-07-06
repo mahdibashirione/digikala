@@ -1,0 +1,30 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "amazingProduct": [
+    {
+      "id": 1,
+      "image": "/image/amazingSlider/imgProduct/1.jpg",
+      "postId": 1,
+      "discount": "50%",
+      "price": "12,500,000",
+      "afterPrice": "6,250,000",
+      "name": "ساعت هوشمند اپل"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -4,12 +4,12 @@ import { BiChevronLeft } from "react-icons/bi"
 
 const SliderFullHome = () => {
   const [dataSlider, setDataSlider] = useState([
-    { src: "/image/slideerHome/1.jpg", url: "#", alt: "عکس 1", id: "1", },
-    { src: "/image/slideerHome/2.jpg", url: "#", alt: "عکس 2", id: "2", },
-    { src: "/image/slideerHome/3.jpg", url: "#", alt: "عکس 3", id: "3", },
-    { src: "/image/slideerHome/4.jpg", url: "#", alt: "عکس 4", id: "4", },
-    { src: "/image/slideerHome/5.jpg", url: "#", alt: "عکس 5", id: "5", },
-    { src: "/image/slideerHome/6.jpg", url: "#", alt: "عکس 6", id: "6", },
+    { src: "/image/slideerHome/1.jpg", url: "#", alt: "عکس 1", id: 1, },
+    { src: "/image/slideerHome/2.jpg", url: "#", alt: "عکس 2", id: 2, },
+    { src: "/image/slideerHome/3.jpg", url: "#", alt: "عکس 3", id: 3, },
+    { src: "/image/slideerHome/4.jpg", url: "#", alt: "عکس 4", id: 4, },
+    { src: "/image/slideerHome/5.jpg", url: "#", alt: "عکس 5", id: 5, },
+    { src: "/image/slideerHome/6.jpg", url: "#", alt: "عکس 6", id: 6, },
   ])
   const photoSlider = useRef()
   const navigatorSlider = useRef()
@@ -92,7 +92,7 @@ const SliderFullHome = () => {
       <div ref={navigatorSlider} className="absolute right-10 bottom-5 flex gap-x-2 duration-300 z-20 ">
         {dataSlider.map(data => {
           return (
-            <span className="duration-300 transition-all block w-2 h-2 rounded-full bg-gray-500"></span>
+            <span key={data.id} className="duration-300 transition-all block w-2 h-2 rounded-full bg-gray-500"></span>
           )
         })}
       </div>

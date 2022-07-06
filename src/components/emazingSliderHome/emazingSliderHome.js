@@ -1,14 +1,22 @@
-import { Swiper, SwiperSlide } from "swiper/react";
+
 import { Link } from "react-router-dom";
 import { FiChevronLeft } from "react-icons/fi"
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-// import required modules
-import { Pagination } from "swiper";
+import { useCartActions } from "../../context/Cart/CartProvider";
+import { useEffect, useState } from "react";
+import AmazingSliderItem from "../amazingSliderItem/AmazingSliderItem";
+import axios from "axios";
 
 
 const EmazingSliderHome = () => {
+
+  const cartDispatch = useCartActions()
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    axios.get("/amazingProduct")
+      .then(res => setData(res.data))
+  }, [])
+
   return (
     <section className="container bg-red-500 rounded-lg py-4 px-0.5">
       <div className="scrollbar-hidden w-full h-[245px] overflow-x-scroll overflow-y-hidden flex flex-nowrap items-center justify-start gap-x-1">
@@ -21,194 +29,15 @@ const EmazingSliderHome = () => {
             <FiChevronLeft className="!text-xl" />
           </span>
         </Link>
+        {!data ? <span>loading...</span> :
+          data.map(product => {
+            return (
+              <AmazingSliderItem key={product.id} product={product} />
+            )
+          })
+        }
 
-        <Link to="#" className="block h-full min-w-[175px] bg-white">
-          <div className="w-full h-[150px] flex items-center justify-center">
-            <img className="h-full object-cover" src="/image/amazingSlider/imgProduct/1.jpg" />
-          </div>
-          <article className="h-full px-2">
-            <div className="w-full flex items-center justify-between">
-              <span className="bg-red-600 text-white rounded-full px-1">50٪</span>
-              <span className="font-sans text-md font-bold flex items-center justify-center">
-                1,450,000
-                <span className="text-[13px] text-gray-600">تومان</span>
-              </span>
-            </div>
-            <div className="w-full flex items-center justify-end pl-8 mt-1">
-              <span className="font-sans text-md line-through text-gray-400">2,500,000</span>
-            </div>
-          </article>
-        </Link>
-        <Link to="#" className="block h-full min-w-[175px] bg-white">
-          <div className="w-full h-[150px] flex items-center justify-center">
-            <img className="h-full object-cover" src="/image/amazingSlider/imgProduct/1.jpg" />
-          </div>
-          <article className="h-full px-2">
-            <div className="w-full flex items-center justify-between">
-              <span className="bg-red-600 text-white rounded-full px-1">50٪</span>
-              <span className="font-sans text-md font-bold flex items-center justify-center">
-                1,450,000
-                <span className="text-[13px] text-gray-600">تومان</span>
-              </span>
-            </div>
-            <div className="w-full flex items-center justify-end pl-8 mt-1">
-              <span className="font-sans text-md line-through text-gray-400">2,500,000</span>
-            </div>
-          </article>
-        </Link>
-        <Link to="#" className="block h-full min-w-[175px] bg-white">
-          <div className="w-full h-[150px] flex items-center justify-center">
-            <img className="h-full object-cover" src="/image/amazingSlider/imgProduct/1.jpg" />
-          </div>
-          <article className="h-full px-2">
-            <div className="w-full flex items-center justify-between">
-              <span className="bg-red-600 text-white rounded-full px-1">50٪</span>
-              <span className="font-sans text-md font-bold flex items-center justify-center">
-                1,450,000
-                <span className="text-[13px] text-gray-600">تومان</span>
-              </span>
-            </div>
-            <div className="w-full flex items-center justify-end pl-8 mt-1">
-              <span className="font-sans text-md line-through text-gray-400">2,500,000</span>
-            </div>
-          </article>
-        </Link>
-        <Link to="#" className="block h-full min-w-[175px] bg-white">
-          <div className="w-full h-[150px] flex items-center justify-center">
-            <img className="h-full object-cover" src="/image/amazingSlider/imgProduct/1.jpg" />
-          </div>
-          <article className="h-full px-2">
-            <div className="w-full flex items-center justify-between">
-              <span className="bg-red-600 text-white rounded-full px-1">50٪</span>
-              <span className="font-sans text-md font-bold flex items-center justify-center">
-                1,450,000
-                <span className="text-[13px] text-gray-600">تومان</span>
-              </span>
-            </div>
-            <div className="w-full flex items-center justify-end pl-8 mt-1">
-              <span className="font-sans text-md line-through text-gray-400">2,500,000</span>
-            </div>
-          </article>
-        </Link>
-        <Link to="#" className="block h-full min-w-[175px] bg-white">
-          <div className="w-full h-[150px] flex items-center justify-center">
-            <img className="h-full object-cover" src="/image/amazingSlider/imgProduct/1.jpg" />
-          </div>
-          <article className="h-full px-2">
-            <div className="w-full flex items-center justify-between">
-              <span className="bg-red-600 text-white rounded-full px-1">50٪</span>
-              <span className="font-sans text-md font-bold flex items-center justify-center">
-                1,450,000
-                <span className="text-[13px] text-gray-600">تومان</span>
-              </span>
-            </div>
-            <div className="w-full flex items-center justify-end pl-8 mt-1">
-              <span className="font-sans text-md line-through text-gray-400">2,500,000</span>
-            </div>
-          </article>
-        </Link>
-        <Link to="#" className="block h-full min-w-[175px] bg-white">
-          <div className="w-full h-[150px] flex items-center justify-center">
-            <img className="h-full object-cover" src="/image/amazingSlider/imgProduct/1.jpg" />
-          </div>
-          <article className="h-full px-2">
-            <div className="w-full flex items-center justify-between">
-              <span className="bg-red-600 text-white rounded-full px-1">50٪</span>
-              <span className="font-sans text-md font-bold flex items-center justify-center">
-                1,450,000
-                <span className="text-[13px] text-gray-600">تومان</span>
-              </span>
-            </div>
-            <div className="w-full flex items-center justify-end pl-8 mt-1">
-              <span className="font-sans text-md line-through text-gray-400">2,500,000</span>
-            </div>
-          </article>
-        </Link>
-        <Link to="#" className="block h-full min-w-[175px] bg-white">
-          <div className="w-full h-[150px] flex items-center justify-center">
-            <img className="h-full object-cover" src="/image/amazingSlider/imgProduct/1.jpg" />
-          </div>
-          <article className="h-full px-2">
-            <div className="w-full flex items-center justify-between">
-              <span className="bg-red-600 text-white rounded-full px-1">50٪</span>
-              <span className="font-sans text-md font-bold flex items-center justify-center">
-                1,450,000
-                <span className="text-[13px] text-gray-600">تومان</span>
-              </span>
-            </div>
-            <div className="w-full flex items-center justify-end pl-8 mt-1">
-              <span className="font-sans text-md line-through text-gray-400">2,500,000</span>
-            </div>
-          </article>
-        </Link>
-        <Link to="#" className="block h-full min-w-[175px] bg-white">
-          <div className="w-full h-[150px] flex items-center justify-center">
-            <img className="h-full object-cover" src="/image/amazingSlider/imgProduct/1.jpg" />
-          </div>
-          <article className="h-full px-2">
-            <div className="w-full flex items-center justify-between">
-              <span className="bg-red-600 text-white rounded-full px-1">50٪</span>
-              <span className="font-sans text-md font-bold flex items-center justify-center">
-                1,450,000
-                <span className="text-[13px] text-gray-600">تومان</span>
-              </span>
-            </div>
-            <div className="w-full flex items-center justify-end pl-8 mt-1">
-              <span className="font-sans text-md line-through text-gray-400">2,500,000</span>
-            </div>
-          </article>
-        </Link>
-        <Link to="#" className="block h-full min-w-[175px] bg-white">
-          <div className="w-full h-[150px] flex items-center justify-center">
-            <img className="h-full object-cover" src="/image/amazingSlider/imgProduct/1.jpg" />
-          </div>
-          <article className="h-full px-2">
-            <div className="w-full flex items-center justify-between">
-              <span className="bg-red-600 text-white rounded-full px-1">50٪</span>
-              <span className="font-sans text-md font-bold flex items-center justify-center">
-                1,450,000
-                <span className="text-[13px] text-gray-600">تومان</span>
-              </span>
-            </div>
-            <div className="w-full flex items-center justify-end pl-8 mt-1">
-              <span className="font-sans text-md line-through text-gray-400">2,500,000</span>
-            </div>
-          </article>
-        </Link>
-        <Link to="#" className="block h-full min-w-[175px] bg-white">
-          <div className="w-full h-[150px] flex items-center justify-center">
-            <img className="h-full object-cover" src="/image/amazingSlider/imgProduct/1.jpg" />
-          </div>
-          <article className="h-full px-2">
-            <div className="w-full flex items-center justify-between">
-              <span className="bg-red-600 text-white rounded-full px-1">50٪</span>
-              <span className="font-sans text-md font-bold flex items-center justify-center">
-                1,450,000
-                <span className="text-[13px] text-gray-600">تومان</span>
-              </span>
-            </div>
-            <div className="w-full flex items-center justify-end pl-8 mt-1">
-              <span className="font-sans text-md line-through text-gray-400">2,500,000</span>
-            </div>
-          </article>
-        </Link>
-        <Link to="#" className="block h-full min-w-[175px] bg-white">
-          <div className="w-full h-[150px] flex items-center justify-center">
-            <img className="h-full object-cover" src="/image/amazingSlider/imgProduct/1.jpg" />
-          </div>
-          <article className="h-full px-2">
-            <div className="w-full flex items-center justify-between">
-              <span className="bg-red-600 text-white rounded-full px-1">50٪</span>
-              <span className="font-sans text-md font-bold flex items-center justify-center">
-                1,450,000
-                <span className="text-[13px] text-gray-600">تومان</span>
-              </span>
-            </div>
-            <div className="w-full flex items-center justify-end pl-8 mt-1">
-              <span className="font-sans text-md line-through text-gray-400">2,500,000</span>
-            </div>
-          </article>
-        </Link>
+        {/*<AmazingSliderItem product={data[0]} onClick={() => cartDispatch({ type: "Add_To_Cart", payload: "mahdi" })} />*/}
 
         <Link to="#" className="ml-4 rounded-l-lg min-w-[175px] h-full flex flex-col bg-white items-center justify-center">
           <span className="flex items-center justify-center w-[52px] h-[52px] border-2 border-blue-600 rounded-full">

@@ -1,12 +1,19 @@
 import CartItem from "../components/CartItem/CartItem";
+import { useCart } from "../context/Cart/CartProvider";
 
 const CartPage = () => {
+
+  const cartState = useCart()
+
   return (
     <section className="w-full h-[calc(100vh-124px)] bg-[#f4f4f4]">
       <div className="container flex flex-col items-start justify-center lg:flex-row pb-24">
         <article className="w-full lg:w-[70%] p-4 flex flex-col gap-y-3">
-          <CartItem />
-          <CartItem />
+          {cartState.cart.length ? cartState.cart.map(item => {
+            return (
+              <CartItem key={item.id} product={item} />
+            )
+          }) : <span className="select-none text-orange-500 font-bold">محصولی در سبد خرید وجود ندارد</span>}
         </article>
         <article className="w-full lg:w-[30%] p-4 lg:h-full lg:sticky top-24">
           <div className="w-full p-3 pb-8 lg:pb-3 bg-white shadow rounded-lg select-none flex flex-col gap-y-4">
