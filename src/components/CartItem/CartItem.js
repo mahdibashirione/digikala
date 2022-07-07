@@ -1,6 +1,9 @@
 import { FiTrash2 } from "react-icons/fi";
+import { useCartActions } from "../../context/Cart/CartProvider";
 
 const CartItem = ({ product }) => {
+  const cartDispatch = useCartActions()
+
   return (
     <div className="bg-white w-full p-3 flex items-center justify-start rounded-lg shadow">
       {/*image product*/}
@@ -14,13 +17,13 @@ const CartItem = ({ product }) => {
       </div>
       {/*increment dicrement delete*/}
       <div className="h-20 flex flex-col justify-between items-end">
-        <div>
+        <div onClick={() => cartDispatch({ type: "Delete_From_Cart", id: product.id })}>
           <FiTrash2 className="text-orange-500 text-xl cursor-pointer" />
         </div>
         <div className="flex items-center gap-x-3 select-none">
-          <span className="bg-gray-300 text-lg cursor-pointer w-6 h-6 flex justify-center items-center text-slate-800 rounded-full"> + </span>
+          <span onClick={() => cartDispatch({ type: "Increment", id: product.id })} className="bg-gray-300 text-lg cursor-pointer w-6 h-6 flex justify-center items-center text-slate-800 rounded-full"> + </span>
           <p>{product.quantity}</p>
-          <span className="bg-orange-300 text-lg cursor-pointer w-6 h-6 flex justify-center items-center text-white rounded-full"> - </span>
+          <span onClick={() => cartDispatch({ type: "Decrement", id: product.id })} className="bg-orange-300 text-lg cursor-pointer w-6 h-6 flex justify-center items-center text-white rounded-full"> - </span>
         </div>
       </div>
     </div>

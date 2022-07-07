@@ -9,14 +9,40 @@ const initialState = {
 
 const reduser = (state, action) => {
   switch (action.type) {
-    case "Add_To_Cart":
+    case "Add_To_Cart": {
       const updatedCart = [...state.cart]
       const updatedindex = updatedCart.findIndex(p => p.id === action.payload.id)
       if (updatedindex < 0) {
         updatedCart.push({ ...action.payload, quantity: 1 })
+      } else {
+        const updatedItem = { ...updatedCart[updatedindex] }
+        updatedItem.quantity++;
+        updatedCart[updatedindex] = updatedItem
       }
-      console.log(state)
       return { ...state, cart: updatedCart };
+    }
+    case "Delete_From_Cart": {
+      const updatedCart = state.cart.filter(item => item.id !== action.id)
+      return { ...state, cart: useCart }
+    }
+    case "Increment": {
+      const updatedCart = [...state.cart]
+      const indexItem = updatedCart.findIndex(item => item.id === action.id)
+      const updatedItem = { ...updatedCart[indexItem] }
+      updatedItem.quantity++;
+      updatedCart[indexItem] = updatedItem;
+      return { ...state, cart: updatedCart }
+    }
+    case "Decrement": {
+      const updatedCart = [...state.cart]
+      const indexItem = updatedCart.findIndex(item => item.id === action.id)
+      const updatedItem = { ...updatedCart[indexItem] }
+      if (updatedItem.quantity > 1) {
+        updatedItem.quantity--;
+      }
+      updatedCart[indexItem] = updatedItem;
+      return { ...state, cart: updatedCart }
+    }
     default:
       return state;
   }

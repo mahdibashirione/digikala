@@ -1,21 +1,34 @@
 
 import { Link } from "react-router-dom";
 import { FiChevronLeft } from "react-icons/fi"
-import { useCartActions } from "../../context/Cart/CartProvider";
 import { useEffect, useState } from "react";
 import AmazingSliderItem from "../amazingSliderItem/AmazingSliderItem";
-import axios from "axios";
+import { http } from "../../services/httpService";
 
 
 const EmazingSliderHome = () => {
-
-  const cartDispatch = useCartActions()
   const [data, setData] = useState(null)
 
   useEffect(() => {
-    axios.get("/amazingProduct")
-      .then(res => setData(res.data))
+    http.get("/amazingProduct")
+      .then(res => setData(res.data.slice(0, 15)))
   }, [])
+
+
+  const LoadingCard = () => {
+    return (
+      <div class="bg-white shadow rounded-md p-2 max-w-[175px] w-full h-full">
+        <div class="animate-pulse flex flex-col justify-between items-center">
+          <div class="flex items-center justify-center bg-slate-300 h-32 w-32"></div>
+          <div class="w-full space-y-5 py-3 flex px-4 flex-col items-start">
+            <div class="h-2 w-1/3 bg-slate-300 rounded col-span-2"></div>
+            <div class="h-2 w-full bg-slate-300 rounded col-span-1"></div>
+            <div class="h-2 w-full bg-slate-300 rounded"></div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <section className="container bg-red-500 rounded-lg py-4 px-0.5">
@@ -29,7 +42,7 @@ const EmazingSliderHome = () => {
             <FiChevronLeft className="!text-xl" />
           </span>
         </Link>
-        {!data ? <span>loading...</span> :
+        {!data ? <LoadingCard /> :
           data.map(product => {
             return (
               <AmazingSliderItem key={product.id} product={product} />
