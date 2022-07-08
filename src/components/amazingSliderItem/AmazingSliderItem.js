@@ -4,12 +4,8 @@ import { useCartActions } from "../../context/Cart/CartProvider";
 const AmazingSliderItem = ({ product }) => {
   const navigate = useNavigate()
 
-  const pushToDetail = (path, state) => {
-    navigate(path, state)
-  }
-
   return (
-    <div onClick={() => pushToDetail(`/product/${product.nameEN}/${product.id}`, { state: product })} className="cursor-pointer block h-full min-w-[175px] bg-white">
+    <Link to={`/product/${product.nameEN}/${product.id}`} state={{ state: product }} className="cursor-pointer block h-full min-w-[175px] bg-white">
       <div className="w-full h-[150px] flex items-center justify-center">
         <img className="h-full object-cover" src={product.image} />
       </div>
@@ -30,7 +26,7 @@ const AmazingSliderItem = ({ product }) => {
           <span className="font-sans text-md line-through text-gray-400">{product.price}</span>
         </div>
       </article>
-    </div>
+    </Link>
   );
 }
 

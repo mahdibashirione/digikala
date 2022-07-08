@@ -7,8 +7,6 @@ const ProductDetail = (props) => {
   const { state } = useLocation()
   const cartDispatch = useCartActions()
 
-  console.log(state)
-
   const addToCartHandler = () => {
     cartDispatch({ type: "Add_To_Cart", payload: state })
     toast.success('به سبد خرید افزوده شد', {
@@ -21,6 +19,7 @@ const ProductDetail = (props) => {
       progress: undefined,
     });
   }
+
 
   return (
     <section className="w-full pb-20">
@@ -41,25 +40,25 @@ const ProductDetail = (props) => {
             {/* Image Product */}
             <div className="w-full lg:pl-6 lg:w-[39%] h-full flex flex-col items-center justify-center gap-y-3">
               <div className="lg:w-full max-w-[300px] border-2 rounded-lg border-slate-300 p-4 lg:p-8">
-                <img className="w-full object-cover" src={state.image} alt="#" />
+                <img className="w-full object-cover" src={state.state.image} alt="#" />
               </div>
               <div className="w-full flex items-center justify-center gap-x-4">
                 <div className="w-24 h-24 overflow-hidden border-2 border-slate-300 rounded-lg flex items-center justify-center bg-white">
-                  <img className="h-full object-cover" src={state.image} alt="#" />
+                  <img className="h-full object-cover" src={state.state.image} alt="#" />
                 </div>
                 <div className="w-24 h-24 overflow-hidden border-2 border-slate-300 rounded-lg flex items-center justify-center bg-white">
-                  <img className="h-full object-cover" src={state.image} alt="#" />
+                  <img className="h-full object-cover" src={state.state.image} alt="#" />
                 </div>
                 <div className="w-24 h-24 overflow-hidden border-2 border-slate-300 rounded-lg flex items-center justify-center bg-white">
-                  <img className="h-full object-cover" src={state.image} alt="#" />
+                  <img className="h-full object-cover" src={state.state.image} alt="#" />
                 </div>
               </div>
             </div>
             {/* Detail Product */}
             <div className="select-none w-full lg:w-[60%] flex flex-col justify-center items-center">
               <div className="lg:border-b lg:pb-6 lg:w-full flex flex-col items-center lg:items-start justify-center gap-y-2 mt-8">
-                <h2 className="text-slate-800 font-sans text-lg font-bold">{state.name}</h2>
-                <p className="text-slate-600 font-sans">{state.nameEN}</p>
+                <h2 className="text-slate-800 font-sans text-lg font-bold">{state.state.name}</h2>
+                <p className="text-slate-600 font-sans">{state.state.nameEN}</p>
               </div>
               <div className="lg:w-full flex items-center justify-between lg:justify-start lg:gap-x-4 w-2/3 my-6">
                 <span>انتخاب رنگ :</span>
@@ -139,11 +138,11 @@ const ProductDetail = (props) => {
               <span className="font-sans text-sm">انبار تهران</span>
             </div>
             <div className="w-full flex justify-end flex-wrap text-orange-600 select-none mt-16">
-              {state.afterPrice && <div className="text-white mb-2 w-full flex justify-between items-center">
-                <span className="bg-red-500 rounded-full py-1 px-2">{state.discount}</span>
-                <span className="text-gray-500 line-through">{state.price}</span>
+              {state.state.afterPrice && <div className="text-white mb-2 w-full flex justify-between items-center">
+                <span className="bg-red-500 rounded-full py-1 px-2">{state.state.discount}</span>
+                <span className="text-gray-500 line-through">{state.state.price}</span>
               </div>}
-              <p className="font-bold text-xl">{state.afterPrice || state.price}</p>
+              <p className="font-bold text-xl">{state.state.afterPrice || state.state.price}</p>
               <span className="mr-1">تومان</span>
             </div>
             <button onClick={addToCartHandler} className="w-full bg-orange-500 text-white py-3 rounded-lg">افزودن به سبد خرید</button>
@@ -151,13 +150,13 @@ const ProductDetail = (props) => {
         </article>
       </div>
       <article className="glass font-sans lg:hidden flex flex-wrap items-center justify-between w-full fixed bottom-0 right-0 p-4">
-        {state.afterPrice && <div className="select-none text-white gap-x-3 w-full flex justify-end items-center">
-          <span className="bg-red-500 rounded-full py-1 px-2 text-sm">{state.discount}</span>
-          <span className="text-gray-500 line-through">{state.price}</span>
+        {state.state.afterPrice && <div className="select-none text-white gap-x-3 w-full flex justify-end items-center">
+          <span className="bg-red-500 rounded-full py-1 px-2 text-sm">{state.state.discount}</span>
+          <span className="text-gray-500 line-through">{state.state.price}</span>
         </div>}
         <button onClick={addToCartHandler} className="bg-orange-500 py-3 text-white rounded-lg w-full max-w-[200px]">خرید</button>
         <div className="flex items-center justify-center">
-          <span className="text-orange-600 font-bold text-lg mr-4">{state.afterPrice || state.price}</span>
+          <span className="text-orange-600 font-bold text-lg mr-4">{state.state.afterPrice || state.price}</span>
           <span className="text-orange-600 mr-1">تومان</span>
         </div>
       </article>

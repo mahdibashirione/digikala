@@ -1,28 +1,63 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { http } from "../../services/httpService";
 
 const FeatureHome = () => {
 
-  const [dataFeature, setDataFeature] = useState([
-    { id: 1, icon: '/image/iconHome/1.png', alt: 'دیجیکالا جت', title: 'دیجیکالا جت', url: '#' },
-    { id: 2, icon: '/image/iconHome/2.png', alt: 'تخفیف های تابستونی', title: 'تخفیف های تابستونی', url: '#' },
-    { id: 3, icon: '/image/iconHome/3.png', alt: 'دیجی پی', title: 'دیجی پی', url: '#' },
-    { id: 4, icon: '/image/iconHome/4.png', alt: 'دیجی کالا مهر', title: 'دیجی کالا مهر', url: '#' },
-    { id: 5, icon: '/image/iconHome/5.png', alt: 'حراج مد و پوشاک', title: 'حراج مد و پوشاک', url: '#' },
-    { id: 6, icon: '/image/iconHome/6.png', alt: 'قرعه کشی بهار', title: 'قرعه کشی بهار', url: '#' },
-    { id: 7, icon: '/image/iconHome/7.png', alt: 'دیجی پلاس', title: 'دیجی پلاس', url: '#' },
-  ])
+  const [dataFeature, setDataFeature] = useState(null)
+
+  useEffect(() => {
+    http.get("/featureHome")
+      .then(res => setDataFeature(res.data))
+      .catch(e => console.log("error" + e))
+  }, [])
+
+  const LoadingFeature = () => {
+    return (
+      <>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
+          <div className="h-2 w-[80px] bg-slate-300 rounded"></div>
+        </div>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
+          <div className="h-2 w-[80px] bg-slate-300 rounded"></div>
+        </div>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
+          <div className="h-2 w-[80px] bg-slate-300 rounded"></div>
+        </div>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
+          <div className="h-2 w-[80px] bg-slate-300 rounded"></div>
+        </div>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
+          <div className="h-2 w-[80px] bg-slate-300 rounded"></div>
+        </div>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
+          <div className="h-2 w-[80px] bg-slate-300 rounded"></div>
+        </div>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
+          <div className="h-2 w-[80px] bg-slate-300 rounded"></div>
+        </div>
+      </>
+    )
+  }
 
   return (
     <section className="font-sans text-sm py-6 w-full container  grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8  gap-y-6">
-      {dataFeature.map(data => {
-        return (
-          <Link key={data.id} to={data.url} className="flex items-center justify-center flex-col">
-            <img className="w-full max-w-[52px]" src={data.icon} alt={data.alt} />
-            <span className="whitespace-nowrap">{data.title}</span>
-          </Link>
-        )
-      })}
+      {!dataFeature ? <LoadingFeature /> :
+        dataFeature.map(data => {
+          return (
+            <Link key={data.id} to={data.url} className="flex items-center justify-center flex-col">
+              <img className="w-full max-w-[52px]" src={data.icon} alt={data.alt} />
+              <span className="whitespace-nowrap">{data.title}</span>
+            </Link>
+          )
+        })}
       <button className="flex items-center justify-center flex-col">
         <div className="rounded-full flex items-center justify-center gap-x-1 w-[52px] h-[52px] bg-gray-200">
           <span className="blick w-2 h-2 bg-gray-400 rounded-full"></span>
