@@ -23,7 +23,7 @@ const reduser = (state, action) => {
     }
     case "Delete_From_Cart": {
       const updatedCart = state.cart.filter(item => item.id !== action.id)
-      return { ...state, cart: useCart }
+      return { ...state, cart: updatedCart }
     }
     case "Increment": {
       const updatedCart = [...state.cart]

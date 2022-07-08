@@ -9,12 +9,17 @@ import { FiShoppingCart } from "react-icons/fi";
 import { FiInfo } from "react-icons/fi";
 import { FiX } from "react-icons/fi";
 import { useRef } from 'react';
+import { useCart } from "../../context/Cart/CartProvider"
+
 
 const Header = () => {
 
+  const cartState = useCart()
   const navigatNavbar = useRef()
-  const nav = useRef()
   const cluseNavbar = useRef()
+  const nav = useRef()
+
+
 
   const trakerHoverHandler = (e) => {
     let locationTarget = e.target.getBoundingClientRect();
@@ -61,8 +66,9 @@ const Header = () => {
               <BiLogIn className="text-2xl" />
               <span className="text-sm font-sans text-slate-800">ورود</span>
             </Link>
-            <Link to={"cart"} className="md:mr-10">
+            <Link to={"cart"} className="md:mr-10 relative">
               <FiShoppingCart className="text-2xl" />
+              {cartState.cart.length >= 1 && <span className="absolute bottom-2 left-3 bg-red-500 rounded-full w-6 h-6 text-white text-sm flex justify-center items-center">{cartState.cart.length}</span>}
             </Link>
           </div>
           <span className="w-full h-0.5 bg-gray-200 block mt-2 md:hidden"></span>

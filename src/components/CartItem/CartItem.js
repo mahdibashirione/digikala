@@ -7,13 +7,17 @@ const CartItem = ({ product }) => {
   return (
     <div className="bg-white w-full p-3 flex items-center justify-start rounded-lg shadow">
       {/*image product*/}
-      <div className="w-20 h-20 flex items-center justify-center">
+      <div className="min-w-[80px] h-20 flex items-center justify-center">
         <img className="h-full object-cover" src={product.image} alt="image_Product" />
       </div>
       {/*Ditail*/}
-      <div className="w-full flex flex-col justify-between gap-y-4 select-none">
+      <div className="w-full flex flex-col justify-start gap-y-4 select-none">
         <span className="font-bold text-sm">{product.name}</span>
-        <p className="text-orange-500">{product.price}</p>
+        {product.afterPrice && <div className="select-none text-white gap-x-2 flex justify-start items-center">
+          <span className="text-gray-500 line-through">{product.price}</span>
+          <span className="bg-red-500 rounded-full py-1 px-2 text-sm">{product.discount}</span>
+        </div>}
+        <p className="text-orange-500 font-bold">{product.afterPrice || product.price}</p>
       </div>
       {/*increment dicrement delete*/}
       <div className="h-20 flex flex-col justify-between items-end">

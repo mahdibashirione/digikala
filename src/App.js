@@ -9,7 +9,7 @@ import CartPage from './page/CartPage';
 function App() {
   return (
     <Routes>
-      <Route path='/product' element={<ProductDetail />} />
+      <Route path='/product/:name/:id' element={<ProductDetail />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path='/' element={<Home />} />

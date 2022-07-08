@@ -25,7 +25,7 @@ const CategoriesHome = () => {
             <Link key={data.id} to={data.url} className="block w-full max-w-[254px]">
               <article className="flex flex-col items-center justify-center w-full p-2">
                 <div className="md:w-[170px] md:h-[170px] w-[90px] h-[90px]">
-                  <img className="h-full object-cover" src={data.cover} alt={data.alt}></img>
+                  <img loading="lazy" className="h-full object-cover" src={data.cover} alt={data.alt}></img>
                 </div>
                 <span className="font-sans text-sm text-slate-800 text-center">{data.title}</span>
               </article>

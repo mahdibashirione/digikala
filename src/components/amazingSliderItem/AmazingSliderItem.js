@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCartActions } from "../../context/Cart/CartProvider";
 
 const AmazingSliderItem = ({ product }) => {
-  const cartDispatch = useCartActions()
+  const navigate = useNavigate()
+
+  const pushToDetail = (path, state) => {
+    navigate(path, state)
+  }
 
   return (
-    <Link onClick={() => cartDispatch({ type: "Add_To_Cart", payload: product })} to="#" className="block h-full min-w-[175px] bg-white">
+    <div onClick={() => pushToDetail(`/product/${product.nameEN}/${product.id}`, { state: product })} className="cursor-pointer block h-full min-w-[175px] bg-white">
       <div className="w-full h-[150px] flex items-center justify-center">
         <img className="h-full object-cover" src={product.image} />
       </div>
@@ -26,7 +30,7 @@ const AmazingSliderItem = ({ product }) => {
           <span className="font-sans text-md line-through text-gray-400">{product.price}</span>
         </div>
       </article>
-    </Link>
+    </div>
   );
 }
 

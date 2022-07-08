@@ -14,7 +14,7 @@ const Line1BanerHome = () => {
         return (
           <Link key={data.id} to={data.url} className="block w-full">
             <aside className="w-full overflow-hidden rounded-lg">
-              <img className="w-full object-cover" src={data.image} alt={data.alt} />
+              <img loading="lazy" className="w-full object-cover" src={data.image} alt={data.alt} />
             </aside>
           </Link>
         )
