@@ -2,8 +2,65 @@ import { useLocation } from "react-router-dom";
 import { useCartActions } from "../context/Cart/CartProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useState } from 'react'
+import { Tab } from '@headlessui/react'
 
 const ProductDetail = (props) => {
+  const [categories, setCategories] = useState({
+    توضیحات: [
+      {
+        id: 1,
+        title: 'Does drinking coffee make you smarter?',
+        date: '5h ago',
+        commentCount: 5,
+        shareCount: 2,
+      },
+      {
+        id: 2,
+        title: "So you've bought coffee... now what?",
+        date: '2h ago',
+        commentCount: 3,
+        shareCount: 2,
+      },
+    ],
+    مشخصات: [
+      {
+        id: 1,
+        title: 'Is tech making coffee better or worse?',
+        date: 'Jan 7',
+        commentCount: 29,
+        shareCount: 16,
+      },
+      {
+        id: 2,
+        title: 'The most innovative things happening in coffee',
+        date: 'Mar 19',
+        commentCount: 24,
+        shareCount: 12,
+      },
+    ],
+    بررسی: [
+      {
+        id: 1,
+        title: 'Ask Me Anything: 10 answers to your questions about coffee',
+        date: '2d ago',
+        commentCount: 9,
+        shareCount: 5,
+      },
+      {
+        id: 2,
+        title: "The worst advice we've ever heard about coffee",
+        date: '4d ago',
+        commentCount: 1,
+        shareCount: 2,
+      },
+    ],
+  })
+
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
+
   const { state } = useLocation()
   const cartDispatch = useCartActions()
 
@@ -36,7 +93,7 @@ const ProductDetail = (props) => {
       />
       <div className="container flex w-full">
         <article className="lg:w-[75%] w-full p-4 pb-[100px]">
-          <section className="w-full h-full flex flex-col items-center lg:items-start justify-center lg:flex-row">
+          <article className="w-full flex flex-col items-center lg:items-start justify-center lg:flex-row">
             {/* Image Product */}
             <div className="w-full lg:pl-6 lg:w-[39%] h-full flex flex-col items-center justify-center gap-y-3">
               <div className="lg:w-full max-w-[300px] border-2 rounded-lg border-slate-300 p-4 lg:p-8">
@@ -102,22 +159,72 @@ const ProductDetail = (props) => {
                 </div>
               </div>
             </div>
-          </section>
-          {/*<section className="w-full flex justify-start flex-wrap gap-5 mt-16">
-            <h3 className="w-full font-bold text-xl text-slate-800">نقد و بررسی این محصول</h3>
-            <p className="text-slate-800">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-            <h3 className="w-full font-bold text-xl text-slate-800">طراحی</h3>
-            <p className="text-slate-800">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-            <div className="w-full flex justify-center">
-              <div className="max-w-[450px] w-full">
-                <img src="/image/Single Product/Middle.png" alt="iphone13" />
-              </div>
+          </article>
+          {/*Discrpshen*/}
+          <article className="w-full py-8">
+            <div className="w-full lg:px-4 sm:px-0">
+              <Tab.Group>
+                <Tab.List className="flex space-x-1 rounded-xl bg-gray-900/30 p-1">
+                  {Object.keys(categories).map((category) => (
+                    <Tab
+                      key={category}
+                      className={({ selected }) =>
+                        classNames(
+                          'w-full font-bold rounded-lg py-2.5 text-sm leading-5 text-blue-700',
+                          'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none',
+                          selected
+                            ? 'bg-white shadow'
+                            : 'text-blue-100 hover:bg-white/[0.16] hover:text-white'
+                        )
+                      }
+                    >
+                      {category}
+                    </Tab>
+                  ))}
+                </Tab.List>
+                <Tab.Panels className="mt-2">
+                  {Object.values(categories).map((posts, idx) => (
+                    <Tab.Panel
+                      key={idx}
+                      className={classNames(
+                        'rounded-xl bg-white p-3',
+                        'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
+                      )}
+                    >
+                      <ul>
+                        {posts.map((post) => (
+                          <li
+                            key={post.id}
+                            className="relative rounded-md p-3 hover:bg-gray-100"
+                          >
+                            <h3 className="text-sm font-medium leading-5">
+                              {post.title}
+                            </h3>
+
+                            <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
+                              <li>{post.date}</li>
+                              <li>&middot;</li>
+                              <li>{post.commentCount} comments</li>
+                              <li>&middot;</li>
+                              <li>{post.shareCount} shares</li>
+                            </ul>
+
+                            <a
+                              href="#"
+                              className={classNames(
+                                'absolute inset-0 rounded-md',
+                                'ring-blue-400 focus:z-10 focus:outline-none focus:ring-2'
+                              )}
+                            />
+                          </li>
+                        ))}
+                      </ul>
+                    </Tab.Panel>
+                  ))}
+                </Tab.Panels>
+              </Tab.Group>
             </div>
-            <h3 className="w-full font-bold text-xl text-slate-800">دوربین</h3>
-            <p className="text-slate-800">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-            <h3 className="w-full font-bold text-xl text-slate-800">باتری</h3>
-            <p className="text-slate-800">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-          </section>*/}
+          </article>
         </article>
         {/* Box Price */}
         <article className="font-sans w-[25%] h-full hidden lg:flex justify-center items-start sticky top-24 pl-2 pr-4">
