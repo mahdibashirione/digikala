@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem/CartItem";
 import { useCart } from "../context/Cart/CartProvider";
 
@@ -6,14 +7,23 @@ const CartPage = () => {
   const cartState = useCart()
 
   return (
-    <section className="w-full h-[calc(100vh-124px)] bg-[#f4f4f4]">
+    <section className="w-full">
       <div className="container flex flex-col items-start justify-center lg:flex-row pb-24">
         <article className="w-full lg:w-[70%] p-4 flex flex-col gap-y-3">
           {cartState.cart.length ? cartState.cart.map(item => {
             return (
-              <CartItem key={item.id} product={item} />
+              <CartItem key={item.state.id} product={item} />
             )
-          }) : <span className="select-none text-orange-500 font-bold">محصولی در سبد خرید وجود ندارد</span>}
+          }) : <div className="select-none w-full bg-white rounded-lg shadow flex flex-col items-center justify-between gap-y-6 px-4 py-8">
+            <div className="w-40"><img className="w-fll object-cover" src="/image/Cart/empty-cart.svg" alt="سبد خرید" /></div>
+            <span className="font-bold text-lg">سبد خرید شما خالی است!</span>
+            <span className="text-sm">میتوانید برای مشاهده محصولات دیگر به صفحات زیر بروید</span>
+            <div className="flex items-center justify-center gap-x-6">
+              <Link to={"#"} className="font-bold text-lg text-blue-500">تخفیف ها و پیشنهاد ها</Link>
+              <span className="h-8 w-0.5 bg-gray-500"></span>
+              <Link to={"#"} className="font-bold text-lg text-blue-500">محصولات پرفروش روز</Link>
+            </div>
+          </div>}
         </article>
         <article className="w-full lg:w-[30%] p-4 lg:h-full lg:sticky top-24">
           <div className="w-full p-3 pb-8 lg:pb-3 bg-white shadow rounded-lg select-none flex flex-col gap-y-4">
