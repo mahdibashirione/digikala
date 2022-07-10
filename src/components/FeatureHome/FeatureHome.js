@@ -48,13 +48,13 @@ const FeatureHome = () => {
   }
 
   return (
-    <section className="font-sans text-sm py-6 w-full container  grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8  gap-y-6">
+    <section className="font-sans text-sm py-6 w-full container  grid grid-cols-4 lg:grid-cols-8  gap-y-6">
       {!dataFeature ? <LoadingFeature /> :
         dataFeature.map(data => {
           return (
             <Link key={data.id} to={data.url} className="flex items-center justify-center flex-col">
-              <img className="w-full max-w-[52px]" src={data.icon} alt={data.alt} />
-              <span className="whitespace-nowrap">{data.title}</span>
+              <img className="w-full max-w-[50px]" src={data.icon} alt={data.alt} />
+              <span className="whitespace-nowrap text-[12px]">{data.title}</span>
             </Link>
           )
         })}

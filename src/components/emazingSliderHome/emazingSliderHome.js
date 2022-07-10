@@ -31,7 +31,7 @@ const EmazingSliderHome = () => {
   }
 
   return (
-    <section className="container bg-red-500 rounded-lg py-4 px-0.5">
+    <section className="lg:container bg-red-500 lg:rounded-2xl py-4 px-0.5">
       <div className="scrollbar-hidden w-full h-[245px] overflow-x-scroll overflow-y-hidden flex flex-nowrap items-center justify-start gap-x-1">
 
         <Link to="#" className="h-full min-w-[175px] flex flex-col justify-center items-center">
@@ -58,6 +58,7 @@ const EmazingSliderHome = () => {
           </span>
           <span className="font-sans text-lg mt-2">مشاهده  همه</span>
         </Link>
+
       </div>
 
     </section >
