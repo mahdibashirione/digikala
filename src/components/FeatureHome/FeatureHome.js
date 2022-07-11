@@ -16,31 +16,31 @@ const FeatureHome = () => {
     return (
       <>
         <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
-          <div className="rounded-full flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
+          <div className="rounded-lg flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
           <div className="h-2 w-[80px] bg-slate-300 rounded"></div>
         </div>
         <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
-          <div className="rounded-full flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
+          <div className="rounded-lg flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
           <div className="h-2 w-[80px] bg-slate-300 rounded"></div>
         </div>
         <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
-          <div className="rounded-full flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
+          <div className="rounded-lg flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
           <div className="h-2 w-[80px] bg-slate-300 rounded"></div>
         </div>
         <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
-          <div className="rounded-full flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
+          <div className="rounded-lg flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
           <div className="h-2 w-[80px] bg-slate-300 rounded"></div>
         </div>
         <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
-          <div className="rounded-full flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
+          <div className="rounded-lg flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
           <div className="h-2 w-[80px] bg-slate-300 rounded"></div>
         </div>
         <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
-          <div className="rounded-full flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
+          <div className="rounded-lg flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
           <div className="h-2 w-[80px] bg-slate-300 rounded"></div>
         </div>
         <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
-          <div className="rounded-full flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
+          <div className="rounded-lg flex items-center justify-center bg-slate-300 h-[52px] w-[52px]"></div>
           <div className="h-2 w-[80px] bg-slate-300 rounded"></div>
         </div>
       </>
