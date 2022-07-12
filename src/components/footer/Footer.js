@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 const Footer = () => {
 
   const [data, setData] = useState([
-    { img: "/image/express-delivery.svg", title: "امکان تحویل اکسپرس", url: "#", alt: "#" },
-    { img: "/image/cash-on-delivery.svg", title: "امکان پرداخت در محل", url: "#", alt: "#" },
-    { img: "/image/support.svg", title: "7روزه هفته ,24 ساعته", url: "#", alt: "#" },
-    { img: "/image/days-return.svg", title: "هفت روز ضمانت اصالت کالا", url: "#", alt: "#" },
-    { img: "/image/original-products.svg", title: "ضمانت اصالت کالا", url: "#", alt: "#" },
+    { id: 1, img: "/image/express-delivery.svg", title: "امکان تحویل اکسپرس", url: "#", alt: "#" },
+    { id: 2, img: "/image/cash-on-delivery.svg", title: "امکان پرداخت در محل", url: "#", alt: "#" },
+    { id: 3, img: "/image/support.svg", title: "7روزه هفته ,24 ساعته", url: "#", alt: "#" },
+    { id: 4, img: "/image/days-return.svg", title: "هفت روز ضمانت اصالت کالا", url: "#", alt: "#" },
+    { id: 5, img: "/image/original-products.svg", title: "ضمانت اصالت کالا", url: "#", alt: "#" },
   ])
 
 
@@ -39,7 +39,7 @@ const Footer = () => {
         <div className="mt-6 hidden lg:flex w-full text-sm text-gray-600 items-center justify-between">
           {data.map(data => {
             return (
-              <a href={data.url} className="flex flex-col items-center justify-center w-full py-3">
+              <a key={data.id} href={data.url} className="flex flex-col items-center justify-center w-full py-3">
                 <div className="w-[65px]">
                   <img className="w-full object-cover" src={data.img} alt={data.alt} />
                 </div>

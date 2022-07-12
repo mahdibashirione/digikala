@@ -40,9 +40,9 @@ const SliderFullHome = () => {
           >
             {dataSlider && dataSlider.map(data => {
               return (
-                <SwiperSlide className="w-full">
-                  <a key={data.id} href={data.url} className="min-w-full h-full overflow-hidden block mx-auto">
-                    <img className="object-cover h-full" src={data.src} alt={dataSlider[0].id} />
+                <SwiperSlide key={data.id} className="w-full">
+                  <a href={data.url} className="min-w-full h-full overflow-hidden block mx-auto">
+                    <img className="object-cover h-full" src={data.img} alt={dataSlider[0].id} />
                   </a>
                 </SwiperSlide>
               )

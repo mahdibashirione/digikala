@@ -1,28 +1,79 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { http } from "../../services/httpService";
 
 const CategoriesHome = () => {
 
-  const [dataCategories, setDataCategories] = useState([
-    { id: 1, cover: "/image/categoriesHome/1.png", alt: "کالای دیجیتال", title: "کالای دیجیتال", url: "#" },
-    { id: 2, cover: "/image/categoriesHome/2.png", alt: "خودرو,ابزار و تجهیزات صنعتی", title: "خودرو,ابزار و تجهیزات صنعتی", url: "#" },
-    { id: 3, cover: "/image/categoriesHome/3.png", alt: "مد و پوشاک", title: "مد و پوشاک", url: "#" },
-    { id: 4, cover: "/image/categoriesHome/4.png", alt: "اسباب بازی,کودک و نوزاد", title: "اسباب بازی,کودک و نوزاد", url: "#" },
-    { id: 5, cover: "/image/categoriesHome/5.png", alt: "کالاهای سوپرمارکتی", title: "کالاهای سوپرمارکتی", url: "#" },
-    { id: 6, cover: "/image/categoriesHome/6.png", alt: "زیبایی و سلامت", title: "زیبایی و سلامت", url: "#" },
-    { id: 7, cover: "/image/categoriesHome/7.png", alt: "خانه و اشپزخانه", title: "خانه و اشپزخانه", url: "#" },
-    { id: 8, cover: "/image/categoriesHome/8.png", alt: "کتاب,لوازم تحریر و هنر", title: "کتاب,لوازم تحریر و هنر", url: "#" },
-    { id: 9, cover: "/image/categoriesHome/9.png", alt: "ورزش و سفر", title: "ورزش و سفر", url: "#" },
-    { id: 10, cover: "/image/categoriesHome/10.png", alt: "محصولات بومی و محلی", title: "محصولات بومی و محلی", url: "#" },
-  ])
+  const [dataCategories, setDataCategories] = useState(null)
+
+  useEffect(() => {
+    Get_Categories()
+  }, [])
+
+  async function Get_Categories() {
+    try {
+      const { data } = await http.get("/categoriesHome")
+      if (data) setDataCategories(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const LoadingCategories = () => {
+    return (
+      <>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 w-16 h-16 md:w-28 md:h-28"></div>
+          <div className="h-2 w-12 md:w-16 bg-slate-300 rounded"></div>
+        </div>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 w-16 h-16 md:w-28 md:h-28"></div>
+          <div className="h-2 w-12 md:w-16 bg-slate-300 rounded"></div>
+        </div>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 w-16 h-16 md:w-28 md:h-28"></div>
+          <div className="h-2 w-12 md:w-16 bg-slate-300 rounded"></div>
+        </div>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 w-16 h-16 md:w-28 md:h-28"></div>
+          <div className="h-2 w-12 md:w-16 bg-slate-300 rounded"></div>
+        </div>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 w-16 h-16 md:w-28 md:h-28"></div>
+          <div className="h-2 w-12 md:w-16 bg-slate-300 rounded"></div>
+        </div>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 w-16 h-16 md:w-28 md:h-28"></div>
+          <div className="h-2 w-12 md:w-16 bg-slate-300 rounded"></div>
+        </div>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 w-16 h-16 md:w-28 md:h-28"></div>
+          <div className="h-2 w-12 md:w-16 bg-slate-300 rounded"></div>
+        </div>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 w-16 h-16 md:w-28 md:h-28"></div>
+          <div className="h-2 w-12 md:w-16 bg-slate-300 rounded"></div>
+        </div>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 w-16 h-16 md:w-28 md:h-28"></div>
+          <div className="h-2 w-12 md:w-16 bg-slate-300 rounded"></div>
+        </div>
+        <div className="animate-pulse flex gap-y-4 flex-col justify-between items-center">
+          <div className="rounded-full flex items-center justify-center bg-slate-300 w-16 h-16 md:w-28 md:h-28"></div>
+          <div className="h-2 w-12 md:w-16 bg-slate-300 rounded"></div>
+        </div>
+      </>
+    )
+  }
 
   return (
     <section className="container flex flex-col justify-center items-center">
       <h2 className="font-sans lg:text-3xl select-none my-4 text-lg font-bold">دسته بندی های دیجیکالا</h2>
-      <div className="w-full py-4 grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-y-4">
-        {dataCategories.map(data => {
+      <div className="w-full p-4 grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-y-4">
+        {dataCategories ? dataCategories.map(data => {
           return (
-            <Link key={data.id} to={data.url} className="block w-full max-w-[254px]">
+            <Link key={data.id} to={data.url
+            } className="block w-full max-w-[254px]" >
               <article className="flex flex-col items-center justify-center w-full p-2">
                 <div className="md:w-[170px] md:h-[170px] w-[90px] h-[90px]">
                   <img loading="lazy" className="h-full object-cover" src={data.cover} alt={data.alt}></img>
@@ -31,7 +82,7 @@ const CategoriesHome = () => {
               </article>
             </Link>
           )
-        })}
+        }) : <LoadingCategories />}
       </div>
     </section >
   );

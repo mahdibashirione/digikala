@@ -8,7 +8,7 @@ const CartItem = ({ product }) => {
     <div className="bg-white w-full p-3 flex items-center justify-start rounded-lg shadow">
       {/*image product*/}
       <div className="min-w-[80px] h-20 flex items-center justify-center">
-        <img className="h-full object-cover" src={product.state.image} alt="image_Product" />
+        <img className="h-full object-cover" src={product.state.img} alt="image_Product" />
       </div>
       {/*Ditail*/}
       <div className="w-full flex flex-col justify-start gap-y-4 select-none">

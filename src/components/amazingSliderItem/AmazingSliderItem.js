@@ -7,7 +7,7 @@ const AmazingSliderItem = ({ product }) => {
   return (
     <Link to={`/product/${product.nameEN}/${product.id}`} state={{ state: product }} className="cursor-pointer block h-full min-w-[175px] bg-white">
       <div className="w-full h-[150px] flex items-center justify-center">
-        <img className="h-full object-cover" src={product.image} />
+        <img className="h-full object-cover" src={product.img} />
       </div>
       <div className="w-full px-2 mb-2">
         <span className="text-sm">

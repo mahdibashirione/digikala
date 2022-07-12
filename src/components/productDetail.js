@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useCartActions } from "../context/Cart/CartProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Tab } from '@headlessui/react'
 
 const ProductDetail = (props) => {
@@ -77,7 +77,6 @@ const ProductDetail = (props) => {
     });
   }
 
-
   return (
     <section className="w-full pb-20">
       <ToastContainer
@@ -97,17 +96,17 @@ const ProductDetail = (props) => {
             {/* Image Product */}
             <div className="w-full lg:pl-6 lg:w-[39%] h-full flex flex-col items-center justify-center gap-y-3">
               <div className="lg:w-full max-w-[300px] border-2 rounded-lg border-slate-300 p-4 lg:p-8">
-                <img className="w-full object-cover" src={state.state.image} alt="#" />
+                <img className="w-full object-cover" src={state.state.img} alt="#" />
               </div>
               <div className="w-full flex items-center justify-center gap-x-4">
                 <div className="w-24 h-24 overflow-hidden border-2 border-slate-300 rounded-lg flex items-center justify-center bg-white">
-                  <img className="h-full object-cover" src={state.state.image} alt="#" />
+                  <img className="h-full object-cover" src={state.state.img} alt="#" />
                 </div>
                 <div className="w-24 h-24 overflow-hidden border-2 border-slate-300 rounded-lg flex items-center justify-center bg-white">
-                  <img className="h-full object-cover" src={state.state.image} alt="#" />
+                  <img className="h-full object-cover" src={state.state.img} alt="#" />
                 </div>
                 <div className="w-24 h-24 overflow-hidden border-2 border-slate-300 rounded-lg flex items-center justify-center bg-white">
-                  <img className="h-full object-cover" src={state.state.image} alt="#" />
+                  <img className="h-full object-cover" src={state.state.img} alt="#" />
                 </div>
               </div>
             </div>
