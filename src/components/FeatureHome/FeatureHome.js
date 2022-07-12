@@ -48,7 +48,7 @@ const FeatureHome = () => {
   }
 
   return (
-    <section className="font-sans text-sm py-6 w-full container  grid grid-cols-4 lg:grid-cols-8  gap-y-6">
+    <section className="font-sans text-sm py-10 w-full container  grid grid-cols-4 lg:grid-cols-8  gap-y-6">
       {!dataFeature ? <LoadingFeature /> :
         dataFeature.map(data => {
           return (

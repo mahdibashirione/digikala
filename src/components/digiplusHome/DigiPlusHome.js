@@ -64,7 +64,7 @@ const DigiPlusHome = () => {
               {dataDigiPlus ? dataDigiPlus.slice(0, (window.innerWidth >= 1024 && numberProductsViewlg) || (window.innerWidth < 768 ? numberProductsView : numberProductsViewmd))
                 .map(data => {
                   return (
-                    <Link to={`/product/${data.nameEN}/${data.id}`} state={{ state: data }} className="flex flex-col items-center justify-center w-full">
+                    <Link key={data.id} to={`/product/${data.nameEN}/${data.id}`} state={{ state: data }} className="flex flex-col items-center justify-center w-full">
                       <div className="w-full max-w-[120px]">
                         <img className="w-full object-cover" src={data.img} alt={data.name} />
                       </div>

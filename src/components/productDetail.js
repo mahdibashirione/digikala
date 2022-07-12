@@ -244,11 +244,11 @@ const ProductDetail = (props) => {
               <span className="font-sans text-sm">انبار تهران</span>
             </div>
             <div className="w-full flex justify-end flex-wrap text-orange-600 select-none mt-16">
-              {state.state.afterPrice && <div className="text-white mb-2 w-full flex justify-between items-center">
+              {state.state.beforePrice && <div className="text-white mb-2 w-full flex justify-between items-center">
                 <span className="bg-red-500 rounded-full py-1 px-2">{state.state.discount}</span>
                 <span className="text-gray-500 line-through">{state.state.price}</span>
               </div>}
-              <p className="font-bold text-xl">{state.state.afterPrice || state.state.price}</p>
+              <p className="font-bold text-xl">{state.state.beforePrice || state.state.price}</p>
               <span className="mr-1">تومان</span>
             </div>
             <button onClick={addToCartHandler} className="w-full bg-orange-500 text-white py-3 rounded-lg">افزودن به سبد خرید</button>
@@ -256,13 +256,13 @@ const ProductDetail = (props) => {
         </article>
       </div>
       <article className="glass font-sans lg:hidden flex flex-wrap items-center justify-between w-full fixed bottom-0 right-0 p-4">
-        {state.state.afterPrice && <div className="select-none text-white gap-x-3 w-full flex justify-end items-center">
+        {state.state.beforePrice && <div className="select-none text-white gap-x-3 w-full flex justify-end items-center">
           <span className="bg-red-500 rounded-full py-1 px-2 text-sm">{state.state.discount}</span>
           <span className="text-gray-500 line-through">{state.state.price}</span>
         </div>}
         <button onClick={addToCartHandler} className="bg-orange-500 py-3 text-white rounded-lg w-full max-w-[200px]">خرید</button>
         <div className="flex items-center justify-center">
-          <span className="text-orange-600 font-bold text-lg mr-4">{state.state.afterPrice || state.price}</span>
+          <span className="text-orange-600 font-bold text-lg mr-4">{state.state.beforePrice || state.price}</span>
           <span className="text-orange-600 mr-1">تومان</span>
         </div>
       </article>

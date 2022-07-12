@@ -13,11 +13,11 @@ const CartItem = ({ product }) => {
       {/*Ditail*/}
       <div className="w-full flex flex-col justify-start gap-y-4 select-none">
         <span className="font-bold text-sm">{product.state.name}</span>
-        {product.state.afterPrice && <div className="select-none text-white gap-x-2 flex justify-start items-center">
+        {product.state.beforePrice && <div className="select-none text-white gap-x-2 flex justify-start items-center">
           <span className="text-gray-500 line-through">{product.state.price}</span>
           <span className="bg-red-500 rounded-full py-1 px-2 text-sm">{product.state.discount}</span>
         </div>}
-        <p className="text-orange-500 font-bold">{product.state.afterPrice || product.state.price}</p>
+        <p className="text-orange-500 font-bold">{product.state.beforePrice || product.state.price}</p>
       </div>
       {/*increment dicrement delete*/}
       <div className="h-20 flex flex-col justify-between items-end">

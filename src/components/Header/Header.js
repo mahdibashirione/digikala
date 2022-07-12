@@ -10,7 +10,7 @@ import { FiInfo } from "react-icons/fi";
 import { FiX } from "react-icons/fi";
 import { useRef } from 'react';
 import { useCart } from "../../context/Cart/CartProvider"
-
+import { Menu } from "@headlessui/react";
 
 const Header = () => {
 
@@ -75,19 +75,46 @@ const Header = () => {
         </div>
       </header>
       <nav ref={nav} className="md:relative md:top-auto md:right-0 md:w-full w-3/4 bg-white right-full top-0 fixed h-screen md:h-12 md:z-30 z-50 flex justify-between items-center container">
-        <ul className="w-full max-h-screen md:h-auto flex flex-col-reverse md:flex-row items-start md:items-center px-4 md:px-0 justify-end md:justify-start text-sm font-sans text-gray-700">
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="pt-5 md:pt-0 w-full h-full overflow-y-auto md:w-auto md:hover:text-red-500 border-t md:border-0 group cursor-pointer whitespace-nowrap md:h-14 font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex flex-col md:flex-row items-start md:items-center">
+        <ul className="flex w-full h-screen md:h-auto flex-col-reverse md:flex-row items-start md:items-center px-4 md:px-0 justify-end md:justify-start text-sm font-sans text-gray-700">
+          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="md:menu hidden md:flex pt-5 md:pt-0 w-full h-full overflow-y-auto md:w-auto md:hover:text-red-500 border-t md:border-0 cursor-pointer whitespace-nowrap md:h-14 font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex-col md:flex-row items-start md:items-center">
             <BiMenu className="text-xl ml-1 select-none hidden md:block" />
-            دسته بندی کالا ها
-            <ul className="text-slate-800 md:shadow md:rounded-br-lg md:border-l border-slate-800 mt-2 md:mt-0 w-full flex flex-col font-normal md:absolute md:right-0 md:top-full md:w-auto z-30 md:hidden md:group-hover:flex md:bg-white">
-              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">کالای دیجیتال</li>
-              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">ابزار و تجهیزات صنعتی</li>
-              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">مد و پوشاک</li>
-              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">کودک و نوزاد</li>
-              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">کالاهای سوپرمارکتی</li>
-              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">زیبایی و سلامت</li>
-              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">خانه و اشپزخانه</li>
-              <li className="w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">لوازم و التحریر</li>
+            <Link to="/categories">
+              دسته بندی کالا ها
+            </Link>
+            <span className="z-10 menu-hover hidden absolute top-full -right-[1000px] w-[5000px] h-screen bg-zinc-900/70"></span>
+            <ul className="menu-hover hidden text-slate-800 md:shadow md:rounded-br-lg md:border-l border-slate-800 mt-2 md:mt-0 w-full flex-col font-normal md:absolute md:right-0 md:top-full md:w-auto z-30 md:bg-white">
+              <li className="z-10 md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
+                کالای دیجیتال
+                <ul className="hidden md:flex xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">1</ul>
+              </li>
+              <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
+                ابزار و تجهیزات صنعتی
+                <ul className="menu-hover hidden z-20  xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">2</ul>
+              </li>
+              <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
+                مد و پوشاک
+                <ul className="menu-hover hidden z-20  xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">3</ul>
+              </li>
+              <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
+                کودک و نوزاد
+                <ul className="menu-hover hidden z-20  xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">4</ul>
+              </li>
+              <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
+                کالاهای سوپرمارکتی
+                <ul className="menu-hover hidden z-20  xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">5</ul>
+              </li>
+              <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
+                زیبایی و سلامت
+                <ul className="menu-hover hidden z-20  xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">6</ul>
+              </li>
+              <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
+                خانه و اشپزخانه
+                <ul className="menu-hover hidden z-20  xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">7</ul>
+              </li>
+              <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
+                لوازم و التحریر
+                <ul className="menu-hover hidden z-20  xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">8</ul>
+              </li>
             </ul>
           </li>
           <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
@@ -126,7 +153,7 @@ const Header = () => {
             مطفا شهر خود را انتخاب کنید
           </li>
         </ul>
-        <span ref={navigatNavbar} className="hidden duration-200 transition-all md:block h-[3px] rounded-full bg-red-600 absolute bottom-0"></span>
+        {/*<span ref={navigatNavbar} className="hidden duration-200 transition-all md:block h-[3px] rounded-full bg-red-600 absolute bottom-0"></span>*/}
       </nav>
       <span onClick={cluseNavHandler} ref={cluseNavbar} className="md:hidden cursor-pointer hidden fixed z-50 top-0 left-0 w-1/4 h-screen bg-[rgba(0,0,0,0.8)]"></span>
     </>
