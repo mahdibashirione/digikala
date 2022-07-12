@@ -15,20 +15,7 @@ import { Menu } from "@headlessui/react";
 const Header = () => {
 
   const cartState = useCart()
-  const navigatNavbar = useRef()
   const cluseNavbar = useRef()
-  const nav = useRef()
-
-
-
-  const trakerHoverHandler = (e) => {
-    let locationTarget = e.target.getBoundingClientRect();
-    navigatNavbar.current.style.left = (locationTarget.left - 40) + "px"
-    navigatNavbar.current.style.width = locationTarget.width + "px"
-  }
-  const outTrakerHandler = () => {
-    navigatNavbar.current.style.width = '0';
-  }
 
   const openNavHandler = () => {
     nav.current.classList.replace("right-full", "right-0")
@@ -74,9 +61,9 @@ const Header = () => {
           <span className="w-full h-0.5 bg-gray-200 block mt-2 md:hidden"></span>
         </div>
       </header>
-      <nav ref={nav} className="md:relative md:top-auto md:right-0 md:w-full w-3/4 bg-white right-full top-0 fixed h-screen md:h-12 md:z-30 z-50 flex justify-between items-center container">
+      <nav className="md:relative md:top-auto md:right-0 md:w-full w-3/4 bg-white right-full top-0 fixed h-screen md:h-12 md:z-30 z-50 flex justify-between items-center container">
         <ul className="flex w-full h-screen md:h-auto flex-col-reverse md:flex-row items-start md:items-center px-4 md:px-0 justify-end md:justify-start text-sm font-sans text-gray-700">
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="md:menu hidden md:flex pt-5 md:pt-0 w-full h-full overflow-y-auto md:w-auto md:hover:text-red-500 border-t md:border-0 cursor-pointer whitespace-nowrap md:h-14 font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex-col md:flex-row items-start md:items-center">
+          <li className="md:menu hidden md:flex pt-5 md:pt-0 w-full h-full overflow-y-auto md:w-auto md:hover:text-red-500 border-t md:border-0 cursor-pointer whitespace-nowrap md:h-14 font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex-col md:flex-row items-start md:items-center">
             <BiMenu className="text-xl ml-1 select-none hidden md:block" />
             <Link to="/categories">
               دسته بندی کالا ها
@@ -117,26 +104,26 @@ const Header = () => {
               </li>
             </ul>
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
+          <li className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
             <BiBasket className="text-xl ml-1" />
             سوپرمارکت
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
+          <li className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
             <FiZap className="text-xl ml-1" />
             پرفروش ترین
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
+          <li className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
             <BiMapAlt className="text-xl ml-1" />
             تخفیف ها
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:after:absolute after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:hidden after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex items-center">
+          <li className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:after:absolute after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:hidden after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex items-center">
             <BiMapAlt className="text-xl ml-1" />
             شگفت انگیزها
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
+          <li className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
             سوالی دارید؟
           </li>
-          <li onMouseOut={outTrakerHandler} onMouseOver={trakerHoverHandler} className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
+          <li className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
             فروشنده شوید!
           </li>
           <li className="w-full py-4 flex items-center justify-between border-b md:hidden">
@@ -153,7 +140,6 @@ const Header = () => {
             مطفا شهر خود را انتخاب کنید
           </li>
         </ul>
-        {/*<span ref={navigatNavbar} className="hidden duration-200 transition-all md:block h-[3px] rounded-full bg-red-600 absolute bottom-0"></span>*/}
       </nav>
       <span onClick={cluseNavHandler} ref={cluseNavbar} className="md:hidden cursor-pointer hidden fixed z-50 top-0 left-0 w-1/4 h-screen bg-[rgba(0,0,0,0.8)]"></span>
     </>
