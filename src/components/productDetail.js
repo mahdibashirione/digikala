@@ -7,53 +7,28 @@ import { Tab } from '@headlessui/react'
 
 const ProductDetail = (props) => {
   const [categories, setCategories] = useState({
-    توضیحات: [
+    معرفی: [
       {
         id: 1,
-        title: 'Does drinking coffee make you smarter?',
-        date: '5h ago',
-        commentCount: 5,
-        shareCount: 2,
-      },
-      {
-        id: 2,
-        title: "So you've bought coffee... now what?",
-        date: '2h ago',
-        commentCount: 3,
-        shareCount: 2,
-      },
+        title: "",
+        text: "بالاخره بعد از شایعات، شاهد رونمایی جدید‌ترین گوشی‌های هوشمند اپل در قالب خانواده آیفون 13 بودیم. آیفون 13 پرو مکس، آیفون 13 پرو، آیفون 13 و آیفون 13 مینی به‌عنوان جدید‌ترین گوشی‌های هوشمند این شرکت معرفی شدند. آیفون 13 پرو مکس بدون شک به مشخصات فنی قدرتمند‌تری به نسبت ما‌بقی اعضای این خانواده مجهز شده است. از نظر طراحی تفاوت چندانی با نسل قبلی پرچمداران این شرکت شاهد نبودیم. تنها در نمای رو به رویی این بار اپل از ناچ با عرض کمتری به نسبت نسل قبلی بهره برده است. آیفون 13 پرو مکس به صفحه‌نمایشی 6.7 اینچی با رزولوشن 1284×2778 پیکسل مجهز شده است. برای اولین بار در تاریخ گوشی‌های هوشمند اپل، صفحه‌نمایش در نظر گرفته شده برای آیفون 13 پرو مکس توانایی ارائه نرخ بروزرسانی 120 هرتز را دارد که بدون شک می تواند صفحه‌نمایشی روان‌تر و به مراتب با‌کیفیت‌تری با نسبت نسل های قبلی ارائه می‌کند. این صفحه‌نمایش توانایی ارائه حداکثر روشنایی 1200 نیت (شمع در متر مربع) را دارد که همین امر سبب می شود تا در شرایط نوری متنوع و حتی زیر تابش مستقیم نور خورشید هم، وضوح تصویر بسیار خوبی دارد. در قسمت پشتی سه سنسور دوربین به همراه یک سنسور LIDAR با همان طراحی آیفون 12 پرو مکس قرار گرفته‌اند. یک سنسور دوربین اصلی با رزولوشن 12 مگاپیکسلی با گشودگی دریچه دیافراگم f/1.5، سنسور دوربین 12 مگاپیکسلی از نوع فوق عریض (Ultra Wide) و سنسور 12 مگاپیکسلی از نوع تله فوتو، دوربین سه‌گانه آیفون 13 پرو مکس را تشکیل می دهند. پردازنده A15 بایونیک هم این‌بار قدرتمند تر از همیشه متشکل از شش هسته (2 هسته قدرتمند‌تر و 4 هسته با صرفه انرژی کمتر) این پرچمدار قدرتمند را همراهی می‌کند. آیفون 13 پرو مکس در چهار مدل با حافظه‌‌های داخلی 128/256/512 گیگابایت در کنار مدل جدید با حافظه‌داخلی 1 ترابایت معرفی شد"
+      }
     ],
     مشخصات: [
       {
         id: 1,
         title: 'Is tech making coffee better or worse?',
-        date: 'Jan 7',
+        text: 'Jan 7',
         commentCount: 29,
         shareCount: 16,
-      },
-      {
-        id: 2,
-        title: 'The most innovative things happening in coffee',
-        date: 'Mar 19',
-        commentCount: 24,
-        shareCount: 12,
       },
     ],
     بررسی: [
       {
         id: 1,
-        title: 'Ask Me Anything: 10 answers to your questions about coffee',
-        date: '2d ago',
-        commentCount: 9,
-        shareCount: 5,
-      },
-      {
-        id: 2,
-        title: "The worst advice we've ever heard about coffee",
-        date: '4d ago',
-        commentCount: 1,
-        shareCount: 2,
-      },
+        title: 'آیفون 13 پرو مکس تا دندان مسلح',
+        text: "وشی‌های هوشمند خانواده آیفون 13 در قالب چهار گوشی هوشمند آیفون 13 پرو مکس، آیفون 13 پرو، آیفون 13‌ و آیفون 13 مینی معرفی شدند. پرچمداران جدید اپل این بار قدرتمند‌تر از همیشه پا به عرصه رقابت گذاشته اند تا در رقابتی بسیار جذاب، عملکردی بهتر به نسبت پرچمداران اندرویدی به نمایش بگذارد. از جمله اصلی‌ترین تغییرات در نظر گرفته شده برای این گوشی های هوشمند در مقایسه با پرچمداران خانواده آیفون 12 می‌توانیم به سنسور‌های دوربین قدرتمند‌تر، پردازنده فوق العاده با عملکرد بهتر و خیره کننده به نسبت نسل قبلی، تنوع رنگی بالا، صفحه نمایش به‌مراتب با‌کیفیت‌تراشاره کنیم. در این بررسی به‌سراغ آیفون 13 پرو مکس به عنوان گل سرسبد گوشی های هوشمند این خانواده رفته ایم تا ببینیم چه مشخصاتی را با خودش به همراه داشته و به نسبت آیفون 12 پرو مکس چه تغییرات در مشخصات فنی در نظر گرفته شده دارد",
+      }
     ],
   })
 
@@ -196,16 +171,12 @@ const ProductDetail = (props) => {
                             key={post.id}
                             className="relative rounded-md p-3 hover:bg-gray-100"
                           >
-                            <h3 className="text-sm font-medium leading-5">
+                            <h3 className="text-lg font-bold leading-5">
                               {post.title}
                             </h3>
 
-                            <ul className="mt-1 flex space-x-1 text-xs font-normal leading-4 text-gray-500">
-                              <li>{post.date}</li>
-                              <li>&middot;</li>
-                              <li>{post.commentCount} comments</li>
-                              <li>&middot;</li>
-                              <li>{post.shareCount} shares</li>
+                            <ul className="mt-2 font-normal text-justify text-gray-500">
+                              <li>{post.text}</li>
                             </ul>
 
                             <a
@@ -255,15 +226,17 @@ const ProductDetail = (props) => {
           </div>
         </article>
       </div>
-      <article className="glass font-sans lg:hidden flex flex-wrap items-center justify-between w-full fixed bottom-0 right-0 p-4">
-        {state.state.beforePrice && <div className="select-none text-white gap-x-3 w-full flex justify-end items-center">
-          <span className="bg-red-500 rounded-full py-1 px-2 text-sm">{state.state.discount}</span>
-          <span className="text-gray-500 line-through">{state.state.price}</span>
-        </div>}
-        <button onClick={addToCartHandler} className="bg-orange-500 py-3 text-white rounded-lg w-full max-w-[200px]">خرید</button>
-        <div className="flex items-center justify-center">
-          <span className="text-orange-600 font-bold text-lg mr-4">{state.state.beforePrice || state.price}</span>
-          <span className="text-orange-600 mr-1">تومان</span>
+      <article className="bg-white border-t-2 font-sans lg:hidden flex flex-wrap items-center justify-between w-full fixed bottom-0 right-0 p-4">
+        <button onClick={addToCartHandler} className="bg-red-500 py-3 text-white rounded-lg w-full">خرید</button>
+        <div className="flex items-center justify-between w-full mt-2">
+          <div>
+            <span className="text-orange-600 font-bold text-lg mr-4">{state.state.beforePrice || state.state.price}</span>
+            <span className="text-orange-600 mr-1">تومان</span>
+          </div>
+          {state.state.beforePrice && <div className="select-none text-white gap-x-3 w-full flex justify-end items-center">
+            <span className="bg-red-500 rounded-full py-1 px-2 text-sm">{state.state.discount}</span>
+            <span className="text-gray-500 line-through">{state.state.price}</span>
+          </div>}
         </div>
       </article>
     </section>

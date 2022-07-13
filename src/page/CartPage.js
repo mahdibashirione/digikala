@@ -38,12 +38,9 @@ const CartPage = () => {
                 <button className="bg-blue-500 text-white p-1 rounded-l-lg">تایید</button>
               </div>
             </div>
-            <button className="w-full py-3 mt-12 lg:block hidden text-white bg-orange-500 rounded-lg">ادامه فرآینده خرید</button>
+            <button className="w-full py-3 md:mt-12 mt-6 block text-white bg-orange-500 rounded-lg">ادامه فرآینده خرید</button>
           </div>
         </article>
-        <div className="w-full lg:hidden flex justify-center items-center px-4 fixed bottom-4">
-          <button className="w-full max-w-[400px] py-3 text-white bg-orange-500 rounded-lg">ادامه فرآینده خرید</button>
-        </div>
       </div>
     </section>
   );
