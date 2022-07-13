@@ -17,7 +17,7 @@ const MobileBar = () => {
   const inRoute = routes.find(rout => rout.path == location.pathname)
 
   return (
-    <section className="z-30 text-sm whitespace-nowrap w-full bg-white fixed bottom-0 flex justify-between items-center right-0 border-t">
+    <section className="md:hidden z-30 text-sm whitespace-nowrap w-full bg-white fixed bottom-0 flex justify-between items-center right-0 border-t">
       <Link to="/categories" className={`px-4 py-2 flex items-center justify-center h-full`}>
         <div className={`flex items-center justify-center px-3 py-1.5 rounded-full ${inRoute.path === "/categories" ? "bg-red-500" : "bg-white"}`}>
           <div className="w-8 h-8"><img className="w-full object-cover fill-slate-200" src="/image/mobileBar/category.svg" alt="cart" /></div>
