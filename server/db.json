@@ -452,6 +452,23 @@
       "title": "baner4"
     }
   ],
+  "category":[
+    {
+      "title": "تلفن همراه",
+      "titleEN": "mobile",
+      "img": "/image/category/mobile.png"
+    },
+    {
+      "title": "لپ تاپ",
+      "titleEN": "laptop",
+      "img": "/image/category/laptop.png"
+    },
+    {
+      "title": "ساعت هوشمند",
+      "titleEN": "smartwatch",
+      "img": "/image/category/smartwatch.png"
+    }
+  ],
   "profile": {
     "name": "typicode"
   }

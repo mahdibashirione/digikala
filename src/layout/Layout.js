@@ -6,15 +6,17 @@ import MobileBar from "../components/mobileBar/MobileBar";
 
 const Layout = ({ children }) => {
 
-  const location = useLocation()
-  const isMobileNavbar = (location.pathname === "/") || (location.pathname === "/categories") || (location.pathname === "/cart")
+  //const location = useLocation()
+  //const isMobileNavbar = (location.pathname === "/") || (location.pathname === "/categories") || (location.pathname === "/cart")
 
 
   return (
     <>
       <Header />
-      {children}
-      {isMobileNavbar && <MobileBar />}
+      <main>
+        {children}
+      </main>
+      {/*{isMobileNavbar && <MobileBar />}*/}
       <Footer />
     </>
   );

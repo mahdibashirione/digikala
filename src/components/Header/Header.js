@@ -65,6 +65,12 @@ const Header = () => {
       </header>
       <nav ref={nav} className="md:relative md:top-auto md:right-0 md:w-full w-3/4 bg-white right-full top-0 fixed h-screen md:h-12 md:z-30 z-50 flex justify-between items-center container">
         <ul className="flex w-full md:text-[12px] lg:text-[12.5px] h-screen md:h-auto flex-col-reverse md:flex-row items-start md:items-center px-4 md:px-0 justify-end md:justify-start text-sm font-sans text-gray-700">
+          <li className="md:menu gap-x-2 flex hover:text-red-500  md:hidden pt-5 md:pt-0 w-full overflow-y-auto md:w-auto md:hover:text-red-500 border-t md:border-0 cursor-pointer whitespace-nowrap md:h-14 font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 md:flex-row items-start md:items-center">
+            <BiMenu className="text-xl select-none" />
+            <Link to="/categories">
+              دسته بندی کالا ها
+            </Link>
+          </li>
           <li className="md:menu gap-x-2 hidden md:flex pt-5 md:pt-0 w-full h-full overflow-y-auto md:w-auto md:hover:text-red-500 border-t md:border-0 cursor-pointer whitespace-nowrap md:h-14 font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex-col md:flex-row items-start md:items-center">
             <BiMenu className="text-xl ml-1 select-none hidden md:block" />
             <Link to="/categories">

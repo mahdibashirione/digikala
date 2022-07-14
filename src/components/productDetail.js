@@ -135,16 +135,16 @@ const ProductDetail = (props) => {
             </div>
           </article>
           {/*Discrpshen*/}
-          <article className="w-full py-8">
+          <article className="w-full py-4 bg-[#f4f4f4] rounded-lg mt-3">
             <div className="w-full lg:px-4 sm:px-0">
-              <Tab.Group>
-                <Tab.List className="flex space-x-1 rounded-xl bg-gray-900/30 p-1">
+              <Tab.Group >
+                <Tab.List className="flex w-[60%] mx-auto  space-x-1 rounded-full bg-gray-900/20 p-1">
                   {Object.keys(categories).map((category) => (
                     <Tab
                       key={category}
                       className={({ selected }) =>
                         classNames(
-                          'w-full font-bold rounded-lg py-2.5 text-sm leading-5 text-blue-700',
+                          'w-full font-bold rounded-full py-2.5 text-[13px] leading-5 text-blue-700',
                           'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none',
                           selected
                             ? 'bg-white shadow'
@@ -161,7 +161,7 @@ const ProductDetail = (props) => {
                     <Tab.Panel
                       key={idx}
                       className={classNames(
-                        'rounded-xl bg-white p-3',
+                        'rounded-xl p-3',
                         'ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2'
                       )}
                     >
@@ -169,7 +169,7 @@ const ProductDetail = (props) => {
                         {posts.map((post) => (
                           <li
                             key={post.id}
-                            className="relative rounded-md p-3 hover:bg-gray-100"
+                            className="relative rounded-md p-3"
                           >
                             <h3 className="text-lg font-bold leading-5">
                               {post.title}
