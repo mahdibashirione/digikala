@@ -18,7 +18,7 @@ const AmazingSliderItem = ({ product }) => {
         <div className="w-full flex items-center justify-between">
           <span className="bg-red-600 text-white rounded-full px-1">{product.discount}</span>
           <span className="font-sans text-md font-bold flex items-center justify-center">
-            {product.afterPrice}
+            {product.beforePrice}
             <span className="text-[13px] text-gray-600">تومان</span>
           </span>
         </div>

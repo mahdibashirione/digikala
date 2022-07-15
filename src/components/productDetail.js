@@ -1,5 +1,5 @@
-import { useLocation } from "react-router-dom";
-import { useCartActions } from "../context/Cart/CartProvider";
+import { Link, useLocation } from "react-router-dom";
+import { useCart, useCartActions } from "../context/Cart/CartProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react'
@@ -36,8 +36,13 @@ const ProductDetail = (props) => {
     return classes.filter(Boolean).join(' ')
   }
 
+  function checkInCart(cart, product) {
+    return cart.find(c => c.id === product.id)
+  }
+
   const { state } = useLocation()
   const cartDispatch = useCartActions()
+  const { cart } = useCart()
 
   const addToCartHandler = () => {
     cartDispatch({ type: "Add_To_Cart", payload: state })
@@ -222,12 +227,16 @@ const ProductDetail = (props) => {
               <p className="font-bold text-xl">{state.state.beforePrice || state.state.price}</p>
               <span className="mr-1">تومان</span>
             </div>
-            <button onClick={addToCartHandler} className="w-full bg-orange-500 text-white py-3 rounded-lg">افزودن به سبد خرید</button>
+            {checkInCart(cart, state.state) ? <Link to={"/cart"} className="flex items-center justify-center w-full bg-red-500 text-white py-3 rounded-lg"> رفتن به سبد خرید </Link>
+              : <button onClick={addToCartHandler} className="w-full bg-red-500 text-white py-3 rounded-lg">افزودن به سبد خرید</button>
+            }
           </div>
         </article>
       </div>
       <article className="bg-white border-t-2 font-sans lg:hidden flex flex-wrap items-center justify-between w-full fixed bottom-0 right-0 p-4">
-        <button onClick={addToCartHandler} className="bg-red-500 py-3 text-white rounded-lg w-full">خرید</button>
+        {checkInCart(cart, state.state) ? <Link to={"/cart"} className="flex items-center justify-center w-full bg-red-500 text-white py-3 rounded-lg"> رفتن به سبد خرید </Link>
+          : <button onClick={addToCartHandler} className="w-full bg-red-500 text-white py-3 rounded-lg">افزودن به سبد خرید</button>
+        }
         <div className="flex items-center justify-between w-full mt-2">
           <div>
             <span className="text-orange-600 font-bold text-lg mr-4">{state.state.beforePrice || state.state.price}</span>

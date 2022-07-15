@@ -19,8 +19,8 @@
       "img": "/image/amazingSlider/imgProduct/1.jpg",
       "postId": 1,
       "discount": "50%",
-      "beforePrice": "6,250,000",
-      "price": "12,500,000",
+      "beforePrice": "6250000",
+      "price": "12500000",
       "name": "ساعت هوشمند اپل",
       "nameEN": "Apple Watch Serises 7"
     },
@@ -29,8 +29,8 @@
       "img": "/image/amazingSlider/imgProduct/2.jpg",
       "postId": 2,
       "discount": "30%",
-      "price": "24,300,000",
-      "beforePrice": "18,250,000",
+      "price": "24300000",
+      "beforePrice": "18250000",
       "name": "اسپیکر قابل حمل جی بی ال",
       "nameEN": "Spiker JBL portable"
     },
@@ -39,8 +39,8 @@
       "img": "/image/amazingSlider/imgProduct/3.jpg",
       "postId": 3,
       "discount": "25%",
-      "price": "15,000,000",
-      "beforePrice": "10,000,000",
+      "price": "15000000",
+      "beforePrice": "10000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     },
@@ -49,8 +49,8 @@
       "img": "/image/amazingSlider/imgProduct/4.jpg",
       "postId": 4,
       "discount": "20%",
-      "price": "4,500,000",
-      "beforePrice": "3,659,000",
+      "price": "4500000",
+      "beforePrice": "3659000",
       "name": "سرویس قاشق و چنگال",
       "nameEN": "food Tester 2d23f4"
     },
@@ -59,8 +59,8 @@
       "img": "/image/amazingSlider/imgProduct/5.jpg",
       "postId": 5,
       "discount": "10%",
-      "price": "3,000,000",
-      "beforePrice": "2,499,000",
+      "price": "3000000",
+      "beforePrice": "2499000",
       "name": "میز و صندلی دونفره",
       "nameEN": "Chairs and tables er5g2c"
     },
@@ -69,8 +69,8 @@
       "img": "/image/amazingSlider/imgProduct/6.jpg",
       "postId": 6,
       "discount": "5%",
-      "price": "1,500,000",
-      "beforePrice": "1,299,000",
+      "price": "1500000",
+      "beforePrice": "1299000",
       "name": "فلاسک ابجوش",
       "nameEN": "flaxe Wather gx5re"
     },
@@ -79,8 +79,8 @@
       "img": "/image/amazingSlider/imgProduct/7.jpg",
       "postId": 7,
       "discount": "25%",
-      "price": "450,000",
-      "beforePrice": "349,000",
+      "price": "450000",
+      "beforePrice": "349000",
       "name": "کفش مردانه 42",
       "nameEN": "nike s42 man xg6er"
     },
@@ -89,8 +89,8 @@
       "img": "/image/amazingSlider/imgProduct/8.jpg",
       "postId": 8,
       "discount": "25%",
-      "price": "15,000,000",
-      "beforePrice": "10,000,000",
+      "price": "15000000",
+      "beforePrice": "10000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     },
@@ -99,8 +99,8 @@
       "img": "/image/amazingSlider/imgProduct/9.jpg",
       "postId": 9,
       "discount": "25%",
-      "price": "15,000,000",
-      "beforePrice": "10,000,000",
+      "price": "15000000",
+      "beforePrice": "10000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     },
@@ -109,8 +109,8 @@
       "img": "/image/amazingSlider/imgProduct/10.jpg",
       "postId": 10,
       "discount": "25%",
-      "price": "15,000,000",
-      "beforePrice": "10,000,000",
+      "price": "15000000",
+      "beforePrice": "10000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     },
@@ -119,8 +119,8 @@
       "img": "/image/amazingSlider/imgProduct/11.jpg",
       "postId": 11,
       "discount": "25%",
-      "price": "15,000,000",
-      "beforePrice": "10,000,000",
+      "price": "15000000",
+      "beforePrice": "10000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     },
@@ -129,8 +129,8 @@
       "img": "/image/amazingSlider/imgProduct/12.jpg",
       "postId": 12,
       "discount": "25%",
-      "price": "15,000,000",
-      "beforePrice": "10,000,000",
+      "price": "15000000",
+      "beforePrice": "10000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     },
@@ -139,8 +139,8 @@
       "img": "/image/amazingSlider/imgProduct/13.jpg",
       "postId": 13,
       "discount": "25%",
-      "price": "15,000,000",
-      "beforePrice": "10,000,000",
+      "price": "15000000",
+      "beforePrice": "10000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     },
@@ -149,8 +149,8 @@
       "img": "/image/amazingSlider/imgProduct/14.jpg",
       "postId": 14,
       "discount": "25%",
-      "price": "15,000,000",
-      "beforePrice": "10,000,000",
+      "price": "15000000",
+      "beforePrice": "10000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     }
@@ -344,84 +344,84 @@
     {
       "id":41,
       "img":"/image/digiPlus/1.jpg",
-      "price": "355,000",
+      "price": "355000",
       "name": "هندزفری بیسیم مدل e32s5",
       "nameEN": "Apple airpod 3 d3c45"
     },
     {
       "id":42,
       "img":"/image/digiPlus/2.jpg",
-      "price": "12,500,000",
+      "price": "12500000",
       "name": "گوشی موبایل سامسونگ مدل A13",
       "nameEN": "mobile samsung A13"
     },
     {
       "id":43,
       "img":"/image/digiPlus/3.jpg",
-      "price": "12,500,000",
+      "price": "12500000",
       "name": "ساعت هوشمند اپل",
       "nameEN": "Apple Watch Serises 7"
     },
     {
       "id":44,
       "img":"/image/digiPlus/4.jpg",
-      "price": "12,500,000",
+      "price": "12500000",
       "name": "ساعت هوشمند اپل",
       "nameEN": "Apple Watch Serises 7"
     },
     {
       "id":45,
       "img":"/image/digiPlus/5.jpg",
-      "price": "12,500,000",
+      "price": "12500000",
       "name": "ساعت هوشمند اپل",
       "nameEN": "Apple Watch Serises 7"
     },
     {
       "id":46,
       "img":"/image/digiPlus/6.jpg",
-      "price": "12,500,000",
+      "price": "12500000",
       "name": "ساعت هوشمند اپل",
       "nameEN": "Apple Watch Serises 7"
     },
     {
       "id":47,
       "img":"/image/digiPlus/7.jpg",
-      "price": "12,500,000",
+      "price": "12500000",
       "name": "ساعت هوشمند اپل",
       "nameEN": "Apple Watch Serises 7"
     },
     {
       "id":48,
       "img":"/image/digiPlus/8.jpg",
-      "price": "12,500,000",
+      "price": "12500000",
       "name": "ساعت هوشمند اپل",
       "nameEN": "Apple Watch Serises 7"
     },
     {
       "id":49,
       "img":"/image/digiPlus/9.jpg",
-      "price": "12,500,000",
+      "price": "12500000",
       "name": "ساعت هوشمند اپل",
       "nameEN": "Apple Watch Serises 7"
     },
     {
       "id":50,
       "img":"/image/digiPlus/10.jpg",
-      "price": "12,500,000",
+      "price": "12500000",
       "name": "ساعت هوشمند اپل",
       "nameEN": "Apple Watch Serises 7"
     },
     {
       "id":51,
       "img":"/image/digiPlus/11.jpg",
-      "price": "12,500,000",
+      "price": "12500000",
       "name": "ساعت هوشمند اپل",
       "nameEN": "Apple Watch Serises 7"
     },
     {
       "id":52,
       "img":"/image/digiPlus/12.jpg",
-      "price": "12,500,000",
+      "price": "12500000",
       "name": "ساعت هوشمند اپل",
       "nameEN": "Apple Watch Serises 7"
     }

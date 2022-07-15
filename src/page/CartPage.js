@@ -12,7 +12,7 @@ const CartPage = () => {
         <article className="w-full lg:w-[70%] p-4 flex flex-col gap-y-3">
           {cartState.cart.length ? cartState.cart.map(item => {
             return (
-              <CartItem key={item.state.id} product={item} />
+              <CartItem key={item.id} product={item} />
             )
           }) : <div className="select-none w-full bg-white rounded-lg shadow flex flex-col items-center justify-between gap-y-6 px-4 py-8">
             <div className="w-40"><img className="w-fll object-cover" src="/image/Cart/empty-cart.svg" alt="سبد خرید" /></div>
@@ -29,7 +29,7 @@ const CartPage = () => {
           <div className="w-full p-3 pb-8 lg:pb-3 bg-white shadow rounded-lg select-none flex flex-col gap-y-4">
             <div className="flex items-center justify-between w-full">
               <span>مجموع قیمت :</span>
-              <span className="text-orange-500">0 تومان</span>
+              <span className="text-orange-500">{cartState.total} تومان</span>
             </div>
             <div className="flex justify-between items-center w-full">
               <span className="whitespace-nowrap">کد تخفیف</span>

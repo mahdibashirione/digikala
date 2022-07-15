@@ -76,7 +76,6 @@ const Header = () => {
             <Link to="/categories">
               دسته بندی کالا ها
             </Link>
-            <span className="z-10 menu-hover hidden absolute top-full -right-[1000px] w-[5000px] h-screen bg-zinc-900/70"></span>
             <ul className="menu-hover hidden text-slate-800 md:shadow md:rounded-br-lg md:border-l border-slate-800 mt-2 md:mt-0 w-full flex-col font-normal md:absolute md:right-0 md:top-full md:w-auto z-30 md:bg-white">
               <li className="z-10 md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
                 کالای دیجیتال
