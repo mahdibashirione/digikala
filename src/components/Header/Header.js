@@ -51,16 +51,16 @@ const Header = () => {
               <BiLogIn className="text-2xl" />
               <span className="text-sm whitespace-nowrap">ورود | ثبت نام</span>
               <div className="group-hover:flex hidden flex-col w-full border absolute top-full right-0 bg-white text-sm rounded-lg shadow">
-                <Link to={"/login"} className="p-2 hover:text-red-500" >ورود</Link>
-                <Link to={"/register"} className="border-t p-2 hover:text-red-500">ثبت نام</Link>
+                <Link to={"/user/login"} className="p-2 hover:text-red-500" >ورود</Link>
+                <Link to={"/user/register"} className="border-t p-2 hover:text-red-500">ثبت نام</Link>
               </div>
             </div>
             <div className="group cursor-pointer relative flex mr-6 md:hidden justify-center items-center">
               <BiLogIn className="text-2xl" />
               <span className="text-sm font-sans text-slate-800">ورود</span>
               <div className="group-hover:flex hidden flex-col w-28 border absolute top-full left-0 bg-white text-sm rounded-lg shadow">
-                <Link to={"/login"} className="p-3 hover:text-red-500" >ورود</Link>
-                <Link to={"/register"} className="border-t p-3 hover:text-red-500">ثبت نام</Link>
+                <Link to={"/user/login"} className="p-3 hover:text-red-500" >ورود</Link>
+                <Link to={"/user/register"} className="border-t p-3 hover:text-red-500">ثبت نام</Link>
               </div>
             </div>
             <Link to={"cart"} className="md:mr-10 relative">

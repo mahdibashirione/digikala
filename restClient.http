@@ -4,8 +4,8 @@ GET  https://nodejs-post-app.herokuapp.com/api/product  HTTP/1.1
 
 ###
 POST   https://nodejs-post-app.herokuapp.com/api/user/login  HTTP/1.1
-Content-Type: application/json
 
+Content-Type: application/json
 {
   "email":"mahdi94250@gmail.com",
   "password":"mahdi324"
