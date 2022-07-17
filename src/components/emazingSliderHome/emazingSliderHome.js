@@ -2,18 +2,24 @@
 import { Link } from "react-router-dom";
 import { FiChevronLeft } from "react-icons/fi"
 import { useEffect, useState } from "react";
-import AmazingSliderItem from "../amazingSliderItem/AmazingSliderItem";
 import { http } from "../../services/httpService";
 
 
 const EmazingSliderHome = () => {
-  const [data, setData] = useState(null)
+  const [dataProducts, setDataProducts] = useState(null)
 
   useEffect(() => {
-    http.get("/amazingProduct")
-      .then(res => setData(res.data))
+    Get_offProduct("/product")
   }, [])
 
+  async function Get_offProduct(url) {
+    try {
+      const { data } = await http.get(url)
+      data && setDataProducts(data.filter(p => p.discount !== 0))
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const LoadingCard = () => {
     return (
@@ -82,6 +88,33 @@ const EmazingSliderHome = () => {
     )
   }
 
+  const AmazingSliderItem = ({ product }) => {
+    return (
+      <Link to={`/product/${product.nameEN}/${product.id}`} state={{ state: product }} className="cursor-pointer block h-full min-w-[175px] bg-white">
+        <div className="w-full h-[150px] flex items-center justify-center">
+          <img className="h-full object-cover" src={product.img} />
+        </div>
+        <div className="w-full px-2 mb-2">
+          <span className="text-sm">
+            {product.name}
+          </span>
+        </div>
+        <article className="h-full px-2">
+          <div className="w-full flex items-center justify-between">
+            <span className="bg-red-600 text-white rounded-full px-1">{product.discount}%</span>
+            <span className="font-sans text-md font-bold flex items-center justify-center">
+              {product.offPrice}
+              <span className="text-[13px] text-gray-600">تومان</span>
+            </span>
+          </div>
+          <div className="w-full flex items-center justify-end pl-8 mt-1">
+            <span className="font-sans text-md line-through text-gray-400">{product.price}</span>
+          </div>
+        </article>
+      </Link>
+    );
+  }
+
   return (
     <section className="lg:container bg-red-500 lg:rounded-2xl py-4 px-0.5">
       <div className="scrollbar-hidden w-full h-[245px] overflow-x-scroll overflow-y-hidden flex flex-nowrap items-center justify-start gap-x-1">
@@ -94,8 +127,8 @@ const EmazingSliderHome = () => {
             <FiChevronLeft className="!text-xl" />
           </span>
         </Link>
-        {!data ? <LoadingCard /> :
-          data.slice(0, 11).map(product => {
+        {!dataProducts ? <LoadingCard /> :
+          dataProducts.slice(0, 11).map(product => {
             return (
               <AmazingSliderItem key={product.id} product={product} />
             )

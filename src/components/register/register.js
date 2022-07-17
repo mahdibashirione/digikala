@@ -64,7 +64,9 @@ const Register = () => {
         <Input formik={formik} lable="phoneNumber" type={"text"} name="phoneNumber" inputMode={"numeric"} />
         <Input formik={formik} lable="email" type={"email"} name="email" />
         <Input formik={formik} lable="password" type={"password"} name="password" />
-        <button type="submit" disabled={!formik.isValid} className={`${!formik.isValid ? "opacity-50" : "opacity-100"} w-full my-8 p-4 bg-red-500 text-center rounded-lg font-sans text-white`}>ورود</button>
+        <button type="submit" disabled={!formik.isValid} className={`${!formik.isValid ? "opacity-50" : "opacity-100"} w-full my-8 p-4 bg-red-500 text-center rounded-lg font-sans text-white`}>
+          ثبت نام
+        </button>
       </form>
     </section >
   );

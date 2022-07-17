@@ -14,10 +14,39 @@ Content-Type: application/json
 ###
 POST   https://nodejs-post-app.herokuapp.com/api/user/register  HTTP/1.1
 Content-Type: application/json
-
 {
   "email":"mahdi94250@gmail.com",
   "password":"mahdi324",
   "name":"mahdiBashiri",
   "phoneNumber":"09302294140" 
 }
+
+###
+PUT  https://nodejs-post-app.herokuapp.com/api/product/62d1844e7567c34ab4bd8497  HTTP/1.1
+Content-Type: application/json
+{
+"discount": 10,
+"_id": "62d1844e7567c34ab4bd8497",
+"name": "Vans",
+"description": [
+{
+"_id": "62d1844e7567c34ab4bd8498",
+"support": "گارانتی مادام العمر"
+},
+{
+"_id": "62d1844e7567c34ab4bd8499",
+"support": "اورجینال"
+},
+{
+"_id": "62d1844e7567c34ab4bd849a",
+"support": "ارسال رایگان"
+}
+],
+"price": 99,
+"offPrice": 89,
+"image": "https://dkstatics-public.digikala.com/digikala-products/c46c7605f1eeb4d934b79a3a4d20afc1c5490aa7_1654936792.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90",
+"__v": 0,
+"createdAt": "2022-07-15T15:14:22.529Z",
+"updatedAt": "2022-07-15T15:14:22.529Z"
+}
+ 

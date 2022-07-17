@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { http } from "../../services/httpService"
-const Line1BanerHome = () => {
+const BanerHome = () => {
   const [dataBaner, setDataBaner] = useState(null)
 
   useEffect(() => {
@@ -43,4 +43,4 @@ const Line1BanerHome = () => {
   );
 }
 
-export default Line1BanerHome;
+export default BanerHome;
