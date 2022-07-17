@@ -17,16 +17,68 @@ const EmazingSliderHome = () => {
 
   const LoadingCard = () => {
     return (
-      <div className="bg-white shadow rounded-md p-2 min-w-[175px] max-w-[175px] h-full">
-        <div className="w-full animate-pulse flex flex-col justify-between items-center">
-          <div className="flex items-center justify-center bg-slate-300 h-32 w-32"></div>
-          <div className="w-full space-y-5 py-3 flex px-4 flex-col items-start">
-            <div className="h-2 w-1/3 bg-slate-300 rounded col-span-2"></div>
-            <div className="h-2 w-full bg-slate-300 rounded col-span-1"></div>
-            <div className="h-2 w-full bg-slate-300 rounded"></div>
+      <>
+        <div className="bg-white shadow rounded-md p-2 min-w-[175px] max-w-[175px] h-full">
+          <div className="w-full animate-pulse flex flex-col justify-between items-center">
+            <div className="flex items-center justify-center bg-slate-300 h-32 w-32"></div>
+            <div className="w-full space-y-5 py-3 flex px-4 flex-col items-start">
+              <div className="h-2 w-1/3 bg-slate-300 rounded col-span-2"></div>
+              <div className="h-2 w-full bg-slate-300 rounded col-span-1"></div>
+              <div className="h-2 w-full bg-slate-300 rounded"></div>
+            </div>
           </div>
         </div>
-      </div>
+        <div className="bg-white shadow rounded-md p-2 min-w-[175px] max-w-[175px] h-full">
+          <div className="w-full animate-pulse flex flex-col justify-between items-center">
+            <div className="flex items-center justify-center bg-slate-300 h-32 w-32"></div>
+            <div className="w-full space-y-5 py-3 flex px-4 flex-col items-start">
+              <div className="h-2 w-1/3 bg-slate-300 rounded col-span-2"></div>
+              <div className="h-2 w-full bg-slate-300 rounded col-span-1"></div>
+              <div className="h-2 w-full bg-slate-300 rounded"></div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white shadow rounded-md p-2 min-w-[175px] max-w-[175px] h-full">
+          <div className="w-full animate-pulse flex flex-col justify-between items-center">
+            <div className="flex items-center justify-center bg-slate-300 h-32 w-32"></div>
+            <div className="w-full space-y-5 py-3 flex px-4 flex-col items-start">
+              <div className="h-2 w-1/3 bg-slate-300 rounded col-span-2"></div>
+              <div className="h-2 w-full bg-slate-300 rounded col-span-1"></div>
+              <div className="h-2 w-full bg-slate-300 rounded"></div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white shadow rounded-md p-2 min-w-[175px] max-w-[175px] h-full">
+          <div className="w-full animate-pulse flex flex-col justify-between items-center">
+            <div className="flex items-center justify-center bg-slate-300 h-32 w-32"></div>
+            <div className="w-full space-y-5 py-3 flex px-4 flex-col items-start">
+              <div className="h-2 w-1/3 bg-slate-300 rounded col-span-2"></div>
+              <div className="h-2 w-full bg-slate-300 rounded col-span-1"></div>
+              <div className="h-2 w-full bg-slate-300 rounded"></div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white shadow rounded-md p-2 min-w-[175px] max-w-[175px] h-full">
+          <div className="w-full animate-pulse flex flex-col justify-between items-center">
+            <div className="flex items-center justify-center bg-slate-300 h-32 w-32"></div>
+            <div className="w-full space-y-5 py-3 flex px-4 flex-col items-start">
+              <div className="h-2 w-1/3 bg-slate-300 rounded col-span-2"></div>
+              <div className="h-2 w-full bg-slate-300 rounded col-span-1"></div>
+              <div className="h-2 w-full bg-slate-300 rounded"></div>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white shadow rounded-md p-2 min-w-[175px] max-w-[175px] h-full">
+          <div className="w-full animate-pulse flex flex-col justify-between items-center">
+            <div className="flex items-center justify-center bg-slate-300 h-32 w-32"></div>
+            <div className="w-full space-y-5 py-3 flex px-4 flex-col items-start">
+              <div className="h-2 w-1/3 bg-slate-300 rounded col-span-2"></div>
+              <div className="h-2 w-full bg-slate-300 rounded col-span-1"></div>
+              <div className="h-2 w-full bg-slate-300 rounded"></div>
+            </div>
+          </div>
+        </div>
+      </>
     )
   }
 

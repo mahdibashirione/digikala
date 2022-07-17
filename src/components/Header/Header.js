@@ -47,14 +47,22 @@ const Header = () => {
             <input type={"text"} className="bg-gray-100 pl-4 text-gray-600 pr-12 py-3 w-full max-w-[600px] rounded-lg outline-none text-sm" placeholder="جسنوجو" />
           </div>
           <div className="flex items-center md:justify-center justify-between md:w-auto w-1/3">
-            <Link to={'/login'} className="hidden after:content-['|'] after:h-full after:w-2 after:top-0.5 after:absolute after:-left-7 after:text-gray-300 after: relative md:flex items-center justify-center py-2 px-6 border rounded-lg border-gray-400">
+            <div className="group cursor-pointer hidden after:content-['|'] after:h-full after:w-2 after:top-0.5 after:absolute after:-left-7 after:text-gray-300 after: relative md:flex items-center justify-center py-2 px-6 border rounded-lg border-gray-400">
               <BiLogIn className="text-2xl" />
               <span className="text-sm whitespace-nowrap">ورود | ثبت نام</span>
-            </Link>
-            <Link to={"/login"} className="flex mr-6 md:hidden justify-center items-center">
+              <div className="group-hover:flex hidden flex-col w-full border absolute top-full right-0 bg-white text-sm rounded-lg shadow">
+                <Link to={"/login"} className="p-2 hover:text-red-500" >ورود</Link>
+                <Link to={"/register"} className="border-t p-2 hover:text-red-500">ثبت نام</Link>
+              </div>
+            </div>
+            <div className="group cursor-pointer relative flex mr-6 md:hidden justify-center items-center">
               <BiLogIn className="text-2xl" />
               <span className="text-sm font-sans text-slate-800">ورود</span>
-            </Link>
+              <div className="group-hover:flex hidden flex-col w-28 border absolute top-full left-0 bg-white text-sm rounded-lg shadow">
+                <Link to={"/login"} className="p-3 hover:text-red-500" >ورود</Link>
+                <Link to={"/register"} className="border-t p-3 hover:text-red-500">ثبت نام</Link>
+              </div>
+            </div>
             <Link to={"cart"} className="md:mr-10 relative">
               <FiShoppingCart className="text-2xl" />
               {cartState.cart.length >= 1 && <span className="absolute bottom-2 left-3 bg-red-500 rounded-full w-6 h-6 text-white text-sm flex justify-center items-center">{cartState.cart.length}</span>}
