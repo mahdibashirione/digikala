@@ -55,7 +55,7 @@ const Header = () => {
   return (
     <>
       <header className="sticky md:border-b border-b-2 top-0 w-fyll pt-4 md:pb-4 px-2 bg-white z-40">
-        <div className="gap-y-3 container pb-2 font-sans text-xl w-full flex flex-wrap md:flex-nowrap items-center justify-center">
+        <div className="gap-y-3 container pb-2 md:pb-0 font-sans text-xl w-full flex flex-wrap md:flex-nowrap items-center justify-center">
           <button className="md:hidden w-1/3 flex justify-start">
             <BiMenu onClick={openNavHandler} className="text-2xl" />
           </button>
@@ -93,8 +93,8 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <div className="w-full border-b shadow">
-        <nav ref={nav} className="md:relative md:top-auto md:right-0 md:w-full w-3/4 bg-white right-full top-0 fixed h-screen md:h-14 md:z-30 z-50 flex justify-between items-center container">
+      <nav className="w-full border-b shadow">
+        <div ref={nav} className="md:relative md:top-auto md:right-0 md:w-full w-3/4 bg-white right-full top-0 fixed h-screen md:h-14 md:z-30 z-50 flex justify-between items-center container">
           <ul className="flex w-full md:text-[12px] lg:text-[12.5px] h-screen md:h-auto flex-col-reverse md:flex-row items-start md:items-center px-4 md:px-0 justify-end md:justify-start text-sm font-sans text-gray-700">
             <li className="md:menu gap-x-2 flex hover:text-red-500  md:hidden pt-5 md:pt-0 w-full overflow-y-auto md:w-auto md:hover:text-red-500 border-t md:border-0 cursor-pointer whitespace-nowrap md:h-14 font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 md:flex-row items-start md:items-center">
               <BiMenu className="text-xl select-none" />
@@ -180,12 +180,12 @@ const Header = () => {
           </ul>
           <ul className="lg:block hidden h-full text-[12px] font-sans text-gray-700">
             <li onClick={() => panelCity.current.classList.replace("hidden", "flex")} className="whitespace-nowrap cursor-pointer h-full flex items-center px-2 ">
-              <FiNavigation className="text-xl ml-2" />
-              {!myCity ? "لطفا شهر خود را انتخاب کنید" : myCity}
+              <FiNavigation className="text-xl" />
+              <span className="text-[0.9rem] mx-2">{!myCity ? "لطفا شهر خود را انتخاب کنید" : myCity}</span>
             </li>
           </ul>
-        </nav>
-      </div>
+        </div>
+      </nav>
       <span onClick={cluseNavHandler} ref={cluseNavbar} className="md:hidden cursor-pointer hidden fixed z-50 top-0 left-0 w-1/4 h-screen bg-[rgba(0,0,0,0.8)]"></span>
       {/*Panel Select City*/}
       <div ref={panelCity} className="fixed top-0 right-0 z-40 w-screen h-screen hidden items-center justify-center bg-gray-900/60 ">

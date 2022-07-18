@@ -10,24 +10,22 @@ const ProductDetail = (props) => {
     معرفی: [
       {
         id: 1,
-        title: "",
-        text: "بالاخره بعد از شایعات، شاهد رونمایی جدید‌ترین گوشی‌های هوشمند اپل در قالب خانواده آیفون 13 بودیم. آیفون 13 پرو مکس، آیفون 13 پرو، آیفون 13 و آیفون 13 مینی به‌عنوان جدید‌ترین گوشی‌های هوشمند این شرکت معرفی شدند. آیفون 13 پرو مکس بدون شک به مشخصات فنی قدرتمند‌تری به نسبت ما‌بقی اعضای این خانواده مجهز شده است. از نظر طراحی تفاوت چندانی با نسل قبلی پرچمداران این شرکت شاهد نبودیم. تنها در نمای رو به رویی این بار اپل از ناچ با عرض کمتری به نسبت نسل قبلی بهره برده است. آیفون 13 پرو مکس به صفحه‌نمایشی 6.7 اینچی با رزولوشن 1284×2778 پیکسل مجهز شده است. برای اولین بار در تاریخ گوشی‌های هوشمند اپل، صفحه‌نمایش در نظر گرفته شده برای آیفون 13 پرو مکس توانایی ارائه نرخ بروزرسانی 120 هرتز را دارد که بدون شک می تواند صفحه‌نمایشی روان‌تر و به مراتب با‌کیفیت‌تری با نسبت نسل های قبلی ارائه می‌کند. این صفحه‌نمایش توانایی ارائه حداکثر روشنایی 1200 نیت (شمع در متر مربع) را دارد که همین امر سبب می شود تا در شرایط نوری متنوع و حتی زیر تابش مستقیم نور خورشید هم، وضوح تصویر بسیار خوبی دارد. در قسمت پشتی سه سنسور دوربین به همراه یک سنسور LIDAR با همان طراحی آیفون 12 پرو مکس قرار گرفته‌اند. یک سنسور دوربین اصلی با رزولوشن 12 مگاپیکسلی با گشودگی دریچه دیافراگم f/1.5، سنسور دوربین 12 مگاپیکسلی از نوع فوق عریض (Ultra Wide) و سنسور 12 مگاپیکسلی از نوع تله فوتو، دوربین سه‌گانه آیفون 13 پرو مکس را تشکیل می دهند. پردازنده A15 بایونیک هم این‌بار قدرتمند تر از همیشه متشکل از شش هسته (2 هسته قدرتمند‌تر و 4 هسته با صرفه انرژی کمتر) این پرچمدار قدرتمند را همراهی می‌کند. آیفون 13 پرو مکس در چهار مدل با حافظه‌‌های داخلی 128/256/512 گیگابایت در کنار مدل جدید با حافظه‌داخلی 1 ترابایت معرفی شد"
+        title: "coming soon...",
+        text: 'به زودی',
       }
     ],
     مشخصات: [
       {
         id: 1,
-        title: 'Is tech making coffee better or worse?',
-        text: 'Jan 7',
-        commentCount: 29,
-        shareCount: 16,
+        title: "coming soon...",
+        text: 'به زودی',
       },
     ],
     بررسی: [
       {
         id: 1,
-        title: 'آیفون 13 پرو مکس تا دندان مسلح',
-        text: "وشی‌های هوشمند خانواده آیفون 13 در قالب چهار گوشی هوشمند آیفون 13 پرو مکس، آیفون 13 پرو، آیفون 13‌ و آیفون 13 مینی معرفی شدند. پرچمداران جدید اپل این بار قدرتمند‌تر از همیشه پا به عرصه رقابت گذاشته اند تا در رقابتی بسیار جذاب، عملکردی بهتر به نسبت پرچمداران اندرویدی به نمایش بگذارد. از جمله اصلی‌ترین تغییرات در نظر گرفته شده برای این گوشی های هوشمند در مقایسه با پرچمداران خانواده آیفون 12 می‌توانیم به سنسور‌های دوربین قدرتمند‌تر، پردازنده فوق العاده با عملکرد بهتر و خیره کننده به نسبت نسل قبلی، تنوع رنگی بالا، صفحه نمایش به‌مراتب با‌کیفیت‌تراشاره کنیم. در این بررسی به‌سراغ آیفون 13 پرو مکس به عنوان گل سرسبد گوشی های هوشمند این خانواده رفته ایم تا ببینیم چه مشخصاتی را با خودش به همراه داشته و به نسبت آیفون 12 پرو مکس چه تغییرات در مشخصات فنی در نظر گرفته شده دارد",
+        title: "coming soon...",
+        text: 'به زودی',
       }
     ],
   })
@@ -92,9 +90,8 @@ const ProductDetail = (props) => {
             </div>
             {/* Detail Product */}
             <div className="select-none w-full lg:w-[60%] flex flex-col justify-center items-center">
-              <div className="lg:border-b lg:pb-6 lg:w-full flex flex-col items-center lg:items-start justify-center gap-y-2 mt-8">
+              <div className="lg:border-b lg:pb-6 lg:w-full flex flex-col items-center lg:items-start justify-center gap-y-2">
                 <h2 className="text-slate-800 font-sans text-lg font-bold">{state.state.name}</h2>
-                <p className="text-slate-600 font-sans">{state.state.nameEN}</p>
               </div>
               <div className="lg:w-full flex items-center justify-between lg:justify-start lg:gap-x-4 w-2/3 my-6">
                 <span>انتخاب رنگ :</span>
@@ -202,7 +199,7 @@ const ProductDetail = (props) => {
           </article>
         </article>
         {/* Box Price */}
-        <article className="font-sans w-[25%] h-full hidden lg:flex justify-center items-start sticky top-24 pl-2 pr-4">
+        <article className="font-sans w-[25%] mt-4 h-full hidden lg:flex justify-center items-start sticky top-24 pl-2 pr-4">
           <div className="p-4 bg-[#f4f4f4] w-full rounded-lg flex justify-start flex-wrap gap-y-4">
             <div className="hidden lg:flex items-center gap-x-2">
               <img className="w-5" src="/image/shop.svg" alt="shop" />
@@ -220,11 +217,11 @@ const ProductDetail = (props) => {
               <span className="font-sans text-sm">انبار تهران</span>
             </div>
             <div className="w-full flex justify-end flex-wrap text-orange-600 select-none mt-16">
-              {state.state.beforePrice && <div className="text-white mb-2 w-full flex justify-between items-center">
-                <span className="bg-red-500 rounded-full py-1 px-2">{state.state.discount}</span>
+              {state.state.offPrice && <div className="text-white mb-2 w-full flex justify-between items-center">
+                <span className="bg-red-500 rounded-full py-1 px-2">{state.state.discount}%</span>
                 <span className="text-gray-500 line-through">{state.state.price}</span>
               </div>}
-              <p className="font-bold text-xl">{state.state.beforePrice || state.state.price}</p>
+              <p className="font-bold text-xl">{state.state.offPrice || state.state.price}</p>
               <span className="mr-1">تومان</span>
             </div>
             {checkInCart(cart, state.state) ? <Link to={"/cart"} className="flex items-center justify-center w-full bg-red-500 text-white py-3 rounded-lg"> رفتن به سبد خرید </Link>

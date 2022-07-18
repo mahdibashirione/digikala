@@ -20,16 +20,37 @@ const Register = () => {
       });
     })
       .catch(error => {
-        toast.error(error.response.data.message + "ثبت نام ناموفق", {
-          position: "top-center",
-          autoClose: 1500,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-        console.log(error)
+        if (error.response.data.message.startsWith("Email")) {
+          toast.error("این ایمیل قبلا ثبت نام کرده است", {
+            position: "top-center",
+            autoClose: 1500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        } else if (error.response.data.message.startsWith("phone Number")) {
+          toast.error("این شماره موبایل قبلا ثبت نام کرده است", {
+            position: "top-center",
+            autoClose: 1500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          })
+        } else {
+          toast.error("خطا در ثیت نام لطفا بعدا تلاش کنید", {
+            position: "top-center",
+            autoClose: 1500,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          })
+        }
       })
   }
 
