@@ -35,16 +35,16 @@ const CartPage = () => {
           <div className="w-full p-3 pb-8 lg:pb-3 bg-white shadow rounded-lg select-none flex flex-col gap-y-4">
             <div className="flex items-center justify-between w-full">
               <span>مجموع قیمت :</span>
-              <span className="text-orange-500">{cartState.total} تومان</span>
+              <span className="text-red-500">{cartState.total} تومان</span>
             </div>
-            <div className="flex justify-between items-center w-full">
+            {/*<div className="flex justify-between items-center w-full">
               <span className="whitespace-nowrap">کد تخفیف</span>
               <div className="flex items-center">
                 <input className="p-1 border outline-none max-w-[130px] rounded-r-lg" type={"text"} placeholder="c125fg" />
                 <button className="bg-blue-500 text-white p-1 rounded-l-lg">تایید</button>
               </div>
-            </div>
-            <button className="w-full py-3 md:mt-12 mt-6 block text-white bg-orange-500 rounded-lg">ادامه فرآینده خرید</button>
+            </div>*/}
+            <button className="w-full py-3 md:mt-12 mt-6 block text-white bg-red-500 rounded-lg">ادامه فرآینده خرید</button>
           </div>
         </article>
       </div>

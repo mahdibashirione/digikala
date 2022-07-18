@@ -35,7 +35,7 @@ const ProductDetail = (props) => {
   }
 
   function checkInCart(cart, product) {
-    return cart.find(c => c.id === product.id)
+    return cart.find(c => c._id === product._id)
   }
 
   const { state } = useLocation()
@@ -91,7 +91,7 @@ const ProductDetail = (props) => {
             {/* Detail Product */}
             <div className="select-none w-full lg:w-[60%] flex flex-col justify-center items-center">
               <div className="lg:border-b lg:pb-6 lg:w-full flex flex-col items-center lg:items-start justify-center gap-y-2">
-                <h2 className="text-slate-800 font-sans text-lg font-bold">{state.state.name}</h2>
+                <h2 className="text-slate-800 font-sans text-lg font-bold mt-8 lg:mt-0">{state.state.name}</h2>
               </div>
               <div className="lg:w-full flex items-center justify-between lg:justify-start lg:gap-x-4 w-2/3 my-6">
                 <span>انتخاب رنگ :</span>
@@ -216,7 +216,7 @@ const ProductDetail = (props) => {
               <span className="font-sans font-bold">ارسال توسط :</span>
               <span className="font-sans text-sm">انبار تهران</span>
             </div>
-            <div className="w-full flex justify-end flex-wrap text-orange-600 select-none mt-16">
+            <div className="w-full flex justify-end flex-wrap text-red-600 select-none mt-16">
               {state.state.offPrice && <div className="text-white mb-2 w-full flex justify-between items-center">
                 <span className="bg-red-500 rounded-full py-1 px-2">{state.state.discount}%</span>
                 <span className="text-gray-500 line-through">{state.state.price}</span>
@@ -236,11 +236,11 @@ const ProductDetail = (props) => {
         }
         <div className="flex items-center justify-between w-full mt-2">
           <div>
-            <span className="text-orange-600 font-bold text-lg mr-4">{state.state.beforePrice || state.state.price}</span>
-            <span className="text-orange-600 mr-1">تومان</span>
+            <span className="text-red-600 font-bold text-lg mr-4">{state.state.offPrice || state.state.price}</span>
+            <span className="text-red-600 mr-1">تومان</span>
           </div>
-          {state.state.beforePrice && <div className="select-none text-white gap-x-3 w-full flex justify-end items-center">
-            <span className="bg-red-500 rounded-full py-1 px-2 text-sm">{state.state.discount}</span>
+          {state.state.offPrice && <div className="select-none text-white gap-x-3 w-full flex justify-end items-center">
+            <span className="bg-red-500 rounded-full py-1 px-2 text-sm">{state.state.discount}%</span>
             <span className="text-gray-500 line-through">{state.state.price}</span>
           </div>}
         </div>

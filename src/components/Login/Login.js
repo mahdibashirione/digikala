@@ -1,23 +1,16 @@
 import { useFormik } from "formik";
 import * as yup from 'yup';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../common/Input";
 import { ToastContainer, toast } from 'react-toastify';
 import { http } from "../../services/httpService";
 const Login = () => {
   const initialValues = { email: "", password: "", }
+  const navigate = useNavigate()
 
   const onSubmit = (values) => {
     http.post("/user/login", values).then(res => {
-      toast.success('شما وارد شدید', {
-        position: "top-center",
-        autoClose: 1500,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      navigate("/")
     })
       .catch(error => {
         toast.error(error.response.data.message, {

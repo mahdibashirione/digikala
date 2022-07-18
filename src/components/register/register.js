@@ -3,21 +3,14 @@ import * as yup from 'yup';
 import Input from "../common/Input";
 import { ToastContainer, toast } from 'react-toastify';
 import { http } from "../../services/httpService";
+import { useNavigate } from "react-router-dom";
 const Register = () => {
   const initialValues = { email: "", password: "", name: "", phoneNumber: "" }
+  const navigate = useNavigate()
 
   const onSubmit = (values) => {
-    console.log(values)
     http.post("/user/register", values).then(res => {
-      toast.success('ثبت نام انجام شد', {
-        position: "top-center",
-        autoClose: 1500,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      navigate("/user/login")
     })
       .catch(error => {
         if (error.response.data.message.startsWith("Email")) {

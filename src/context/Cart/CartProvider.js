@@ -22,10 +22,6 @@ const reduser = (state, action) => {
       return { ...state, cart: updatedCart, total: state.total + parseFloat(action.payload.state.offPrice || action.payload.state.price) };
 
     }
-    case "Delete_From_Cart": {
-      const updatedCart = state.cart.filter(item => item._id !== action.payload._id)
-      return { ...state, cart: updatedCart, total: state.total - parseFloat(action.payload.offPrice || action.payload.price) }
-    }
     case "Increment": {
       const updatedCart = [...state.cart]
       const indexItem = updatedCart.findIndex(item => item._id === action.payload._id)
@@ -35,13 +31,16 @@ const reduser = (state, action) => {
       return { ...state, cart: updatedCart, total: state.total + parseFloat(action.payload.offPrice || action.payload.price) }
     }
     case "Decrement": {
-      const updatedCart = [...state.cart]
+      let updatedCart = [...state.cart]
       const indexItem = updatedCart.findIndex(item => item._id === action.payload._id)
       const updatedItem = { ...updatedCart[indexItem] }
       if (updatedItem.quantity > 1) {
         updatedItem.quantity--;
+        updatedCart[indexItem] = updatedItem;
+      } else {
+        updatedCart = state.cart.filter(p => p._id !== action.payload._id)
+
       }
-      updatedCart[indexItem] = updatedItem;
       return {
         ...state, cart: updatedCart, total: state.total - parseFloat(action.payload.offPrice || action.payload.price)
       }

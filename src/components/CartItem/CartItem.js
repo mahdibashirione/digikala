@@ -1,4 +1,6 @@
 import { FiTrash2 } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
+import { FiMinus } from "react-icons/fi";
 import { useCartActions } from "../../context/Cart/CartProvider";
 
 const CartItem = ({ product }) => {
@@ -17,18 +19,14 @@ const CartItem = ({ product }) => {
           <span className="text-gray-500 line-through">{product.price}</span>
           <span className="bg-red-500 rounded-full py-1 px-2 text-sm">{product.discount}%</span>
         </div>}
-        <p className="text-orange-500 font-bold">{product.offPrice || product.price}</p>
+        <p className="text-red-500 font-bold">{product.offPrice || product.price} تومان</p>
       </div>
       {/*increment dicrement delete*/}
-      <div className="h-20 flex flex-col justify-between items-end">
-        <div onClick={() => cartDispatch({ type: "Delete_From_Cart", payload: product })}>
-          <FiTrash2 className="text-orange-500 text-xl cursor-pointer" />
-        </div>
-        <div className="flex items-center gap-x-3 select-none">
-          <span onClick={() => cartDispatch({ type: "Increment", payload: product })} className="bg-gray-300 text-lg cursor-pointer w-6 h-6 flex justify-center items-center text-slate-800 rounded-full"> + </span>
-          <p>{product.quantity}</p>
-          <span onClick={() => cartDispatch({ type: "Decrement", payload: product })} className="bg-orange-300 text-lg cursor-pointer w-6 h-6 flex justify-center items-center text-white rounded-full"> - </span>
-        </div>
+      <div className="py-2 px-3 select-none text-red-500 border rounded-lg flex justify-center items-center gap-x-3">
+        <FiPlus onClick={() => cartDispatch({ type: "Increment", payload: product })} className="text-lg cursor-pointer" />
+        <p>{product.quantity}</p>
+        {product.quantity > 1 ? <FiMinus onClick={() => cartDispatch({ type: "Decrement", payload: product })} className="text-lg cursor-pointer" />
+          : <FiTrash2 onClick={() => cartDispatch({ type: "Decrement", payload: product })} className="text-lg cursor-pointer" />}
       </div>
     </div>
   );
