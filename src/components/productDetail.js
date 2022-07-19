@@ -201,27 +201,29 @@ const ProductDetail = (props) => {
         {/* Box Price */}
         <article className="font-sans w-[25%] mt-4 h-full hidden lg:flex justify-center items-start sticky top-24 pl-2 pr-4">
           <div className="p-4 bg-[#f4f4f4] w-full rounded-lg flex justify-start flex-wrap gap-y-4">
-            <div className="hidden lg:flex items-center gap-x-2">
-              <img className="w-5" src="/image/shop.svg" alt="shop" />
-              <span className="font-sans font-bold">فروشنده :</span>
-              <span className=" font-sans text-sm">دیجی تایز</span>
+            <div className="w-full select-none pb-4 border-b border-zinc-500 flex flex-col gap-y-4">
+              <div className="hidden lg:flex items-center gap-x-2">
+                <img className="w-5" src="/image/shop.svg" alt="shop" />
+                <span className="font-sans font-bold">فروشنده :</span>
+                <span className=" font-sans text-sm">دیجی تایز</span>
+              </div>
+              <div className="hidden lg:flex items-center gap-x-2">
+                <img className="w-5" src="/image/shield.svg" alt="shop" />
+                <span className="font-sans font-bold">گارانتی :</span>
+                <span className=" font-sans text-sm">18 ماه زرین خدمت</span>
+              </div>
+              <div className="hidden lg:flex items-center gap-x-2">
+                <img className="w-5" src="/image/truck-time.svg" alt="shop" />
+                <span className="font-sans font-bold">ارسال توسط :</span>
+                <span className="font-sans text-sm">انبار تهران</span>
+              </div>
             </div>
-            <div className="hidden lg:flex items-center gap-x-2">
-              <img className="w-5" src="/image/shield.svg" alt="shop" />
-              <span className="font-sans font-bold">گارانتی :</span>
-              <span className=" font-sans text-sm">18 ماه زرین خدمت</span>
-            </div>
-            <div className="hidden lg:flex items-center gap-x-2">
-              <img className="w-5" src="/image/truck-time.svg" alt="shop" />
-              <span className="font-sans font-bold">ارسال توسط :</span>
-              <span className="font-sans text-sm">انبار تهران</span>
-            </div>
-            <div className="w-full flex justify-end flex-wrap text-red-600 select-none mt-16">
-              {state.state.offPrice && <div className="text-white mb-2 w-full flex justify-between items-center">
+            <div className="w-full flex justify-between flex-wrap text-red-600 select-none mt-10">
+              {state.state.discount > 0 && <div className="text-white mb-2 w-full flex justify-between items-center">
                 <span className="bg-red-500 rounded-full py-1 px-2">{state.state.discount}%</span>
                 <span className="text-gray-500 line-through">{state.state.price}</span>
               </div>}
-              <p className="font-bold text-xl">{state.state.offPrice || state.state.price}</p>
+              <p className="font-bold text-xl">{state.state.discount > 0 ? state.state.offPrice : state.state.price}</p>
               <span className="mr-1">تومان</span>
             </div>
             {checkInCart(cart, state.state) ? <Link to={"/cart"} className="flex items-center justify-center w-full bg-red-500 text-white py-3 rounded-lg"> رفتن به سبد خرید </Link>
@@ -230,20 +232,20 @@ const ProductDetail = (props) => {
           </div>
         </article>
       </div>
-      <article className="bg-white border-t-2 font-sans lg:hidden flex flex-wrap items-center justify-between w-full fixed bottom-0 right-0 p-4">
-        {checkInCart(cart, state.state) ? <Link to={"/cart"} className="flex items-center justify-center w-full bg-red-500 text-white py-3 rounded-lg"> رفتن به سبد خرید </Link>
-          : <button onClick={addToCartHandler} className="w-full bg-red-500 text-white py-3 rounded-lg">افزودن به سبد خرید</button>
-        }
-        <div className="flex items-center justify-between w-full mt-2">
+      <article className="bg-white border-t-2 font-sans lg:hidden flex gap-y-3 flex-wrap items-center justify-between w-full fixed bottom-0 right-0 px-4 py-2">
+        <div className="flex items-center justify-between w-full">
           <div>
             <span className="text-red-600 font-bold text-lg mr-4">{state.state.offPrice || state.state.price}</span>
             <span className="text-red-600 mr-1">تومان</span>
           </div>
-          {state.state.offPrice && <div className="select-none text-white gap-x-3 w-full flex justify-end items-center">
+          {state.state.discount > 0 && <div className="select-none text-white gap-x-3 w-full flex justify-end items-center">
             <span className="bg-red-500 rounded-full py-1 px-2 text-sm">{state.state.discount}%</span>
             <span className="text-gray-500 line-through">{state.state.price}</span>
           </div>}
         </div>
+        {checkInCart(cart, state.state) ? <Link to={"/cart"} className="flex items-center justify-center w-full bg-red-500 text-white py-3 rounded-lg"> رفتن به سبد خرید </Link>
+          : <button onClick={addToCartHandler} className="w-full bg-red-500 text-white py-3 rounded-lg">افزودن به سبد خرید</button>
+        }
       </article>
     </section>
   );

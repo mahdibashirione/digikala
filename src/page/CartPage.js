@@ -23,7 +23,7 @@ const CartPage = () => {
 
   return (
     <section className="w-full">
-      <div className="container flex flex-col items-start justify-center lg:flex-row pb-24">
+      <div className="container flex flex-col items-start justify-center lg:flex-row pb-14">
         <article className="w-full lg:w-[70%] p-4 flex flex-col gap-y-3">
           {cartState.cart.length ? cartState.cart.map(item => {
             return (
@@ -32,7 +32,7 @@ const CartPage = () => {
           }) : <NotProductInCart />}
         </article>
         <article className="w-full lg:w-[30%] p-4 lg:h-full lg:sticky top-24">
-          <div className="w-full p-3 pb-8 lg:pb-3 bg-white shadow rounded-lg select-none flex flex-col gap-y-4">
+          <div className="w-full p-3 pb-8 lg:pb-3 bg-white border shadow rounded-lg select-none flex flex-col gap-y-4">
             <div className="flex items-center justify-between w-full">
               <span>مجموع قیمت :</span>
               <span className="text-red-500">{cartState.total} تومان</span>

@@ -15,7 +15,7 @@ const EmazingSliderHome = () => {
   async function Get_offProduct(url) {
     try {
       const { data } = await http.get(url)
-      data && setDataProducts(data.filter(p => p.discount !== 0))
+      data && setDataProducts(data)
     } catch (error) {
       console.log(error)
     }
@@ -90,18 +90,13 @@ const EmazingSliderHome = () => {
 
   const AmazingSliderItem = ({ product }) => {
     return (
-      <Link to={`/product/${product.name}/${product._id}`} state={{ state: product }} className="cursor-pointer block h-full min-w-[175px] bg-white">
+      <Link to={`/product/${product.name}/${product._id}`} state={{ state: product }} className="rounded cursor-pointer h-full min-w-[175px] bg-white block">
         <div className="w-full h-[150px] flex items-center justify-center">
           <img className="h-full object-cover" src={product.img} />
         </div>
-        <div className="w-full px-2 mb-2">
-          <span className="text-sm">
-            {product.name}
-          </span>
-        </div>
-        <article className="h-full px-2">
+        <article className="h-full px-2 mt-4">
           <div className="w-full flex items-center justify-between">
-            <span className="bg-red-600 text-white rounded-full px-1">{product.discount}%</span>
+            <span className="bg-red-600 text-white rounded-full px-1 text-sm">{product.discount}%</span>
             <span className="font-sans text-md font-bold flex items-center justify-center">
               {product.offPrice}
               <span className="text-[13px] text-gray-600">تومان</span>
@@ -117,7 +112,7 @@ const EmazingSliderHome = () => {
 
   return (
     <section className="lg:container bg-red-500 lg:rounded-2xl py-4 px-0.5">
-      <div className="scrollbar-hidden w-full h-[245px] overflow-x-scroll overflow-y-hidden flex flex-nowrap items-center justify-start gap-x-1">
+      <div className="scrollbar-hidden w-full h-[230px] overflow-x-scroll overflow-y-hidden flex flex-nowrap items-center justify-start gap-x-1">
 
         <Link to="#" className="h-full min-w-[175px] flex flex-col justify-center items-center">
           <img className="object-cover h-[40%]" src="/image/amazingSlider/amazing-typo.svg" />
@@ -130,14 +125,14 @@ const EmazingSliderHome = () => {
         {!dataProducts ? <LoadingCard /> :
           dataProducts.slice(0, 11).map(product => {
             return (
-              <AmazingSliderItem key={product.id} product={product} />
+              <AmazingSliderItem key={product._id} product={product} />
             )
           })
         }
 
         {/*<AmazingSliderItem product={data[0]} onClick={() => cartDispatch({ type: "Add_To_Cart", payload: "mahdi" })} />*/}
 
-        <Link to="#" className="ml-4 rounded-l-lg min-w-[175px] h-full flex flex-col bg-white items-center justify-center">
+        <Link to="#" className="ml-4 rounded min-w-[170px] h-full flex flex-col bg-white items-center justify-center">
           <span className="flex items-center justify-center w-[52px] h-[52px] border-2 border-blue-600 rounded-full">
             <FiChevronLeft className="text-2xl text-blue-700" />
           </span>

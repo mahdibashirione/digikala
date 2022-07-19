@@ -98,8 +98,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-full pt-8 pb-20 flex items-center justify-center text-gray-500 text-[12px]">
-          <p>برای استفاده از مطالب دیجی‌کالا، داشتن «هدف غیرتجاری» و ذکر «منبع» کافیست. تمام حقوق اين وب‌سايت نیز برای شرکت نوآوران فن آوازه (فروشگاه آنلاین دیجی‌کالا) است.</p>
+        <div className="w-full py-8 flex items-center justify-center text-gray-500 text-[12px]">
+          <p className="text-center">برای استفاده از مطالب دیجی‌کالا، داشتن «هدف غیرتجاری» و ذکر «منبع» کافیست. تمام حقوق اين وب‌سايت نیز برای شرکت نوآوران فن آوازه (فروشگاه آنلاین دیجی‌کالا) است.</p>
         </div>
 
       </article>
