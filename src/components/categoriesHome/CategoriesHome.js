@@ -10,9 +10,9 @@ const CategoriesHome = () => {
     Get_Categories()
   }, [])
 
-  async function Get_Categories() {
+  async function Get_Categories(url) {
     try {
-      const { data } = await http.get("/categoriesHome")
+      const { data } = await http.get(url)
       if (data) setDataCategories(data)
     } catch (error) {
       console.log(error)

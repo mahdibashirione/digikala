@@ -5,13 +5,13 @@ const BanerHome = () => {
   const [dataBaner, setDataBaner] = useState(null)
 
   useEffect(() => {
-    Get_BanerHome()
+    Get_BanerHome("/banerHome")
   }, [])
 
-  async function Get_BanerHome() {
+  async function Get_BanerHome(url) {
     try {
-      const { data } = await http.get("/banerHome")
-      if (data) setDataBaner(data)
+      const { data } = await http.get(url)
+      data && setDataBaner(data)
     } catch (error) {
       console.log(error)
     }

@@ -12,13 +12,13 @@ const DigiPlusHome = () => {
   const [dataDigiPlus, setDataDigiPlus] = useState(null)
 
   useEffect(() => {
-    Get_DigiPlus()
+    Get_Product_DigiPlus("/digiPlus")
   }, [])
 
-  async function Get_DigiPlus() {
+  async function Get_Product_DigiPlus(url) {
     try {
-      const { data } = await http.get("/digiPlus")
-      if (data) setDataDigiPlus(data)
+      const { data } = await http.get(url)
+      data && setDataDigiPlus(data)
     } catch (error) {
       console.log(error)
     }

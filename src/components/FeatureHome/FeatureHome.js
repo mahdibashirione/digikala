@@ -7,10 +7,17 @@ const FeatureHome = () => {
   const [dataFeature, setDataFeature] = useState(null)
 
   useEffect(() => {
-    http.get("/featureHome")
-      .then(res => setDataFeature(res.data))
-      .catch(e => console.log("error" + e))
+    Get_featureHome("/FeatureHome")
   }, [])
+
+  async function Get_featureHome(url) {
+    try {
+      const { data } = await http.get(url)
+      data && setDataFeature(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const LoadingFeature = () => {
     return (

@@ -10,7 +10,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { FiAlertOctagon } from "react-icons/fi";
 import { FiDivideCircle } from "react-icons/fi";
 import { FiTag } from "react-icons/fi";
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useCart } from "../../context/Cart/CartProvider"
 
 const Header = () => {
@@ -21,22 +21,32 @@ const Header = () => {
   const nav = useRef()
 
   const [allCity, setAllCity] = useState([
-    { name: "کرج" },
-    { name: "تهران" },
-    { name: "بوشهر" },
-    { name: "بندرعباس" },
-    { name: "بانه" },
-    { name: "مریوان" },
-    { name: "سنندج" },
-    { name: "کرمانشاه" },
-    { name: "ایلام" },
-    { name: "سقز" },
-    { name: "شهر کورد" },
-    { name: "اصفهان" },
-    { name: "دلیجان" },
-    { name: "ابادان" },
+    { id: 1, name: "کرج" },
+    { id: 2, name: "تهران" },
+    { id: 3, name: "بوشهر" },
+    { id: 4, name: "بندرعباس" },
+    { id: 5, name: "بانه" },
+    { id: 6, name: "مریوان" },
+    { id: 7, name: "سنندج" },
+    { id: 8, name: "کرمانشاه" },
+    { id: 9, name: "ایلام" },
+    { id: 10, name: "سقز" },
+    { id: 11, name: "شهر کورد" },
+    { id: 12, name: "اصفهان" },
+    { id: 13, name: "دلیجان" },
+    { id: 14, name: "ابادان" },
   ])
+
   const [myCity, setMycity] = useState(null)
+
+  useEffect(() => {
+    myCity && localStorage.setItem("MyCity", JSON.stringify(myCity))
+  }, [myCity])
+
+  useEffect(() => {
+    const cityLocalStorage = JSON.parse(localStorage.getItem("MyCity"))
+    cityLocalStorage && setMycity(cityLocalStorage)
+  }, [])
 
   const openNavHandler = () => {
     nav.current.classList.replace("right-full", "right-0")
@@ -195,7 +205,7 @@ const Header = () => {
             <FiX onClick={() => panelCity.current.classList.replace("flex", "hidden")} className="text-xl cursor-pointer" />
           </div>
           <div className="w-full px-2 pb-8 h-full overflow-y-scroll flex flex-col items-start justify-start">
-            {allCity.map(c => <span onClick={handleSelectCity} className="cursor-pointer block w-full py-4 border-b">{c.name}</span>)}
+            {allCity.map(c => <span key={c.id} onClick={handleSelectCity} className="cursor-pointer block w-full py-4 border-b">{c.name}</span>)}
           </div >
         </div >
       </div >

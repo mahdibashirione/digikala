@@ -12,10 +12,17 @@ const SliderFullHome = () => {
   const [dataSlider, setDataSlider] = useState(null)
 
   useEffect(() => {
-    http.get("/sliderHome")
-      .then(res => setDataSlider(res.data))
-      .catch(e => console.log("Error :" + e))
+    Get_Image_sliderHome("/sliderHome")
   }, [])
+
+  async function Get_Image_sliderHome(url) {
+    try {
+      const { data } = await http.get(url)
+      data && setDataSlider(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const isNavigation = window.innerWidth > 600;
 
