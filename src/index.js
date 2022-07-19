@@ -4,18 +4,21 @@ import './index.css';
 import App from './App';
 import Layout from './layout/Layout';
 import { BrowserRouter } from 'react-router-dom';
-import ContextCart from './context/Cart/CartProvider';
+import CartProvider from './context/Cart/CartProvider';
+import AuthProvider from './context/Auth/AuthProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ContextCart>
-        <Layout>
-          <App />
-        </Layout>
-      </ContextCart>
+      <AuthProvider>
+        <CartProvider>
+          <Layout>
+            <App />
+          </Layout>
+        </CartProvider>
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

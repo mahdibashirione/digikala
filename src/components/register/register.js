@@ -4,13 +4,17 @@ import Input from "../common/Input";
 import { ToastContainer, toast } from 'react-toastify';
 import { http } from "../../services/httpService";
 import { useNavigate } from "react-router-dom";
+import { useAuthAction } from "../../context/Auth/AuthProvider";
 const Register = () => {
   const initialValues = { email: "", password: "", name: "", phoneNumber: "" }
   const navigate = useNavigate()
+  const setAuth = useAuthAction()
 
   const onSubmit = (values) => {
     http.post("/user/register", values).then(res => {
-      navigate("/user/login")
+      navigate("/")
+      setAuth(res.data)
+      localStorage.setItem("AuthState", JSON.stringify(res.data))
     })
       .catch(error => {
         if (error.response.data.message.startsWith("Email")) {

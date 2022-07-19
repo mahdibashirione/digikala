@@ -50,7 +50,7 @@ const reduser = (state, action) => {
   }
 }
 
-const ContextCart = ({ children }) => {
+const CartProvider = ({ children }) => {
 
   const [cart, dispatch] = useReducer(reduser, initialState)
 
@@ -63,7 +63,7 @@ const ContextCart = ({ children }) => {
   );
 }
 
-export default ContextCart;
+export default CartProvider;
 
 export const useCart = () => useContext(CartContext)
 export const useCartActions = () => useContext(CartContextDispatcher)

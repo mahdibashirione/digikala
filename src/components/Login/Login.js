@@ -4,13 +4,16 @@ import { Link, useNavigate } from "react-router-dom";
 import Input from "../common/Input";
 import { ToastContainer, toast } from 'react-toastify';
 import { http } from "../../services/httpService";
+import { useAuthAction } from "../../context/Auth/AuthProvider";
 const Login = () => {
   const initialValues = { email: "", password: "", }
   const navigate = useNavigate()
-
+  const setAuth = useAuthAction()
   const onSubmit = (values) => {
     http.post("/user/login", values).then(res => {
       navigate("/")
+      setAuth(res.data)
+      localStorage.setItem("AuthState", JSON.stringify(res.data))
     })
       .catch(error => {
         toast.error(error.response.data.message, {
