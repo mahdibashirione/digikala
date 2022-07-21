@@ -1,13 +1,16 @@
 import { Disclosure } from '@headlessui/react'
 import CheckBox from '../common/checkBox'
-import { FiSliders } from "react-icons/fi"
-import { FiChevronDown } from "react-icons/fi"
+import { FiSliders, FiChevronDown, FiFilter } from "react-icons/fi"
 import { useEffect, useState } from 'react'
 import CardProduct from '../cardProduct/CardProduct'
 import { http } from '../../services/httpService'
 import Radio from '../common/radio'
-
+import { useRef } from "react"
 const LayoutProducts = () => {
+
+  const sort = useRef()
+  const panelFilter = useRef()
+  const backDrop = useRef()
 
   const [allProduct, setAllProduct] = useState(null)
 
@@ -75,12 +78,31 @@ const LayoutProducts = () => {
     )
   }
 
+  const handleSortOpen = () => {
+    sort.current.classList.replace("max-h-0", "h-[calc(100vh-40%)]")
+    backDrop.current.classList.replace("hidden", "block")
+  }
+
+  const handleFilterOpen = () => {
+    panelFilter.current.classList.replace("max-h-0", "h-[calc(100vh-40%)]")
+    backDrop.current.classList.replace("hidden", "block")
+  }
+
+  const handleClusePopUp = () => {
+    sort.current.classList.replace("h-[calc(100vh-40%)]", "max-h-0")
+    panelFilter.current.classList.replace("h-[calc(100vh-40%)]", "max-h-0")
+    backDrop.current.classList.replace("block", "hidden")
+  }
+
   return (
     <section className="w-full bg-[#f4f4f4]">
+      {/*backDrop*/}
+      <span onClick={handleClusePopUp} ref={backDrop} className='hidden md:hidden w-screen h-screen z-40 bg-zinc-900/60 -top-[100px] fixed'></span>
       <div className="container py-4 grid grid-cols-1 md:grid-cols-[250px_minmax(100px,_1fr)] grid-rows-[60px_minmax(100px,_1fr)] gap-4">
-        <article className="hidden md:block md:col-span-1 md:row-span-full">
-          <div className="p-2 w-full bg-white rounded-lg sticky top-[85px]">
-            <div className="mx-auto w-full max-h-[450px] overflow-y-auto flex flex-col gap-y-2 max-w-md rounded-2xl bg-white p-2">
+
+        <article ref={panelFilter} className="fixed bottom-0 rounded-t-lg md:static md:bottom-auto md:w-full md:min-h-full overflow-hidden z-40 md:z-10 w-screen max-h-0  duration-300 transition-all  md:block md:col-span-1 md:row-span-full">
+          <div className="w-full h-full md:h-auto md:bg-white/10 bg-white md:rounded-lg">
+            <div className="mx-auto w-full md:max-h-[450px] h-full overflow-y-auto flex flex-col gap-y-2 max-w-md rounded-lg bg-white p-2">
               {/* brand */}
               <Disclosure>
                 {({ open }) => (
@@ -158,13 +180,22 @@ const LayoutProducts = () => {
             </div>
           </div>
         </article>
-        <article className="md:col-[2/3] md:row-[1/2] px-4 md:px-0 ">
-          <div className="px-4 select-none w-full h-full flex text-sm lg:text-[1rem] items-center rounded-lg bg-white justify-start gap-x-4 text-gray-400">
+        <article className="md:col-[2/3] md:row-[1/2] px-4 md:px-0 gap-x-2 flex items-center justify-between">
+
+          <div className="px-4 select-none md:w-full w-1/2 h-full flex text-sm lg:text-[1rem] items-center rounded-lg bg-white justify-start gap-x-4 text-gray-400">
             <FiSliders className="text-red-500 text-2xl" />
-            <span onClick={(e) => sortHandler(e)} name="sort" value="Bestselling" className={`${filter.sort === "پرفروش ترین" && "font-bold text-slate-900"} cursor-pointer`}>پرفروش ترین</span>
-            <span onClick={(e) => sortHandler(e)} name="sort" value="MostVisited" className={`${filter.sort === "پربازدید ترین" && "font-bold text-slate-900"} cursor-pointer`}>پربازدید ترین</span>
-            <span onClick={(e) => sortHandler(e)} name="sort" value="MostExpensive" className={`${filter.sort === "گرانترین" && "font-bold text-slate-900"} cursor-pointer`}>گرانترین</span>
-            <span onClick={(e) => sortHandler(e)} name="sort" value="Ceapest" className={`${filter.sort === "ارزان ترین" && "font-bold text-slate-900"} cursor-pointer`}>ارزان ترین</span>
+            <div ref={sort} className='fixed duration-300 transition-all md:border-0 overflow-hidden md:relative bg-white w-full rounded-t-xl border-t md:w-auto max-h-0 md:h-full md:max-h-full right-0 flex-col md:flex-row bottom-0 z-40 md:z-10  md:flex items-center justify-center gap-4'>
+              <span onClick={(e) => sortHandler(e)} name="sort" value="Bestselling" className={`${filter.sort === "پرفروش ترین" && "font-bold text-slate-900"} text-center py-4 md:py-0 cursor-pointer w-full md:w-auto block`}>پرفروش ترین</span>
+              <span onClick={(e) => sortHandler(e)} name="sort" value="MostVisited" className={`${filter.sort === "پربازدید ترین" && "font-bold text-slate-900"} text-center py-4 md:py-0 cursor-pointer w-full md:w-auto block`}>پربازدید ترین</span>
+              <span onClick={(e) => sortHandler(e)} name="sort" value="MostExpensive" className={`${filter.sort === "گرانترین" && "font-bold text-slate-900"} text-center py-4 md:py-0 cursor-pointer w-full md:w-auto block`}>گرانترین</span>
+              <span onClick={(e) => sortHandler(e)} name="sort" value="Ceapest" className={`${filter.sort === "ارزان ترین" && "font-bold text-slate-900"} text-center py-4 md:py-0 cursor-pointer w-full md:w-auto block`}>ارزان ترین</span>
+            </div>
+            <span onClick={handleSortOpen} className='font-bold cursor-pointer h-full w-full md:hidden flex items-center justify-start text-slate-800'>{filter.sort}</span>
+          </div>
+
+          <div onClick={handleFilterOpen} className="cursor-pointer flex px-4 items-center md:hidden w-1/2 bg-white h-full rounded-lg justify-start gap-2">
+            <FiFilter className='text-xl text-red-500' />
+            <span className='font-bold text-slate-800'>فیلترها</span>
           </div>
         </article>
         <article className="px-4 md:px-0 md:col-[2/3] md:row-[2/3] rounded-lg grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
