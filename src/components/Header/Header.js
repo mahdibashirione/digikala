@@ -64,7 +64,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky md:border-b border-b-2 top-0 w-fyll pt-4 md:pb-4 px-2 bg-white z-40">
+      <header className="sticky md:border-b top-0 w-fyll pt-4 md:pb-4 px-2 bg-white z-40">
         <div className="gap-y-3 container pb-2 md:pb-0 font-sans text-xl w-full flex flex-wrap md:flex-nowrap items-center justify-center">
           <button className="md:hidden w-1/3 flex justify-start">
             <BiMenu onClick={openNavHandler} className="text-2xl" />
