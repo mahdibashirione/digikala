@@ -31,7 +31,7 @@ const DigiPlusHome = () => {
   return (
     <section className="w-full mt-4">
       <div className="lg:container w-full lg:rounded-lg p-4 bg-[#941B80] flex flex-col lg:flex-row items-start justify-between">
-        <div className="w-full lg:max-w-[300px] flex flex-col md:flex-row lg:flex-col justify-between">
+        <div className="w-full lg:max-w-[300px] flex lg:flex-col justify-between">
           <div className="select-none md:w-1/2 lg:w-full flex flex-col items-start justify-start font-sans text-md text-white">
             <h2 className="text-4xl font-bold">digiplus</h2>
             <p className="my-4">خدمات ویژه برای اعضای دیجی پلاس</p>
@@ -40,7 +40,7 @@ const DigiPlusHome = () => {
               <BiArrowBack className="mr-2 text-xl" />
             </button>
           </div>
-          <div className="w-full h-full md:w-1/2 lg:w-full max-w-[300px] flex justify-start">
+          <div className="w-full h-full md:w-1/2 lg:w-full max-w-[250px] flex justify-start">
             <div className="h-full">
               <img className="w-full object-cover" src="https://www.digikala.com/statics/img/png/digiplus/plus-widget.png" alt="digiPlus" />
             </div>

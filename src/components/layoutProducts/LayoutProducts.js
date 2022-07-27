@@ -100,15 +100,15 @@ const LayoutProducts = () => {
       {/*backDrop*/}
       <span onClick={handleClusePopUp} ref={backDrop} className='hidden md:hidden w-screen h-[calc(100vh-60%)] z-40 bg-zinc-900/60 top-0 fixed'></span>
 
-      <div className="container py-4 grid grid-cols-1 md:grid-cols-[250px_minmax(100px,_1fr)] grid-rows-[60px_minmax(100px,_1fr)] gap-4">
+      <div className="md:container py-4 grid grid-cols-1 md:grid-cols-[250px_minmax(100px,_1fr)] grid-rows-[60px_minmax(100px,_1fr)] gap-4">
         {/*filter*/}
-        <article ref={panelFilter} className="md:static text-sm md:text-base fixed bottom-0  rounded-t-lg md:bottom-auto md:w-full md:min-h-full overflow-hidden z-40 md:z-10 w-screen max-h-0  duration-300 transition-all  md:block md:col-span-1 md:row-span-full">
-          <div className="md:sticky md:top-0 mx-auto md:py-2 w-full h-full md:h-auto md:max-h-[450px] overflow-y-auto flex flex-col gap-y-2 max-w-md rounded-lg bg-white p-2">
+        <article ref={panelFilter} className="md:static text-sm md:text-base fixed bottom-0  rounded-t-lg md:bottom-auto w-full md:min-h-full overflow-hidden z-40 md:z-10 w-fuul max-h-0  duration-300 transition-all  md:block md:col-span-1 md:row-span-full">
+          <div className="h-full scrollbar-hidden md:h-auto md:max-h-[450px] overflow-y-auto flex flex-col gap-y-2 rounded-lg bg-white p-3">
             {/* brand */}
             <Disclosure>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex w-full select-none justify-between rounded-lg p-4 text-left text-sm font-medium text-white-900 hover:bg-gray-200 bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  <Disclosure.Button className="flex w-full select-none justify-between rounded-lg p-4 text-left text-sm font-medium text-white-900 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                     <div className='flex items-center justify-center gap-x-2'>
                       <div className='w-5 h-5'>
                         <svg width="20" height="20" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,7 +123,7 @@ const LayoutProducts = () => {
                     </div>
                     <FiChevronDown className='text-lg' />
                   </Disclosure.Button>
-                  <Disclosure.Panel className=" text-sm text-gray-500 flex flex-col items-start">
+                  <Disclosure.Panel className="text-sm text-gray-500 flex flex-col items-start">
                     {dataFilters.brands.map(brand => <CheckBox key={brand.value} lable={brand.lable} name={brand.name} value={brand.value} />)}
                   </Disclosure.Panel>
                 </>
@@ -133,7 +133,7 @@ const LayoutProducts = () => {
             <Disclosure>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex w-full select-none justify-between rounded-lg p-4 text-left text-sm font-medium text-white-900 hover:bg-gray-200 bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  <Disclosure.Button className="flex w-full select-none justify-between rounded-lg p-4 text-left text-sm font-medium text-white-900 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                     <div className='flex items-center justify-center gap-x-2'>
                       <div className='w-5 h-5'>
                         <svg width="20" height="20" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -158,7 +158,7 @@ const LayoutProducts = () => {
             <Disclosure>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex w-full select-none justify-between rounded-lg p-4 text-left text-sm font-medium text-white-900 hover:bg-gray-200 bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
+                  <Disclosure.Button className="flex w-full select-none justify-between rounded-lg p-4 text-left text-sm font-medium text-white-900 hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-purple-500 focus-visible:ring-opacity-75">
                     <div className='flex items-center justify-center gap-x-2'>
                       <div className='w-5 h-5'>
                         <svg width="20" height="20" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">

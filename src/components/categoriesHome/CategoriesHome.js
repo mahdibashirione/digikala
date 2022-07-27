@@ -7,7 +7,7 @@ const CategoriesHome = () => {
   const [dataCategories, setDataCategories] = useState(null)
 
   useEffect(() => {
-    Get_Categories()
+    Get_Categories("/categoriesHome")
   }, [])
 
   async function Get_Categories(url) {
@@ -65,6 +65,7 @@ const CategoriesHome = () => {
       </>
     )
   }
+
 
   return (
     <section className="container flex flex-col justify-center items-center">

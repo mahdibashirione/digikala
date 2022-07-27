@@ -29,7 +29,7 @@ const SliderFullHome = () => {
   return (
     <section className="select-none relative w-full xl:h-[400px] lg:h-[350px] md:h-[280px] h-[160px] max-w-[1550px] mx-auto">
 
-      <div className="snap-x span-start touch-pan-x w-full h-full overflow-x-scroll flex justify-start items-center flex-nowrap">
+      <div className="scrollbar-hidden snap-x span-start touch-pan-x w-full h-full overflow-x-scroll flex justify-start items-center flex-nowrap">
         {!dataSlider ? <span className="w-full h-full bg-slate-400 animate-pulse flex items-center justify-center">loading...</span> :
           <Swiper
             spaceBetween={30}

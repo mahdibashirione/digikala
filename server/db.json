@@ -13,13 +13,13 @@
       "postId": 1
     }
   ],
-  "amazingProduct": [
+  "products": [
     {
       "id": 1,
       "img": "/image/amazingSlider/imgProduct/1.jpg",
       "postId": 1,
-      "discount": "50%",
-      "beforePrice": "6250000",
+      "discount": 7,
+      "offPrice": "6250000",
       "price": "12500000",
       "name": "ساعت هوشمند اپل",
       "nameEN": "Apple Watch Serises 7"
@@ -28,9 +28,9 @@
       "id": 2,
       "img": "/image/amazingSlider/imgProduct/2.jpg",
       "postId": 2,
-      "discount": "30%",
+      "discount": 0,
       "price": "24300000",
-      "beforePrice": "18250000",
+      "offPrice": "18250000",
       "name": "اسپیکر قابل حمل جی بی ال",
       "nameEN": "Spiker JBL portable"
     },
@@ -38,9 +38,9 @@
       "id": 3,
       "img": "/image/amazingSlider/imgProduct/3.jpg",
       "postId": 3,
-      "discount": "25%",
+      "discount": 0,
       "price": "15000000",
-      "beforePrice": "10000000",
+      "offPrice": "10000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     },
@@ -48,9 +48,9 @@
       "id": 4,
       "img": "/image/amazingSlider/imgProduct/4.jpg",
       "postId": 4,
-      "discount": "20%",
+      "discount": 10,
       "price": "4500000",
-      "beforePrice": "3659000",
+      "offPrice": "3659000",
       "name": "سرویس قاشق و چنگال",
       "nameEN": "food Tester 2d23f4"
     },
@@ -58,9 +58,9 @@
       "id": 5,
       "img": "/image/amazingSlider/imgProduct/5.jpg",
       "postId": 5,
-      "discount": "10%",
+      "discount": 20,
       "price": "3000000",
-      "beforePrice": "2499000",
+      "offPrice": "2499000",
       "name": "میز و صندلی دونفره",
       "nameEN": "Chairs and tables er5g2c"
     },
@@ -68,9 +68,9 @@
       "id": 6,
       "img": "/image/amazingSlider/imgProduct/6.jpg",
       "postId": 6,
-      "discount": "5%",
+      "discount": 15,
       "price": "1500000",
-      "beforePrice": "1299000",
+      "offPrice": "1299000",
       "name": "فلاسک ابجوش",
       "nameEN": "flaxe Wather gx5re"
     },
@@ -78,9 +78,9 @@
       "id": 7,
       "img": "/image/amazingSlider/imgProduct/7.jpg",
       "postId": 7,
-      "discount": "25%",
+      "discount": 0,
       "price": "450000",
-      "beforePrice": "349000",
+      "offPrice": "349000",
       "name": "کفش مردانه 42",
       "nameEN": "nike s42 man xg6er"
     },
@@ -88,9 +88,9 @@
       "id": 8,
       "img": "/image/amazingSlider/imgProduct/8.jpg",
       "postId": 8,
-      "discount": "25%",
+      "discount": 0,
       "price": "15000000",
-      "beforePrice": "10000000",
+      "offPrice": "10000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     },
@@ -98,9 +98,9 @@
       "id": 9,
       "img": "/image/amazingSlider/imgProduct/9.jpg",
       "postId": 9,
-      "discount": "25%",
+      "discount": 16,
       "price": "15000000",
-      "beforePrice": "10000000",
+      "offPrice": "10000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     },
@@ -108,9 +108,9 @@
       "id": 10,
       "img": "/image/amazingSlider/imgProduct/10.jpg",
       "postId": 10,
-      "discount": "25%",
+      "discount": 23,
       "price": "15000000",
-      "beforePrice": "10000000",
+      "offPrice": "10000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     },
@@ -118,9 +118,9 @@
       "id": 11,
       "img": "/image/amazingSlider/imgProduct/11.jpg",
       "postId": 11,
-      "discount": "25%",
+      "discount": 50,
       "price": "15000000",
-      "beforePrice": "10000000",
+      "offPrice": "10000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     },
@@ -128,9 +128,9 @@
       "id": 12,
       "img": "/image/amazingSlider/imgProduct/12.jpg",
       "postId": 12,
-      "discount": "25%",
+      "discount": 15,
       "price": "15000000",
-      "beforePrice": "10000000",
+      "offPrice": "10000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     },
@@ -138,9 +138,9 @@
       "id": 13,
       "img": "/image/amazingSlider/imgProduct/13.jpg",
       "postId": 13,
-      "discount": "25%",
+      "discount": 5,
       "price": "15000000",
-      "beforePrice": "10000000",
+      "offPrice": "10000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     },
@@ -148,9 +148,29 @@
       "id": 14,
       "img": "/image/amazingSlider/imgProduct/14.jpg",
       "postId": 14,
-      "discount": "25%",
+      "discount": 20,
       "price": "15000000",
-      "beforePrice": "10000000",
+      "offPrice": "10000000",
+      "name": "تلویزیون 50 اینچ",
+      "nameEN": "TV 50 inch sony zx46e"
+    },
+    {
+      "id": 15,
+      "img": "/image/amazingSlider/imgProduct/14.jpg",
+      "postId": 14,
+      "discount": 0,
+      "price": "15000000",
+      "offPrice": "15000000",
+      "name": "تلویزیون 50 اینچ",
+      "nameEN": "TV 50 inch sony zx46e"
+    },
+    {
+      "id": 16,
+      "img": "/image/amazingSlider/imgProduct/14.jpg",
+      "postId": 14,
+      "discount": 0,
+      "price": "5000000",
+      "offPrice": "5000000",
       "name": "تلویزیون 50 اینچ",
       "nameEN": "TV 50 inch sony zx46e"
     }

@@ -9,13 +9,13 @@ const EmazingSliderHome = () => {
   const [dataProducts, setDataProducts] = useState(null)
 
   useEffect(() => {
-    Get_offProduct("/product")
+    Get_offProduct("/products")
   }, [])
 
   async function Get_offProduct(url) {
     try {
       const { data } = await http.get(url)
-      data && setDataProducts(data)
+      data && setDataProducts(data.filter(product => product.discount > 0))
     } catch (error) {
       console.log(error)
     }
