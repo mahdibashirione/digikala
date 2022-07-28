@@ -88,11 +88,11 @@ const EmazingSliderHome = () => {
     )
   }
 
-  const AmazingSliderItem = ({ product }) => {
+  const CardAmazingProduct = ({ product }) => {
     return (
       <Link to={`/product/${product.name}/${product._id}`} state={{ state: product }} className="rounded cursor-pointer h-full min-w-[175px] bg-white block">
         <div className="w-full h-[150px] flex items-center justify-center">
-          <img className="h-full object-cover" src={product.img} />
+          <img className="h-full object-cover" src={product.image} />
         </div>
         <article className="h-full px-2 mt-4">
           <div className="w-full flex items-center justify-between">
@@ -125,7 +125,7 @@ const EmazingSliderHome = () => {
         {!dataProducts ? <LoadingCard /> :
           dataProducts.slice(0, 11).map(product => {
             return (
-              <AmazingSliderItem key={product._id} product={product} />
+              <CardAmazingProduct key={product._id} product={product} />
             )
           })
         }

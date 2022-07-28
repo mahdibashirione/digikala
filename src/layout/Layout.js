@@ -1,6 +1,5 @@
 
 import { useLocation } from "react-router-dom";
-import Footer from "../components/footer/Footer";
 import Header from "../components/Header/Header";
 import MobileBar from "../components/mobileBar/MobileBar";
 
@@ -17,7 +16,6 @@ const Layout = ({ children }) => {
         {children}
       </main>
       {/*{isMobileNavbar && <MobileBar />}*/}
-      <Footer />
     </>
   );
 }

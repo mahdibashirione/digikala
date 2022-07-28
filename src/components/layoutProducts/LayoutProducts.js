@@ -1,11 +1,12 @@
 import { Disclosure } from '@headlessui/react'
 import CheckBox from '../common/checkBox'
-import { FiSliders, FiChevronDown, FiFilter } from "react-icons/fi"
+import { FiSliders, FiChevronDown, FiFilter, FiChevronRight, FiChevronLeft } from "react-icons/fi"
 import { useEffect, useState } from 'react'
 import CardProduct from '../cardProduct/CardProduct'
 import { http } from '../../services/httpService'
 import Radio from '../common/radio'
 import { useRef } from "react"
+import ReactPaginate from 'react-paginate';
 
 const LayoutProducts = () => {
 
@@ -14,6 +15,12 @@ const LayoutProducts = () => {
   const backDrop = useRef()
 
   const [allProduct, setAllProduct] = useState(null)
+  const [pageNumber, setPageNumber] = useState(0)
+  const [pageCount, setPageCount] = useState(1);
+
+  const productPerPage = 20;
+  const pagesVisited = pageNumber * productPerPage;
+  const currentProduct = allProduct && allProduct.slice(pagesVisited, pagesVisited + productPerPage)
 
   const [filter, setFilter] = useState({
     sort: "پربازدید ترین",
@@ -22,8 +29,13 @@ const LayoutProducts = () => {
   })
 
   useEffect(() => {
-    Get_allProduct("/product")
+    Get_allProduct("/products")
   }, [])
+
+  useEffect(() => {
+    allProduct && setPageCount(Math.ceil(allProduct.length / productPerPage))
+    //setPageCount(2)
+  }, [allProduct])
 
   async function Get_allProduct(url) {
     try {
@@ -80,30 +92,33 @@ const LayoutProducts = () => {
   }
 
   const handleSortOpen = () => {
-    sort.current.classList.replace("max-h-0", "h-[calc(100vh-40%)]")
-    backDrop.current.classList.replace("hidden", "block")
+    sort.current.classList.replace("max-h-0", "max-h-[calc(100vh-40%)]")
+    backDrop.current.classList.replace("-top-[500px]", "top-0")
   }
 
   const handleFilterOpen = () => {
-    panelFilter.current.classList.replace("max-h-0", "h-[calc(100vh-40%)]")
-    backDrop.current.classList.replace("hidden", "block")
+    panelFilter.current.classList.replace("max-h-0", "max-h-[calc(100vh-40%)]")
+    backDrop.current.classList.replace("-top-[500px]", "top-0")
   }
 
   const handleClusePopUp = () => {
-    sort.current.classList.replace("h-[calc(100vh-40%)]", "max-h-0")
-    panelFilter.current.classList.replace("h-[calc(100vh-40%)]", "max-h-0")
-    backDrop.current.classList.replace("block", "hidden")
+    sort.current.classList.replace("max-h-[calc(100vh-40%)]", "max-h-0")
+    panelFilter.current.classList.replace("max-h-[calc(100vh-40%)]", "max-h-0")
+    backDrop.current.classList.replace("top-0", "-top-[500px]")
+  }
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected)
   }
 
   return (
-    <section className="w-full bg-[#eee]">
+    <section className="w-full min-h-screen bg-[#eee]">
       {/*backDrop*/}
-      <span onClick={handleClusePopUp} ref={backDrop} className='hidden md:hidden w-screen h-[calc(100vh-60%)] z-40 bg-zinc-900/60 top-0 fixed'></span>
-
+      <span onClick={handleClusePopUp} ref={backDrop} className='md:hidden w-screen h-[calc(100vh-60%)] z-40 bg-zinc-900/60 -top-[500px] transition-all duration-300 fixed'></span>
       <div className="md:container py-4 grid grid-cols-1 md:grid-cols-[250px_minmax(100px,_1fr)] grid-rows-[60px_minmax(100px,_1fr)] gap-4">
         {/*filter*/}
-        <article ref={panelFilter} className="md:static text-sm md:text-base fixed bottom-0  rounded-t-lg md:bottom-auto w-full md:min-h-full overflow-hidden z-40 md:z-10 w-fuul max-h-0  duration-300 transition-all  md:block md:col-span-1 md:row-span-full">
-          <div className="h-full scrollbar-hidden md:h-auto md:max-h-[450px] overflow-y-auto flex flex-col gap-y-2 rounded-lg bg-white p-3">
+        <article ref={panelFilter} className="md:static h-full text-sm md:text-base fixed bottom-0  rounded-t-lg md:bottom-auto w-full md:min-h-full overflow-hidden z-40 md:z-10 w-fuul max-h-0  duration-300 transition-all  md:block md:col-span-1 md:row-span-full">
+          <div className="h-full duration-300 transition-all scrollbar-hidden md:h-auto md:max-h-[450px] overflow-y-auto flex flex-col gap-y-2 rounded-lg bg-white p-3">
             {/* brand */}
             <Disclosure>
               {({ open }) => (
@@ -184,7 +199,7 @@ const LayoutProducts = () => {
         <article className="text-sm md:text-base md:col-[2/3] py-2 md:py-0 z-30 md:z-10 md:py-auto fixed top-[105px] md:top-auto bg-white md:bg-transparent w-full md:w-auto h-[70px] md:h-auto md:relative md:row-[1/2] px-4 md:px-0 gap-x-2 flex items-center justify-between">
           <div className="border md:border-0 px-4 select-none md:w-full w-1/2 h-full flex text-sm lg:text-[1rem] items-center rounded-lg bg-white justify-start gap-x-4 text-gray-400">
             <FiSliders className="text-red-500 text-2xl" />
-            <div ref={sort} className='fixed duration-300 transition-all md:border-0 overflow-hidden md:relative bg-white w-full border-t md:w-auto max-h-0 md:h-full md:max-h-full right-0 flex-col md:flex-row bottom-0 z-40 md:z-10  md:flex items-center justify-center gap-4'>
+            <div ref={sort} className='h-full fixed duration-300 transition-all md:border-0 overflow-hidden md:relative bg-white w-full border-t md:w-auto max-h-0 md:h-full md:max-h-full right-0 flex-col md:flex-row bottom-0 z-40 md:z-10  md:flex items-center justify-center gap-4'>
               <span onClick={(e) => sortHandler(e)} name="sort" value="Bestselling" className={`${filter.sort === "پرفروش ترین" && "font-bold text-slate-900"} text-center py-4 md:py-0 cursor-pointer w-full md:w-auto block`}>پرفروش ترین</span>
               <span onClick={(e) => sortHandler(e)} name="sort" value="MostVisited" className={`${filter.sort === "پربازدید ترین" && "font-bold text-slate-900"} text-center py-4 md:py-0 cursor-pointer w-full md:w-auto block`}>پربازدید ترین</span>
               <span onClick={(e) => sortHandler(e)} name="sort" value="MostExpensive" className={`${filter.sort === "گرانترین" && "font-bold text-slate-900"} text-center py-4 md:py-0 cursor-pointer w-full md:w-auto block`}>گرانترین</span>
@@ -199,10 +214,26 @@ const LayoutProducts = () => {
         </article>
         {/*products*/}
         <article className="z-10 px-4 md:px-0 md:col-[2/3] row-[2/3] rounded-lg grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-          {allProduct ? allProduct.map(p => <CardProduct product={p} />) : <LoadProduct />}
+          {allProduct ? currentProduct.map(p => <CardProduct product={p} />) : <LoadProduct />}
         </article>
       </div >
-
+      {/*pagination*/}
+      <div className='w-full flex items-center justify-center py-6 select-none'>
+        <ReactPaginate
+          previousLabel={<FiChevronRight className='text-lg' />}
+          nextLabel={<FiChevronLeft className='text-lg' />}
+          renderOnZeroPageCount={null}
+          breakLabel="..."
+          pageRangeDisplayed={5}
+          pageCount={pageCount}
+          onPageChange={changePage}
+          disabledClassName="opacity-50"
+          containerClassName="flex items-center gap-x-2"
+          activeClassName='font-bold text-white px-2.5 rounded-lg bg-gray-400 p-1.5 text-sm'
+          previousClassName='font-bold text-blue-500 rounded-lg border border-blue-500 p-1.5 text-sm hover:bg-blue-500 hover:text-white'
+          nextClassName='font-bold text-blue-500 rounded-lg border border-blue-500 p-1.5 text-sm hover:bg-blue-500 hover:text-white'
+        />
+      </div>
     </section >
   );
 }

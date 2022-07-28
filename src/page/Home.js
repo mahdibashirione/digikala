@@ -5,6 +5,7 @@ import DigiPlusHome from "../components/digiplusHome/DigiPlusHome.js";
 import EmazingSliderHome from "../components/emazingSliderHome/emazingSliderHome.js";
 import FeatureHome from "../components/FeatureHome/FeatureHome.js";
 import SliderFullHome from "../components/SliderFullHome.js/SliderFullHome.js";
+import Footer from "../components/footer/Footer.js"
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <CategoriesHome />
       <DigiPlusHome />
       <DigiClubHome />
+      <Footer />
     </>
   );
 }
