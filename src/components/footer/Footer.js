@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { FiChevronUp } from "react-icons/fi"
-import { FiChevronLeft } from "react-icons/fi"
+import { FiChevronUp, FiChevronLeft } from "react-icons/fi"
 import { Link } from "react-router-dom";
 
 
@@ -13,7 +12,6 @@ const Footer = () => {
     { id: 4, img: "/image/days-return.svg", title: "هفت روز ضمانت اصالت کالا", url: "#", alt: "#" },
     { id: 5, img: "/image/original-products.svg", title: "ضمانت اصالت کالا", url: "#", alt: "#" },
   ])
-
 
   return (
     <section className="w-full lg:bg-white bg-[#fafafa] border-t-2">

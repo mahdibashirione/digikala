@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom"
-import { BiPodcast } from "react-icons/bi"
-import { BiCycling } from "react-icons/bi"
-import { BiDonateHeart } from "react-icons/bi"
+import { BiCycling, BiDonateHeart, BiPodcast } from "react-icons/bi"
 import { useState } from "react"
 
 const DigiClubHome = () => {

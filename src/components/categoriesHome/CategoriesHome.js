@@ -1,23 +1,14 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { http } from "../../services/httpService";
+import { GET_Data } from "../../utils/requestHttp";
 
 const CategoriesHome = () => {
 
   const [dataCategories, setDataCategories] = useState(null)
 
   useEffect(() => {
-    Get_Categories("/categoriesHome")
+    GET_Data("/categoriesHome")
   }, [])
-
-  async function Get_Categories(url) {
-    try {
-      const { data } = await http.get(url)
-      if (data) setDataCategories(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   const LoadingCategories = () => {
     return (
@@ -65,7 +56,6 @@ const CategoriesHome = () => {
       </>
     )
   }
-
 
   return (
     <section className="container flex flex-col justify-center items-center">

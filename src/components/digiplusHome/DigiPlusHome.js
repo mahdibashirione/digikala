@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
-import { BiArrowBack } from "react-icons/bi"
-import { BiChevronLeft } from "react-icons/bi"
-import { BiCreditCard } from "react-icons/bi"
-import { BiHourglass } from "react-icons/bi"
+import { BiHourglass, BiChevronLeft, BiArrowBack } from "react-icons/bi"
 import { Link } from "react-router-dom";
-import { http } from "../../services/httpService";
+import { GET_Data } from "../../utils/requestHttp";
 
 
 const DigiPlusHome = () => {
@@ -12,21 +9,10 @@ const DigiPlusHome = () => {
   const [dataDigiPlus, setDataDigiPlus] = useState(null)
 
   useEffect(() => {
-    Get_Product_DigiPlus("/digiPlus")
+    GET_Data("/digiPlus", setDataDigiPlus)
   }, [])
 
-  async function Get_Product_DigiPlus(url) {
-    try {
-      const { data } = await http.get(url)
-      data && setDataDigiPlus(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   const [numberProductsView, numberProductsViewmd, numberProductsViewlg] = [3, 8, 12]
-
-
 
   return (
     <section className="w-full mt-4">

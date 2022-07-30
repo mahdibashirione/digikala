@@ -1,23 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { http } from "../../services/httpService";
+import { GET_Data } from "../../utils/requestHttp"
 
 const FeatureHome = () => {
 
   const [dataFeature, setDataFeature] = useState(null)
 
   useEffect(() => {
-    Get_featureHome("/FeatureHome")
+    GET_Data("/FeatureHome", setDataFeature)
   }, [])
-
-  async function Get_featureHome(url) {
-    try {
-      const { data } = await http.get(url)
-      data && setDataFeature(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   const LoadingFeature = () => {
     return (

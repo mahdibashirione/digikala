@@ -1,21 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { http } from "../../services/httpService"
+import { GET_Data } from "../../utils/requestHttp";
+
 const BanerHome = () => {
   const [dataBaner, setDataBaner] = useState(null)
 
   useEffect(() => {
-    Get_BanerHome("/banerHome")
+    GET_Data("/banerHome", setDataBaner)
   }, [])
-
-  async function Get_BanerHome(url) {
-    try {
-      const { data } = await http.get(url)
-      data && setDataBaner(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   const LoadingBaner = () => {
     return (

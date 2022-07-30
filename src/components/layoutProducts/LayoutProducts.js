@@ -3,7 +3,7 @@ import CheckBox from '../common/checkBox'
 import { FiSliders, FiChevronDown, FiFilter, FiChevronRight, FiChevronLeft } from "react-icons/fi"
 import { useEffect, useState } from 'react'
 import CardProduct from '../cardProduct/CardProduct'
-import { http } from '../../services/httpService'
+import { GET_Data } from "../../utils/requestHttp"
 import Radio from '../common/radio'
 import { useRef } from "react"
 import ReactPaginate from 'react-paginate';
@@ -29,22 +29,12 @@ const LayoutProducts = () => {
   })
 
   useEffect(() => {
-    Get_allProduct("/products")
+    GET_Data("/products", setAllProduct)
   }, [])
 
   useEffect(() => {
     allProduct && setPageCount(Math.ceil(allProduct.length / productPerPage))
-    //setPageCount(2)
   }, [allProduct])
-
-  async function Get_allProduct(url) {
-    try {
-      const { data } = await http.get(url)
-      data && setAllProduct(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   const [dataFilters, setDataFilters] = useState({
     brands: [

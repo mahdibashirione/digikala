@@ -1,16 +1,7 @@
 import { Link } from "react-router-dom";
-import { BiLogIn } from "react-icons/bi";
-import { BiSearch } from "react-icons/bi";
-import { FiNavigation } from "react-icons/fi";
-import { BiBasket } from "react-icons/bi";
-import { BiMenu } from "react-icons/bi";
-import { FiZap } from "react-icons/fi";
-import { FiX } from "react-icons/fi";
-import { FiShoppingCart } from "react-icons/fi";
-import { FiAlertOctagon } from "react-icons/fi";
-import { FiDivideCircle } from "react-icons/fi";
-import { FiTag } from "react-icons/fi";
 import { useEffect, useRef, useState } from 'react';
+import { BiBasket, BiMenu, BiSearch, BiLogIn } from "react-icons/bi";
+import { FiNavigation, FiZap, FiX, FiShoppingCart, FiAlertOctagon, FiDivideCircle, FiTag } from "react-icons/fi";
 import { useCart } from "../../context/Cart/CartProvider"
 
 const Header = () => {

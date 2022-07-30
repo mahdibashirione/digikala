@@ -7,22 +7,14 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { GET_Data } from "../../utils/requestHttp";
 
 const SliderFullHome = () => {
   const [dataSlider, setDataSlider] = useState(null)
 
   useEffect(() => {
-    Get_Image_sliderHome("/sliderHome")
+    GET_Data("/sliderHome", setDataSlider)
   }, [])
-
-  async function Get_Image_sliderHome(url) {
-    try {
-      const { data } = await http.get(url)
-      data && setDataSlider(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   const isNavigation = window.innerWidth > 600;
 
