@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from 'react';
-import { BiBasket, BiMenu, BiSearch, BiLogIn } from "react-icons/bi";
-import { FiNavigation, FiZap, FiX, FiShoppingCart, FiAlertOctagon, FiDivideCircle, FiTag } from "react-icons/fi";
+import { BiBasket, BiMenu, BiSearch, BiLogIn, BiCaretDown } from "react-icons/bi";
+import { FiUser, FiLogOut, FiNavigation, FiZap, FiX, FiShoppingCart, FiAlertOctagon, FiDivideCircle, FiTag } from "react-icons/fi";
 import { useCart } from "../../context/Cart/CartProvider"
+import { useAuth } from "../../context/Auth/AuthProvider";
 
 const Header = () => {
 
@@ -10,6 +11,7 @@ const Header = () => {
   const cluseNavbar = useRef()
   const panelCity = useRef()
   const nav = useRef()
+  const auth = useAuth()
 
   const [allCity, setAllCity] = useState([
     { id: 1, name: "کرج" },
@@ -70,24 +72,41 @@ const Header = () => {
             <BiSearch className="absolute right-3 text-gray-400 text-2xl" />
             <input type={"text"} className="bg-gray-100 pl-4 text-gray-600 pr-12 py-3 w-full max-w-[600px] rounded-lg outline-none text-sm" placeholder="جسنوجو" />
           </div>
-          <div className="flex items-center md:justify-center justify-between md:w-auto w-1/3">
-            <div className="group cursor-pointer hidden after:content-['|'] after:h-full after:w-2 after:top-0.5 after:absolute after:-left-7 after:text-gray-300 after: relative md:flex items-center justify-center py-2 px-6 border rounded-lg border-gray-400">
-              <BiLogIn className="text-2xl" />
-              <span className="text-sm whitespace-nowrap">ورود | ثبت نام</span>
-              <div className="group-hover:flex hidden flex-col w-full border absolute top-full right-0 bg-white text-sm rounded-lg shadow">
-                <Link to={"/user/login"} className="p-2 hover:text-red-500" >ورود</Link>
-                <Link to={"/user/register"} className="border-t p-2 hover:text-red-500">ثبت نام</Link>
+          <div className="px-2 h-[44px] flex items-center md:justify-center justify-between md:w-auto w-1/3">
+            {auth ? <div className="md:ml-8 cursor-pointer relative group text-sm w-full h-full whitespace-nowrap flex items-center justify-center">
+              <FiUser className="text-2xl" />
+              <BiCaretDown />
+              <div className="bg-white md:-left-4 shadow border z-30 rounded-lg absolute hidden top-full left-0 group-hover:flex flex-col">
+                <Link to={`/user/${auth.token}`} className="flex items-center justify-center gap-x-2 p-3 border-b hover:bg-gray-200 hover:text-red-500">
+                  <FiUser />
+                  حساب کاربری
+                </Link>
+                <span className="flex items-center justify-center gap-x-2 p-3 hover:bg-gray-200 hover:text-red-500">
+                  <FiLogOut />
+                  خروج از حساب
+                </span>
               </div>
-            </div>
-            <div className="group cursor-pointer relative flex mr-6 md:hidden justify-center items-center">
-              <BiLogIn className="text-2xl" />
-              <span className="text-sm font-sans text-slate-800">ورود</span>
-              <div className="group-hover:flex hidden flex-col w-28 border absolute top-full left-0 bg-white text-sm rounded-lg shadow">
-                <Link to={"/user/login"} className="p-3 hover:text-red-500" >ورود</Link>
-                <Link to={"/user/register"} className="border-t p-3 hover:text-red-500">ثبت نام</Link>
-              </div>
-            </div>
-            <Link to={"cart"} className="md:mr-10 relative">
+            </div> :
+              <>
+                <div className="md:mr-12 group cursor-pointer hidden after:content-['|'] after:h-full after:w-2 after:top-0.5 after:absolute after:-left-7 after:text-gray-300 after: relative md:flex items-center justify-center py-2 px-6 border rounded-lg border-gray-400">
+                  <BiLogIn className="text-2xl" />
+                  <span className="text-sm whitespace-nowrap">ورود | ثبت نام</span>
+                  <div className="group-hover:flex hidden flex-col w-full border absolute top-full right-0 bg-white text-sm rounded-lg shadow">
+                    <Link to={"/user/login"} className="p-2 hover:text-red-500" >ورود</Link>
+                    <Link to={"/user/register"} className="border-t p-2 hover:text-red-500">ثبت نام</Link>
+                  </div>
+                </div>
+                <div className="group cursor-pointer relative flex mr-6 md:hidden justify-center items-center">
+                  <BiLogIn className="text-2xl" />
+                  <span className="text-sm font-sans text-slate-800">ورود</span>
+                  <div className="group-hover:flex hidden flex-col w-28 border absolute top-full left-0 bg-white text-sm rounded-lg shadow">
+                    <Link to={"/user/login"} className="p-3 hover:text-red-500" >ورود</Link>
+                    <Link to={"/user/register"} className="border-t p-3 hover:text-red-500">ثبت نام</Link>
+                  </div>
+                </div>
+              </>
+            }
+            <Link to={"cart"} className="relative w-[25px] h-[25px] min-w-[25px] min-h-[25px]">
               <FiShoppingCart className="text-2xl" />
               {cartState.cart.length >= 1 && <span className="absolute bottom-2 left-3 bg-red-500 rounded-full w-6 h-6 text-white text-sm flex justify-center items-center">{cartState.cart.length}</span>}
             </Link>

@@ -7,7 +7,7 @@ const CategoriesHome = () => {
   const [dataCategories, setDataCategories] = useState(null)
 
   useEffect(() => {
-    GET_Data("/categoriesHome")
+    GET_Data("/categoriesHome", setDataCategories)
   }, [])
 
   const LoadingCategories = () => {

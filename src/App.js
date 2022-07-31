@@ -7,11 +7,13 @@ import ProductDetail from './components/productDetail';
 import CartPage from './page/CartPage';
 import CategoriesPage from './page/CategoriesPage';
 import Register from './components/register/register';
+import ProfileUser from './page/profilePage';
 
 function App() {
   return (
     <Routes>
       <Route path='/product/:name/:id' element={<ProductDetail />} />
+      <Route path="/user/:token" element={<ProfileUser />} />
       <Route path="/user/login" element={<LoginPage />} />
       <Route path="/user/register" element={<Register />} />
       <Route path="/categories" element={<CategoriesPage />} />

@@ -2,29 +2,31 @@ import { useFormik } from "formik";
 import * as yup from 'yup';
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../common/Input";
-import { ToastContainer, toast } from 'react-toastify';
 import { http } from "../../services/httpService";
 import { useAuthAction } from "../../context/Auth/AuthProvider";
+import { useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
+import Loading from "../Loading/Loading"
+
 const Login = () => {
+
+  const [loading, setLoading] = useState(false)
   const initialValues = { email: "", password: "", }
   const navigate = useNavigate()
   const setAuth = useAuthAction()
+
   const onSubmit = (values) => {
-    http.post("/user/login", values).then(res => {
-      navigate("/")
-      setAuth(res.data)
-      localStorage.setItem("AuthState", JSON.stringify(res.data))
-    })
+    http.post("/user/login", values)
+      .then(res => {
+        setLoading(true)
+        navigate("/")
+        setAuth(res.data)
+        localStorage.setItem("AuthState", JSON.stringify(res.data))
+        setLoading(false)
+      })
       .catch(error => {
-        toast.error(error.response.data.message, {
-          position: "top-center",
-          autoClose: 1500,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        setLoading(false)
+        toast.error(error.response.data.message);
       })
   }
 
@@ -37,17 +39,11 @@ const Login = () => {
   const formik = useFormik({ initialValues, onSubmit, validationSchema, validateOnMount: true, })
   return (
     <section className="fixed w-screen h-screen z-50 top-0 right-0 bg-white flex flex-col items-center justify-center" >
-      <ToastContainer
+      <Toaster
         position="top-center"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
+        reverseOrder={false}
       />
+      {loading && <Loading />}
       <form onSubmit={formik.handleSubmit} className="w-full max-w-[400px] px-8 md:border rounded-lg flex flex-col items-center justify-center">
         <div className="w-full max-w-[150px]">
           <img className="w-full object-cover py-8" src="/image/logo/logo.svg" alt="logoSite" />
