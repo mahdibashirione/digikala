@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, Fragment } from 'react';
 import { BiBasket, BiMenu, BiSearch, BiLogIn, BiCaretDown } from "react-icons/bi";
 import { FiUser, FiLogOut, FiNavigation, FiZap, FiX, FiShoppingCart, FiAlertOctagon, FiDivideCircle, FiTag } from "react-icons/fi";
 import { useCart } from "../../context/Cart/CartProvider"
 import { useAuth } from "../../context/Auth/AuthProvider";
+import { Menu, Transition } from '@headlessui/react'
 
 const Header = () => {
 
@@ -72,21 +73,56 @@ const Header = () => {
             <BiSearch className="absolute right-3 text-gray-400 text-2xl" />
             <input type={"text"} className="bg-gray-100 pl-4 text-gray-600 pr-12 py-3 w-full max-w-[600px] rounded-lg outline-none text-sm" placeholder="جسنوجو" />
           </div>
-          <div className="px-2 h-[44px] flex items-center md:justify-center justify-between md:w-auto w-1/3">
-            {auth ? <div className="md:ml-8 cursor-pointer relative group text-sm w-full h-full whitespace-nowrap flex items-center justify-center">
-              <FiUser className="text-2xl" />
-              <BiCaretDown />
-              <div className="bg-white md:-left-4 shadow border z-30 rounded-lg absolute hidden top-full left-0 group-hover:flex flex-col">
-                <Link to={`/user/${auth.token}`} className="flex items-center justify-center gap-x-2 p-3 border-b hover:bg-gray-200 hover:text-red-500">
-                  <FiUser />
-                  حساب کاربری
-                </Link>
-                <span className="flex items-center justify-center gap-x-2 p-3 hover:bg-gray-200 hover:text-red-500">
-                  <FiLogOut />
-                  خروج از حساب
-                </span>
+          <div className="px-2 h-[44px] flex items-center justify-end md:w-auto w-1/3">
+            {auth ? <Menu as="div" className="md:ml-6 ml-3 relative inline-block text-left">
+              <div>
+                <Menu.Button className="flex items-center justify-center w-full rounded-lg bg-black bg-opacity-20 p-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                  <FiUser
+                    className="h-5 w-5 text-white hover:text-violet-100"
+                    aria-hidden="true"
+                  />
+                  <BiCaretDown />
+                </Menu.Button>
               </div>
-            </div> :
+              <Transition
+                as={Fragment}
+                enter="transition ease-out duration-100"
+                enterFrom="transform opacity-0 scale-95"
+                enterTo="transform opacity-100 scale-100"
+                leave="transition ease-in duration-75"
+                leaveFrom="transform opacity-100 scale-100"
+                leaveTo="transform opacity-0 scale-95"
+              >
+                <Menu.Items className="absolute left-0 mt-2 w-44 origin-top-right divide-y divide-gray-200 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <div className="p-1 ">
+                    <Menu.Item>
+                      {({ active }) => (
+                        <Link to={`/user/${auth.token}`}
+                          className={`${active ? 'bg-blue-400 text-white' : 'text-gray-900'
+                            } group flex w-full items-center rounded-md px-2 py-3 text-sm`}
+                        >
+                          {active ? <EditActiveIcon aria-hidden="true" /> : <EditInactiveIcon aria-hidden="true" />}
+                          حساب کاربری
+                        </Link>
+                      )}
+                    </Menu.Item>
+                  </div>
+                  <div className="p-1">
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
+                          className={`${active ? 'bg-red-400 text-white' : 'text-gray-900'
+                            } group flex w-full items-center rounded-md px-2 py-3 text-sm`}
+                        >
+                          {active ? <ArchiveActiveIcon aria-hidden="true" /> : <ArchiveInactiveIcon aria-hidden="true" />}
+                          خروج از حساب
+                        </button>
+                      )}
+                    </Menu.Item>
+                  </div>
+                </Menu.Items>
+              </Transition>
+            </Menu> :
               <>
                 <div className="md:mr-12 group cursor-pointer hidden after:content-['|'] after:h-full after:w-2 after:top-0.5 after:absolute after:-left-7 after:text-gray-300 after: relative md:flex items-center justify-center py-2 px-6 border rounded-lg border-gray-400">
                   <BiLogIn className="text-2xl" />
@@ -214,13 +250,38 @@ const Header = () => {
             <span>انتخاب شهر</span>
             <FiX onClick={() => panelCity.current.classList.replace("flex", "hidden")} className="text-xl cursor-pointer" />
           </div>
-          <div className="w-full px-2 pb-8 h-full overflow-y-scroll flex flex-col items-start justify-start">
-            {allCity.map(c => <span key={c.id} onClick={handleSelectCity} className="cursor-pointer block w-full py-4 border-b">{c.name}</span>)}
-          </div >
+          <ul className="w-full px-2 pb-8 h-full overflow-y-scroll flex flex-col items-start justify-start">
+            {allCity.map(c => <li key={c.id} onClick={handleSelectCity} className="odd:bg-gray-100 cursor-pointer block w-full py-4 border-b hover:bg-blue-500 hover:text-white px-2">{c.name}</li>)}
+          </ul>
         </div >
       </div >
     </>
   );
+
+  function EditInactiveIcon() {
+    return (
+      <FiUser className="text-xl text-blue-500 mx-2" />
+    )
+  }
+
+  function EditActiveIcon() {
+    return (
+      <FiUser className="text-xl text-white mx-2" />
+    )
+  }
+
+  function ArchiveInactiveIcon() {
+    return (
+      <FiLogOut className="text-xl text-red-500 mx-2" />
+    )
+  }
+
+  function ArchiveActiveIcon() {
+    return (
+      <FiLogOut className="text-xl text-white mx-2" />
+    )
+  }
+
 }
 
 export default Header;
