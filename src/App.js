@@ -8,6 +8,7 @@ import CartPage from './page/CartPage';
 import CategoriesPage from './page/CategoriesPage';
 import Register from './components/register/register';
 import ProfileUser from './page/profilePage';
+import AmazingProductsPage from './page/AmazingProductPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/user/login" element={<LoginPage />} />
       <Route path="/user/register" element={<Register />} />
       <Route path="/categories" element={<CategoriesPage />} />
+      <Route path="/amazingproducts" element={<AmazingProductsPage />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path='/' element={<Home />} />
     </Routes>

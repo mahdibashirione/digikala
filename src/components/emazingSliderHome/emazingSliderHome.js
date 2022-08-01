@@ -114,7 +114,7 @@ const EmazingSliderHome = () => {
     <section className="lg:container bg-red-500 lg:rounded-2xl py-4 px-0.5">
       <div className="scrollbar-hidden w-full h-[230px] overflow-x-scroll overflow-y-hidden flex flex-nowrap items-center justify-start gap-x-1">
 
-        <Link to="#" className="h-full min-w-[175px] flex flex-col justify-center items-center">
+        <Link to="/amazingproducts" className="h-full min-w-[175px] flex flex-col justify-center items-center">
           <img className="object-cover h-[40%]" src="/image/amazingSlider/amazing-typo.svg" />
           <img className="object-cover h-[40%]" src="/image/amazingSlider/General.png" />
           <span className="mt-2 flex items-center justify-center text-white">
@@ -132,7 +132,7 @@ const EmazingSliderHome = () => {
 
         {/*<AmazingSliderItem product={data[0]} onClick={() => cartDispatch({ type: "Add_To_Cart", payload: "mahdi" })} />*/}
 
-        <Link to="#" className="ml-4 rounded min-w-[170px] h-full flex flex-col bg-white items-center justify-center">
+        <Link to="/amazingproducts" className="ml-4 rounded min-w-[170px] h-full flex flex-col bg-white items-center justify-center">
           <span className="flex items-center justify-center w-[52px] h-[52px] border-2 border-blue-600 rounded-full">
             <FiChevronLeft className="text-2xl text-blue-700" />
           </span>
