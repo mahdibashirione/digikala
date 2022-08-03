@@ -14,9 +14,7 @@ root.render(
     <BrowserRouter>
       <AuthProvider>
         <CartProvider>
-          <Layout>
-            <App />
-          </Layout>
+          <App />
         </CartProvider>
       </AuthProvider>
     </BrowserRouter>

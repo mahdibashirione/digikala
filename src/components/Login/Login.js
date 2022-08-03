@@ -38,10 +38,11 @@ const Login = () => {
 
   const formik = useFormik({ initialValues, onSubmit, validationSchema, validateOnMount: true, })
   return (
-    <section className="fixed w-screen h-screen z-50 top-0 right-0 bg-white flex flex-col items-center justify-center" >
+    <section className="w-full h-screen bg-white flex flex-col items-center justify-center" >
       <Toaster
         position="top-center"
         reverseOrder={false}
+        className="z-30"
       />
       {loading && <Loading />}
       <form onSubmit={formik.handleSubmit} className="w-full max-w-[400px] px-8 md:border rounded-lg flex flex-col items-center justify-center">

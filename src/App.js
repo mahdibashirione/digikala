@@ -12,16 +12,18 @@ import AmazingProductsPage from './page/AmazingProductPage';
 
 function App() {
   return (
-    <Routes>
-      <Route path='/product/:name/:id' element={<ProductDetail />} />
-      <Route path="/user/:token" element={<ProfileUser />} />
-      <Route path="/user/login" element={<LoginPage />} />
-      <Route path="/user/register" element={<Register />} />
-      <Route path="/categories" element={<CategoriesPage />} />
-      <Route path="/amazingproducts" element={<AmazingProductsPage />} />
-      <Route path="/cart" element={<CartPage />} />
-      <Route path='/' element={<Home />} />
-    </Routes>
+    <Layout>
+      <Routes>
+        <Route path='/product/:name/:id' element={<ProductDetail />} />
+        <Route path="/user/:token" element={<ProfileUser />} />
+        <Route path="/categories" element={<CategoriesPage />} />
+        <Route path="/amazingproducts" element={<AmazingProductsPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path='/' element={<Home />} />
+        <Route path="/user/login" element={<LoginPage />} />
+        <Route path="/user/register" element={<Register />} />
+      </Routes>
+    </Layout>
   );
 }
 

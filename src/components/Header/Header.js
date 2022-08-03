@@ -3,7 +3,7 @@ import { useEffect, useRef, useState, Fragment } from 'react';
 import { BiBasket, BiMenu, BiSearch, BiLogIn, BiCaretDown } from "react-icons/bi";
 import { FiUser, FiLogOut, FiNavigation, FiZap, FiX, FiShoppingCart, FiAlertOctagon, FiDivideCircle, FiTag } from "react-icons/fi";
 import { useCart } from "../../context/Cart/CartProvider"
-import { useAuth } from "../../context/Auth/AuthProvider";
+import { useAuth, useAuthAction } from "../../context/Auth/AuthProvider";
 import { Menu, Transition } from '@headlessui/react'
 
 const Header = () => {
@@ -13,6 +13,7 @@ const Header = () => {
   const panelCity = useRef()
   const nav = useRef()
   const auth = useAuth()
+  const setAuth = useAuthAction()
 
   const [allCity, setAllCity] = useState([
     { id: 1, name: "کرج" },
@@ -56,6 +57,11 @@ const Header = () => {
     panelCity.current.classList.replace("flex", "hidden")
   }
 
+  const handleLogoutAcount = () => {
+    localStorage.clear("AuthState")
+    setAuth(null)
+  }
+
   return (
     <>
       <header className="sticky top-0 w-fyll pt-4 md:pb-4 px-2 bg-white z-40">
@@ -63,7 +69,7 @@ const Header = () => {
           <button className="md:hidden w-1/3 flex justify-start">
             <BiMenu onClick={openNavHandler} className="text-2xl" />
           </button>
-          <Link to={'/'} className="md:ml-6 md:w-auto w-1/3">
+          <Link to={'/'} className="md:ml-6 md:w-auto w-1/3 flex items-center justify-center">
             <img className="max-w-[100px]" src={"/image/logo/logo.svg"} alt="logo" />
           </Link>
           <button className="md:hidden w-1/3 flex justify-end">
@@ -74,7 +80,7 @@ const Header = () => {
             <input type={"text"} className="bg-gray-100 pl-4 text-gray-600 pr-12 py-3 w-full max-w-[600px] rounded-lg outline-none text-sm" placeholder="جسنوجو" />
           </div>
           <div className="px-2 h-[44px] flex items-center justify-end md:w-auto w-1/3">
-            {auth ? <Menu as="div" className="md:ml-6 ml-3 relative inline-block text-left">
+            {auth ? <Menu as="div" className="ml-5 relative inline-block text-left">
               <div>
                 <Menu.Button className="flex items-center justify-center w-full rounded-lg bg-black bg-opacity-20 p-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                   <FiUser
@@ -110,7 +116,7 @@ const Header = () => {
                   <div className="p-1">
                     <Menu.Item>
                       {({ active }) => (
-                        <button
+                        <button onClick={handleLogoutAcount}
                           className={`${active ? 'bg-red-400 text-white' : 'text-gray-900'
                             } group flex w-full items-center rounded-md px-2 py-3 text-sm`}
                         >
@@ -124,7 +130,7 @@ const Header = () => {
               </Transition>
             </Menu> :
               <>
-                <div className="md:mr-12 group cursor-pointer hidden after:content-['|'] after:h-full after:w-2 after:top-0.5 after:absolute after:-left-7 after:text-gray-300 after: relative md:flex items-center justify-center py-2 px-6 border rounded-lg border-gray-400">
+                <div className="md:ml-10 group cursor-pointer hidden after:content-['|'] after:h-full after:w-2 after:top-0.5 after:absolute after:-left-7 after:text-gray-300 after: relative md:flex items-center justify-center py-2 px-6 border rounded-lg border-gray-400">
                   <BiLogIn className="text-2xl" />
                   <span className="text-sm whitespace-nowrap">ورود | ثبت نام</span>
                   <div className="group-hover:flex hidden flex-col w-full border absolute top-full right-0 bg-white text-sm rounded-lg shadow">
@@ -132,7 +138,7 @@ const Header = () => {
                     <Link to={"/user/register"} className="border-t p-2 hover:text-red-500">ثبت نام</Link>
                   </div>
                 </div>
-                <div className="group cursor-pointer relative flex mr-6 md:hidden justify-center items-center">
+                <div className="ml-5 group cursor-pointer relative flex mr-6 md:hidden justify-center items-center">
                   <BiLogIn className="text-2xl" />
                   <span className="text-sm font-sans text-slate-800">ورود</span>
                   <div className="group-hover:flex hidden flex-col w-28 border absolute top-full left-0 bg-white text-sm rounded-lg shadow">

@@ -5,7 +5,7 @@ import { FiStar, FiHome } from "react-icons/fi";
 
 const CardAmazingProduct = ({ product }) => {
   return (
-    <Link to={`/product/${product.name}/${product._id}`} state={{ state: product }} className="md:border p-2 flex md:flex-col md:justify-start justify-between items-center w-full border-b select-none">
+    <Link to={`/product/${product.name}/${product._id}`} state={{ state: product }} className="md:border md:h-[360px] md:hover:scale-105 bg-white hover:shadow p-2 flex md:flex-col md:justify-start justify-between items-center w-full border-b select-none">
       {/*image*/}
       <div className="md:w-full w-32 h-32 md:h-64 ml-4 md:ml-0">
         <img src={product.image} alt={""} className="h-full object-cover" />

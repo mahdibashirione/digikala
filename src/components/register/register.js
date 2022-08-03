@@ -35,7 +35,7 @@ const Register = () => {
 
   const validationSchema = yup.object().shape({
     name: yup.string().required("لطفا اسم خود را وارد کنید"),
-    phoneNumber: yup.string().required("لطفا شماره موبایل خود را وارد کنید").min(11, "شماره مبایل صحیح نیست").max(11, "شماره مبایل صحیح نیست"),
+    phoneNumber: yup.string().required("لطفا شماره موبایل خود را وارد کنید").min(11, "شماره موبایل صحیح نیست").max(11, "شماره مبایل صحیح نیست"),
     email: yup.string().email("ایمیل شما نامعتبر است")
       .required("لطفا ایمیل خود را وارد کنید"),
     password: yup.string().required("لطفا رمز خود را وارد کنید"),
@@ -43,7 +43,7 @@ const Register = () => {
 
   const formik = useFormik({ initialValues, onSubmit, validationSchema, validateOnMount: true, })
   return (
-    <section className="fixed w-screen h-screen z-50 top-0 right-0 bg-white flex flex-col items-center justify-center" >
+    <section className="w-full h-screen bg-white flex flex-col items-center justify-center" >
       <Toaster
         position="top-center"
         reverseOrder={false}

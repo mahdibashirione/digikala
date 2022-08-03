@@ -9,7 +9,7 @@ const EmazingSliderHome = () => {
   const [dataProducts, setDataProducts] = useState(null)
 
   useEffect(() => {
-    Get_offProduct("/products")
+    Get_offProduct("/product")
   }, [])
 
   async function Get_offProduct(url) {

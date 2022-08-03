@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const CardProduct = ({ product }) => {
   return (
-    <Link to={`/product/${product.name}/${product._id}`} state={{ state: product }} className="relative select-none px-4 py-2 h-[275px] rounded-lg border shadow bg-white flex flex-col justify-between items-center">
+    <Link to={`/product/${product.name}/${product._id}`} state={{ state: product }} className="hover:scale-105 duration-300 relative select-none px-4 py-2 h-[275px] rounded-lg border shadow bg-white flex flex-col justify-between items-center">
       <div className="h-[120px] w-[120px]">
         <img className="w-full object-cover" src={product.image} alt="product" />
       </div>

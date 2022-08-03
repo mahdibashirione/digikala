@@ -19,7 +19,7 @@ const AmazingProductsPage = () => {
   }
 
   useEffect(() => {
-    GET_ProductAmazing("/products", setProducts)
+    GET_ProductAmazing("/product", setProducts)
   }, [])
 
   async function GET_ProductAmazing(url, setState) {
@@ -167,7 +167,7 @@ const AmazingProductsPage = () => {
   return (
     <>
       {/*sort*/}
-      <div className="sticky md:top-[75px] top-[105px] bg-white w-full flex items-center justify-start gap-x-3 p-4 text-sm shadow">
+      <div className="sticky md:top-[75px] top-[105px] z-30 bg-white w-full flex items-center justify-start gap-x-3 p-4 text-sm shadow">
         <FiSliders className="text-red-500 text-2xl" />
         <div className='gap-x-4 flex items-center'>
           <span onClick={(e) => sortHandler(e)} name="sort" value="Bestselling" className={`${filter.sort === "پرفروش ترین" && "font-bold text-lg text-slate-900"} whitespace-nowrap cursor-pointer w-full md:w-auto block`}>پرفروش ترین</span>

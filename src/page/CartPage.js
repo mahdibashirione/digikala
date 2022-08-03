@@ -8,7 +8,7 @@ const CartPage = () => {
 
   const NotProductInCart = () => {
     return (
-      <div className="select-none w-full bg-white rounded-lg shadow flex flex-col items-center justify-between gap-y-6 px-4 py-8">
+      <div className="select-none w-full shadow bg-white rounded-lg border flex flex-col items-center justify-between gap-y-6 px-4 py-8">
         <div className="w-40"><img className="w-fll object-cover" src="/image/Cart/empty-cart.svg" alt="سبد خرید" /></div>
         <span className="font-bold text-lg">سبد خرید شما خالی است!</span>
         <span className="text-sm">میتوانید برای مشاهده محصولات دیگر به صفحات زیر بروید</span>

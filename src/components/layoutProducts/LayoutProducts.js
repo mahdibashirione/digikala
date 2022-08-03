@@ -29,7 +29,7 @@ const LayoutProducts = () => {
   })
 
   useEffect(() => {
-    GET_Data("/products", setAllProduct)
+    GET_Data("/product", setAllProduct)
   }, [])
 
   useEffect(() => {
