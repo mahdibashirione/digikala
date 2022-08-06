@@ -29,7 +29,7 @@ const LayoutProducts = () => {
   })
 
   useEffect(() => {
-    GET_Data("/product", setAllProduct)
+    GET_Data("/products", setAllProduct)
   }, [])
 
   useEffect(() => {
@@ -203,7 +203,7 @@ const LayoutProducts = () => {
           </div>
         </article>
         {/*products*/}
-        <article className="z-10 px-4 md:px-0 md:col-[2/3] row-[2/3] rounded-lg grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        <article className="z-10 px-4 md:px-0 md:col-[2/3] row-[2/3] rounded-lg grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
           {allProduct ? currentProduct.map(p => <CardProduct product={p} />) : <LoadProduct />}
         </article>
       </div >

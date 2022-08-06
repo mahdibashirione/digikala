@@ -9,13 +9,13 @@ const EmazingSliderHome = () => {
   const [dataProducts, setDataProducts] = useState(null)
 
   useEffect(() => {
-    Get_offProduct("/product")
+    Get_offProduct("/products")
   }, [])
 
   async function Get_offProduct(url) {
     try {
       const { data } = await http.get(url)
-      data && setDataProducts(data.filter(product => product.discount > 0))
+      data && setDataProducts(data)
     } catch (error) {
       console.log(error)
     }
@@ -90,7 +90,7 @@ const EmazingSliderHome = () => {
 
   const CardAmazingProduct = ({ product }) => {
     return (
-      <Link to={`/product/${product.name}/${product._id}`} state={{ state: product }} className="rounded cursor-pointer h-full min-w-[175px] bg-white block">
+      <Link to={`/product/${product.title}/${product.id}`} state={{ state: product }} className="rounded cursor-pointer h-full min-w-[175px] bg-white block">
         <div className="w-full h-[150px] flex items-center justify-center">
           <img className="h-full object-cover" src={product.image} />
         </div>
@@ -125,7 +125,7 @@ const EmazingSliderHome = () => {
         {!dataProducts ? <LoadingCard /> :
           dataProducts.slice(0, 11).map(product => {
             return (
-              <CardAmazingProduct key={product._id} product={product} />
+              <CardAmazingProduct key={product.id} product={product} />
             )
           })
         }

@@ -5,15 +5,15 @@ import { FiStar, FiHome } from "react-icons/fi";
 
 const CardAmazingProduct = ({ product }) => {
   return (
-    <Link to={`/product/${product.name}/${product._id}`} state={{ state: product }} className="md:border md:h-[360px] md:hover:scale-105 bg-white hover:shadow p-2 flex md:flex-col md:justify-start justify-between items-center w-full border-b select-none">
+    <Link to={`/product/${product.title}/${product.id}`} state={{ state: product }} className="md:border  md:hover:scale-105 bg-white hover:shadow p-2 flex md:flex-col md:justify-start justify-between items-center w-full border-b select-none">
       {/*image*/}
-      <div className="md:w-full w-32 h-32 md:h-64 ml-4 md:ml-0">
+      <div className="md:w-full w-32 h-32 min-w-[8rem] md:h-64 ml-4 md:ml-0 flex items-center justify-center">
         <img src={product.image} alt={""} className="h-full object-cover" />
       </div>
       <div className="flex flex-col w-full h-full text-sm">
         {/*name*/}
-        <span className="block md:mb-6 text-lg text-slate-800 w-full text-ellipsis overflow-hidden whitespace-nowrap">
-          {product.name}
+        <span className="block md:mb-6 mt-2 text-slate-800 w-full text-ellipsis overflow-hidden whitespace-nowrap">
+          {product.title}
         </span>
         <div className="w-full flex justify-between mt-4 md:mt-0">
           <div className="flex items-center gap-x-2">

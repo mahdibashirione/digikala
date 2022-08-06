@@ -19,13 +19,13 @@ const AmazingProductsPage = () => {
   }
 
   useEffect(() => {
-    GET_ProductAmazing("/product", setProducts)
+    GET_ProductAmazing("/products", setProducts)
   }, [])
 
   async function GET_ProductAmazing(url, setState) {
     try {
       const { data } = await http.get(url)
-      data && setState(data.filter(product => product.discount > 0))
+      data && setState(data)
     } catch (error) {
       console.log(error)
     }

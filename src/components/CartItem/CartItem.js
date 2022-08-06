@@ -10,12 +10,12 @@ const CartItem = ({ product }) => {
   return (
     <div className="bg-white w-full p-3 border flex items-center justify-start rounded-lg shadow">
       {/*image product*/}
-      <Link to={`/product/${product.name}/${product._id}`} state={{ state: product }} className="min-w-[80px] h-20 flex items-center justify-center overflow-hidden ml-4">
+      <Link to={`/product/${product.title}/${product.id}`} state={{ state: product }} className="min-w-[80px] h-20 flex items-center justify-center overflow-hidden ml-4">
         <img className="h-full object-cover" src={product.image} alt="image_Product" />
       </Link>
       {/*Ditail*/}
       <div className="w-full flex flex-col justify-start gap-y-4 select-none">
-        <span className="font-bold text-sm">{product.name}</span>
+        <span className="font-bold text-sm">{product.title}</span>
         {product.discount > 0 && <div className="select-none text-white gap-x-2 flex justify-start items-center">
           <span className="text-gray-500 line-through">{product.price}</span>
           <span className="bg-red-500 rounded-full py-1 px-2 text-sm">{product.discount}%</span>

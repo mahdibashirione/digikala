@@ -6,13 +6,39 @@ import { useEffect, useState } from 'react'
 import { Tab } from '@headlessui/react'
 
 const ProductDetail = (props) => {
+
+  const { state } = useLocation()
+  const cartDispatch = useCartActions()
+  const { cart } = useCart()
+
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
+
+  function checkInCart(cart, product) {
+    return cart.find(c => c.id === product.id)
+  }
+
+  const addToCartHandler = () => {
+    cartDispatch({ type: "Add_To_Cart", payload: state })
+    toast.success('به سبد خرید افزوده شد', {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
   const [categories, setCategories] = useState({
     معرفی: [
       {
         id: 1,
-        title: "coming soon...",
-        text: 'به زودی',
-      }
+        title: "درباره محصول",
+        text: state.state.description,
+      },
     ],
     مشخصات: [
       {
@@ -29,31 +55,6 @@ const ProductDetail = (props) => {
       }
     ],
   })
-
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-  }
-
-  function checkInCart(cart, product) {
-    return cart.find(c => c._id === product._id)
-  }
-
-  const { state } = useLocation()
-  const cartDispatch = useCartActions()
-  const { cart } = useCart()
-
-  const addToCartHandler = () => {
-    cartDispatch({ type: "Add_To_Cart", payload: state })
-    toast.success('به سبد خرید افزوده شد', {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  }
 
   return (
     <section className="w-full pb-20">
@@ -73,8 +74,8 @@ const ProductDetail = (props) => {
           <article className="w-full flex flex-col items-center lg:items-start justify-center lg:flex-row">
             {/* Image Product */}
             <div className="w-full lg:pl-6 lg:w-[39%] h-full flex flex-col items-center justify-center gap-y-3">
-              <div className="lg:w-full max-w-[300px] border-2 rounded-lg border-slate-300 p-4 lg:p-8">
-                <img className="w-full object-cover" src={state.state.image} alt="#" />
+              <div className="flex justify-center items-center  w-[250px] h-[250px] overflow-hidden border-2 rounded-lg border-zinc-900 p-4 lg:p-8">
+                <img className="h-full object-cover" src={state.state.image} alt="#" />
               </div>
               <div className="w-full flex items-center justify-center gap-x-4">
                 <div className="w-24 h-24 overflow-hidden border-2 border-slate-300 rounded-lg flex items-center justify-center bg-white">

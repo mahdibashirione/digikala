@@ -9,6 +9,7 @@ import CategoriesPage from './page/CategoriesPage';
 import Register from './components/register/register';
 import ProfileUser from './page/profilePage';
 import AmazingProductsPage from './page/AmazingProductPage';
+import DashboardPage from './page/DashboardPage';
 
 function App() {
   return (
@@ -16,12 +17,13 @@ function App() {
       <Routes>
         <Route path='/product/:name/:id' element={<ProductDetail />} />
         <Route path="/user/:token" element={<ProfileUser />} />
-        <Route path="/categories" element={<CategoriesPage />} />
-        <Route path="/amazingproducts" element={<AmazingProductsPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path='/' element={<Home />} />
         <Route path="/user/login" element={<LoginPage />} />
         <Route path="/user/register" element={<Register />} />
+        <Route path="/amazingproducts" element={<AmazingProductsPage />} />
+        <Route path="/categories" element={<CategoriesPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path='/' element={<Home />} />
       </Routes>
     </Layout>
   );
