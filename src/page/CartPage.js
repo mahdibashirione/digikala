@@ -2,9 +2,14 @@ import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem/CartItem";
 import { useCart } from "../context/Cart/CartProvider";
 import Footer from "../components/footer/Footer"
+import { useEffect } from "react";
 const CartPage = () => {
 
   const cartState = useCart()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }, [])
 
   const NotProductInCart = () => {
     return (
@@ -13,9 +18,9 @@ const CartPage = () => {
         <span className="font-bold text-lg">سبد خرید شما خالی است!</span>
         <span className="text-sm">میتوانید برای مشاهده محصولات دیگر به صفحات زیر بروید</span>
         <div className="flex items-center justify-center gap-x-6">
-          <Link to={"/"} className="font-bold text-lg text-blue-500">تخفیف ها و پیشنهاد ها</Link>
+          <Link to={"/amazingproducts"} className="font-bold text-lg text-blue-500">تخفیف ها و پیشنهاد ها</Link>
           <span className="h-8 w-0.5 bg-gray-500"></span>
-          <Link to={"/"} className="font-bold text-lg text-blue-500">محصولات پرفروش روز</Link>
+          <Link to={"/categories"} className="font-bold text-lg text-blue-500">محصولات پرفروش روز</Link>
         </div>
       </div>
     )

@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { GET_Data } from "../../utils/requestHttp";
+import { data } from "../../data/data";
 
 const CategoriesHome = () => {
 
   const [dataCategories, setDataCategories] = useState(null)
 
   useEffect(() => {
-    GET_Data("/categoriesHome", setDataCategories)
+    //GET_Data("/categoriesHome", setDataCategories)
+    setDataCategories(data.categoriesHome)
   }, [])
 
   const LoadingCategories = () => {

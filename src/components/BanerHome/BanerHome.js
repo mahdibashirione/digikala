@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { data } from "../../data/data";
 import { GET_Data } from "../../utils/requestHttp";
 
 const BanerHome = () => {
   const [dataBaner, setDataBaner] = useState(null)
 
   useEffect(() => {
-    GET_Data("/banerHome", setDataBaner)
+    //GET_Data("/banerHome", setDataBaner)
+    setDataBaner(data.banerHome)
   }, [])
 
   const LoadingBaner = () => {

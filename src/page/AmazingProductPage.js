@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FiSliders } from "react-icons/fi";
 import CardAmazingProduct from "../components/cardProductAmazingPage/cardAmazingProduct";
+import { data } from "../data/data";
 import { http } from "../services/httpService";
 
 
@@ -19,7 +20,9 @@ const AmazingProductsPage = () => {
   }
 
   useEffect(() => {
-    GET_ProductAmazing("/products", setProducts)
+    //GET_ProductAmazing("/products", setProducts)
+    setProducts(data.products.filter(p => p.discount > 0))
+    window.scrollTo({ top: 0, behavior: "smooth" })
   }, [])
 
   async function GET_ProductAmazing(url, setState) {

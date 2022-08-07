@@ -8,12 +8,14 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { GET_Data } from "../../utils/requestHttp";
+import { data } from "../../data/data";
 
 const SliderFullHome = () => {
   const [dataSlider, setDataSlider] = useState(null)
 
   useEffect(() => {
-    GET_Data("/sliderHome", setDataSlider)
+    //GET_Data("/sliderHome", setDataSlider)
+    setDataSlider(data.sliderHome)
   }, [])
 
   const isNavigation = window.innerWidth > 600;

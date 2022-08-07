@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BiHourglass, BiChevronLeft, BiArrowBack } from "react-icons/bi"
 import { Link } from "react-router-dom";
+import { data } from "../../data/data";
 import { GET_Data } from "../../utils/requestHttp";
 
 
@@ -9,7 +10,8 @@ const DigiPlusHome = () => {
   const [dataDigiPlus, setDataDigiPlus] = useState(null)
 
   useEffect(() => {
-    GET_Data("/digiPlus", setDataDigiPlus)
+    //GET_Data("/digiPlus", setDataDigiPlus)
+    setDataDigiPlus(data.digiPlus)
   }, [])
 
   const [numberProductsView, numberProductsViewmd, numberProductsViewlg] = [3, 8, 12]
@@ -40,7 +42,7 @@ const DigiPlusHome = () => {
                 <BiHourglass className="text-[#941B80] text-2xl ml-1" />
                 ارسال فوری
               </span>
-              <Link to={"#"} className="flex items-center justify-center text-[#941B80]">
+              <Link to={"/categories"} className="flex items-center justify-center text-[#941B80]">
                 مشاهده همه
                 <BiChevronLeft className="text-xl" />
               </Link>

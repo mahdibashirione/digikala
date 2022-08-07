@@ -7,6 +7,7 @@ import { GET_Data } from "../../utils/requestHttp"
 import Radio from '../common/radio'
 import { useRef } from "react"
 import ReactPaginate from 'react-paginate';
+import { data } from '../../data/data'
 
 const LayoutProducts = () => {
 
@@ -29,7 +30,9 @@ const LayoutProducts = () => {
   })
 
   useEffect(() => {
-    GET_Data("/products", setAllProduct)
+    //GET_Data("/products", setAllProduct)
+    setAllProduct(data.products)
+    window.scrollTo({ top: 0, behavior: "smooth" })
   }, [])
 
   useEffect(() => {

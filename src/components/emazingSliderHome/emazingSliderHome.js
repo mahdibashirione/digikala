@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import { FiChevronLeft } from "react-icons/fi"
 import { useEffect, useState } from "react";
 import { http } from "../../services/httpService";
+import { data } from "../../data/data";
 
 
 const EmazingSliderHome = () => {
   const [dataProducts, setDataProducts] = useState(null)
 
   useEffect(() => {
-    Get_offProduct("/products")
+    //Get_offProduct("/products")
+    setDataProducts(data.products.filter(p => p.discount > 0))
   }, [])
 
   async function Get_offProduct(url) {
