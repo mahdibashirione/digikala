@@ -1,15 +1,16 @@
 import { Link, useLocation } from "react-router-dom";
 import { useCart, useCartActions } from "../context/Cart/CartProvider";
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react'
 import { Tab } from '@headlessui/react'
+import { Toaster, toast } from "react-hot-toast";
 
 const ProductDetail = (props) => {
 
   const { state } = useLocation()
   const cartDispatch = useCartActions()
   const { cart } = useCart()
+  const [colorProduct, setColorProduct] = useState(null)
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -20,17 +21,16 @@ const ProductDetail = (props) => {
   }
 
   const addToCartHandler = () => {
-    cartDispatch({ type: "Add_To_Cart", payload: state })
-    toast.success('به سبد خرید افزوده شد', {
-      position: "top-right",
-      autoClose: 1500,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    if (colorProduct) {
+      cartDispatch({ type: "Add_To_Cart", payload: { ...state.state, color: colorProduct } })
+      toast.success('به سبد خرید افزوده شد');
+    } else {
+      toast.error('لطفا رنگ محصول را انتخاب کنید');
+    }
   }
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }, [])
 
   const [categories, setCategories] = useState({
     معرفی: [
@@ -58,16 +58,10 @@ const ProductDetail = (props) => {
 
   return (
     <section className="w-full pb-20">
-      <ToastContainer
-        position="top-left"
-        autoClose={5000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        className="z-30"
       />
       <div className="container flex w-full">
         <article className="lg:w-[75%] w-full p-4 pb-[100px]">
@@ -96,11 +90,8 @@ const ProductDetail = (props) => {
               </div>
               <div className="lg:w-full flex items-center justify-between lg:justify-start lg:gap-x-4 w-2/3 my-6">
                 <span>انتخاب رنگ :</span>
-                <div className="flex items-center justify-center">
-                  <span className="bg-blue-500 w-6 h-6 rounded-full cursor-pointer -ml-1"></span>
-                  <span className="bg-red-500 w-6 h-6 rounded-full cursor-pointer -ml-1"></span>
-                  <span className="bg-green-500 w-6 h-6 rounded-full cursor-pointer -ml-1"></span>
-                  <span className="bg-yellow-500 w-6 h-6 rounded-full cursor-pointer"></span>
+                <div className="flex items-center justify-center gap-x-1">
+                  {state.state.color.map(color => <span data-color={color} onClick={e => setColorProduct(e.target.innerText)} className={`${"bg-" + color + "-500"} ${colorProduct === color && "ring-4 mx-2"} ${"ring-" + color + "-800"} duration-300 ring-zinc-500 ring-offset-2 w-6 h-6 rounded-full cursor-pointer overflow-hidden ${"text-" + color + "-500"}`}>{color}</span>)}
                 </div>
               </div>
               <div className="w-full lg:justify-start flex items-center justify-center flex-wrap gap-3">

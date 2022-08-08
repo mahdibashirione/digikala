@@ -11,15 +11,15 @@ const reduser = (state, action) => {
   switch (action.type) {
     case "Add_To_Cart": {
       const updatedCart = [...state.cart]
-      const updatedindex = updatedCart.findIndex(p => p.id === action.payload.state.id)
+      const updatedindex = updatedCart.findIndex(p => p.id === action.payload.id)
       if (updatedindex < 0) {
-        updatedCart.push({ ...action.payload.state, quantity: 1 })
+        updatedCart.push({ ...action.payload, quantity: 1 })
       } else {
         const updatedItem = { ...updatedCart[updatedindex] }
         updatedItem.quantity++;
         updatedCart[updatedindex] = updatedItem
       }
-      return { ...state, cart: updatedCart, total: state.total + parseInt(action.payload.state.offPrice || action.payload.state.price) };
+      return { ...state, cart: updatedCart, total: state.total + parseInt(action.payload.offPrice || action.payload.price) };
 
     }
     case "Increment": {

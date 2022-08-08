@@ -8,6 +8,7 @@ export const data = {
   products: [
     {
       "id": 1,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/1.jpg",
       "discount": 7,
       "offPrice": "6250000",
@@ -17,6 +18,7 @@ export const data = {
     },
     {
       "id": 2,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/2.jpg",
       "discount": 0,
       "price": "24300000",
@@ -26,6 +28,7 @@ export const data = {
     },
     {
       "id": 3,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/3.jpg",
       "discount": 0,
       "price": "15000000",
@@ -35,6 +38,7 @@ export const data = {
     },
     {
       "id": 4,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/4.jpg",
       "discount": 10,
       "price": "4500000",
@@ -44,6 +48,7 @@ export const data = {
     },
     {
       "id": 5,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/5.jpg",
       "discount": 20,
       "price": "3000000",
@@ -53,6 +58,7 @@ export const data = {
     },
     {
       "id": 6,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/6.jpg",
       "discount": 15,
       "price": "1500000",
@@ -62,6 +68,7 @@ export const data = {
     },
     {
       "id": 7,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/7.jpg",
       "discount": 0,
       "price": "450000",
@@ -71,6 +78,7 @@ export const data = {
     },
     {
       "id": 8,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/8.jpg",
       "discount": 0,
       "price": "15000000",
@@ -80,6 +88,7 @@ export const data = {
     },
     {
       "id": 9,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/9.jpg",
       "discount": 16,
       "price": "15000000",
@@ -89,6 +98,7 @@ export const data = {
     },
     {
       "id": 10,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/10.jpg",
       "discount": 23,
       "price": "15000000",
@@ -98,6 +108,7 @@ export const data = {
     },
     {
       "id": 11,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/11.jpg",
       "discount": 50,
       "price": "15000000",
@@ -107,6 +118,7 @@ export const data = {
     },
     {
       "id": 12,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/12.jpg",
       "discount": 15,
       "price": "15000000",
@@ -116,6 +128,7 @@ export const data = {
     },
     {
       "id": 13,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/13.jpg",
       "discount": 5,
       "price": "15000000",
@@ -125,6 +138,7 @@ export const data = {
     },
     {
       "id": 14,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/14.jpg",
       "discount": 20,
       "price": "15000000",
@@ -134,6 +148,7 @@ export const data = {
     },
     {
       "id": 15,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/14.jpg",
       "discount": 0,
       "price": "15000000",
@@ -143,6 +158,7 @@ export const data = {
     },
     {
       "id": 16,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/14.jpg",
       "discount": 0,
       "price": "5000000",
@@ -152,6 +168,7 @@ export const data = {
     },
     {
       "id": 17,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/14.jpg",
       "discount": 0,
       "price": "5000000",
@@ -161,6 +178,7 @@ export const data = {
     },
     {
       "id": 18,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/14.jpg",
       "discount": 0,
       "price": "5000000",
@@ -170,6 +188,7 @@ export const data = {
     },
     {
       "id": 19,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/14.jpg",
       "discount": 0,
       "price": "5000000",
@@ -179,6 +198,7 @@ export const data = {
     },
     {
       "id": 20,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/14.jpg",
       "discount": 0,
       "price": "5000000",
@@ -188,6 +208,7 @@ export const data = {
     },
     {
       "id": 21,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/14.jpg",
       "discount": 0,
       "price": "5000000",
@@ -197,6 +218,7 @@ export const data = {
     },
     {
       "id": 22,
+      "color": ["red", "blue", "yellow"],
       "image": "/image/amazingSlider/imgProduct/14.jpg",
       "discount": 0,
       "price": "5000000",
