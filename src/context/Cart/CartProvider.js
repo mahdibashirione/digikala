@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 const CartContext = createContext()
 const CartContextDispatcher = createContext()
 
-const initialState = {
+let initialState = {
   cart: [],
   total: 0,
 }
@@ -20,7 +20,6 @@ const reduser = (state, action) => {
         updatedCart[updatedindex] = updatedItem
       }
       return { ...state, cart: updatedCart, total: state.total + parseInt(action.payload.offPrice || action.payload.price) };
-
     }
     case "Increment": {
       const updatedCart = [...state.cart]
@@ -39,11 +38,8 @@ const reduser = (state, action) => {
         updatedCart[indexItem] = updatedItem;
       } else {
         updatedCart = state.cart.filter(p => p.id !== action.payload.id)
-
       }
-      return {
-        ...state, cart: updatedCart, total: state.total - parseInt(action.payload.offPrice || action.payload.price)
-      }
+      return { ...state, cart: updatedCart, total: state.total - parseInt(action.payload.offPrice || action.payload.price) }
     }
     default:
       return state;

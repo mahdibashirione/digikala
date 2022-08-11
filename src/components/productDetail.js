@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react'
 import { Tab } from '@headlessui/react'
 import { Toaster, toast } from "react-hot-toast";
+import GalleryImage from "./galleryImage/GalleryImage";
 
 const ProductDetail = (props) => {
 
@@ -67,31 +68,16 @@ const ProductDetail = (props) => {
         <article className="lg:w-[75%] w-full p-4 pb-[100px]">
           <article className="w-full flex flex-col items-center lg:items-start justify-center lg:flex-row">
             {/* Image Product */}
-            <div className="w-full lg:pl-6 lg:w-[39%] h-full flex flex-col items-center justify-center gap-y-3">
-              <div className="flex justify-center items-center  w-[250px] h-[250px] overflow-hidden border-2 rounded-lg border-zinc-900 p-4 lg:p-8">
-                <img className="h-full object-cover" src={state.state.image} alt="#" />
-              </div>
-              <div className="w-full flex items-center justify-center gap-x-4">
-                <div className="w-24 h-24 overflow-hidden border-2 border-slate-300 rounded-lg flex items-center justify-center bg-white">
-                  <img className="h-full object-cover" src={state.state.image} alt="#" />
-                </div>
-                <div className="w-24 h-24 overflow-hidden border-2 border-slate-300 rounded-lg flex items-center justify-center bg-white">
-                  <img className="h-full object-cover" src={state.state.image} alt="#" />
-                </div>
-                <div className="w-24 h-24 overflow-hidden border-2 border-slate-300 rounded-lg flex items-center justify-center bg-white">
-                  <img className="h-full object-cover" src={state.state.image} alt="#" />
-                </div>
-              </div>
-            </div>
+            <GalleryImage image={state.state.image} />
             {/* Detail Product */}
-            <div className="select-none w-full lg:w-[60%] flex flex-col justify-center items-center">
+            <div className="select-none w-full flex flex-col justify-center items-center">
               <div className="lg:border-b lg:pb-6 lg:w-full flex flex-col items-center lg:items-start justify-center gap-y-2">
-                <h2 className="text-slate-800 font-sans text-lg font-bold mt-8 lg:mt-0">{state.state.name}</h2>
+                <h2 className="text-slate-800 font-sans text-lg font-bold mt-8 lg:mt-0">{state.state.title}</h2>
               </div>
               <div className="lg:w-full flex items-center justify-between lg:justify-start lg:gap-x-4 w-2/3 my-6">
                 <span>انتخاب رنگ :</span>
                 <div className="flex items-center justify-center gap-x-1">
-                  {state.state.color.map(color => <span data-color={color} onClick={e => setColorProduct(e.target.innerText)} className={`${"bg-" + color + "-500"} ${colorProduct === color && "ring-4 mx-2"} ${"ring-" + color + "-800"} duration-300 ring-zinc-500 ring-offset-2 w-6 h-6 rounded-full cursor-pointer overflow-hidden ${"text-" + color + "-500"}`}>{color}</span>)}
+                  {state.state.color.map(color => <span data-color={color} onClick={e => setColorProduct(e.target.innerText)} className={`${"bg-" + color + "-500"} ${"text-" + color + "-500"} ${colorProduct === color && "ring-4 mx-2"} duration-300 ring-zinc-900 ring-offset-2 w-6 h-6 rounded-full cursor-pointer overflow-hidden`}>{color}</span>)}
                 </div>
               </div>
               <div className="w-full lg:justify-start flex items-center justify-center flex-wrap gap-3">
@@ -224,7 +210,7 @@ const ProductDetail = (props) => {
           </div>
         </article>
       </div>
-      <article className="bg-white border-t-2 font-sans lg:hidden flex gap-y-3 flex-wrap items-center justify-between w-full fixed bottom-0 right-0 px-4 py-2">
+      <article className="bg-white border-t-2 font-sans lg:hidden flex gap-y-3 flex-wrap items-center justify-between w-full fixed bottom-0 right-0 px-4 py-2 z-30">
         <div className="flex items-center justify-between w-full">
           <div>
             <span className="text-red-600 font-bold text-lg mr-4">{state.state.offPrice || state.state.price}</span>

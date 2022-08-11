@@ -11,7 +11,7 @@ const CartItem = ({ product }) => {
     <div className="bg-white w-full p-3 border flex items-center justify-start rounded-lg shadow">
       {/*image product*/}
       <div className="relative min-w-[80px] h-20 flex items-center justify-center ml-4">
-        <img className="h-full object-cover" src={product.image} alt="image_Product" />
+        <img className="h-full object-cover" src={product.image[0]} alt="image_Product" />
         {product.discount > 0 && <span className="bg-red-500 rounded-full py-1 px-2 text-sm absolute right-0 -top-4 text-white">{product.discount}%</span>}
       </div>
       {/*Ditail*/}

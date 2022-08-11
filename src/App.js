@@ -21,7 +21,7 @@ function App() {
         <Route path="/user/register" element={<Register />} />
         <Route path="/amazingproducts" element={<AmazingProductsPage />} />
         <Route path="/categories" element={<CategoriesPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
+        {/*<Route path="/dashboard" element={<DashboardPage />} />*/}
         <Route path="/cart" element={<CartPage />} />
         <Route path='/' element={<Home />} />
       </Routes>

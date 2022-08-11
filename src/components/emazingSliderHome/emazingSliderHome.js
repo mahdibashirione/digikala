@@ -94,7 +94,7 @@ const EmazingSliderHome = () => {
     return (
       <Link to={`/product/${product.title}/${product.id}`} state={{ state: product }} className="rounded cursor-pointer h-full min-w-[175px] bg-white block">
         <div className="w-full h-[150px] flex items-center justify-center">
-          <img className="h-full object-cover" src={product.image} />
+          <img className="h-full object-cover" src={product.image[0]} />
         </div>
         <article className="h-full px-2 mt-4">
           <div className="w-full flex items-center justify-between">
