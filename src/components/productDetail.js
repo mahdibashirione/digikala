@@ -77,7 +77,7 @@ const ProductDetail = (props) => {
               <div className="lg:w-full flex items-center justify-between lg:justify-start lg:gap-x-4 w-2/3 my-6">
                 <span>انتخاب رنگ :</span>
                 <div className="flex items-center justify-center gap-x-1">
-                  {state.state.color.map(color => <span data-color={color} onClick={e => setColorProduct(e.target.innerText)} className={`${"bg-" + color + "-500"} ${"text-" + color + "-500"} ${colorProduct === color && "ring-4 mx-2"} duration-300 ring-zinc-900 ring-offset-2 w-6 h-6 rounded-full cursor-pointer overflow-hidden`}>{color}</span>)}
+                  {state.state.color.map(color => <span key={color} data-color={color} style={{ backgroundColor: `${color}`, color: `${color}`, }} onClick={e => setColorProduct(e.target.innerText)} className={`${colorProduct === color && "ring-4 mx-2"} shadow duration-300 ring-zinc-900 ring-offset-2 w-6 h-6 rounded-full cursor-pointer overflow-hidden`}>{color}</span>)}
                 </div>
               </div>
               <div className="w-full lg:justify-start flex items-center justify-center flex-wrap gap-3">

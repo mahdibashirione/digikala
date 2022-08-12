@@ -4,7 +4,7 @@ const CardProduct = ({ product }) => {
   return (
     <Link to={`/product/${product.title}/${product.id}`} state={{ state: product }} className="hover:scale-105 duration-300 relative select-none px-4 py-2 h-[275px] rounded-lg border shadow bg-white flex flex-col justify-between items-center">
       <div className="h-[120px] w-[120px] flex items-center justify-center">
-        <img className="h-full object-cover" src={product.image} alt="product" />
+        <img className="h-full object-cover" src={product.image[0]} alt="product" />
       </div>
       <span className="text-sm w-full line-clamp-1 mt-2">
         {product.title}

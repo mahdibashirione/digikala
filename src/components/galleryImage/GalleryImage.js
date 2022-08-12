@@ -60,7 +60,7 @@ const GalleryImage = ({ image }) => {
           )
         })}
       </Swiper>
-      <div ref={galleryWithe} className="z-40 fixed flex-col top-0 right-0 w-full h-screen hidden items-center justify-start bg-zinc-900/90">
+      <div ref={galleryWithe} className="z-40 fixed flex-col top-0 right-0 w-full h-screen hidden items-center justify-between bg-zinc-900/90">
         <div className="w-full p-4 flex justify-end">
           <FiX onClick={handleCluseGalleryWithe} className="text-white text-4xl cursor-pointer" />
         </div>
@@ -74,7 +74,7 @@ const GalleryImage = ({ image }) => {
           navigation={true}
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Navigation, Thumbs]}
-          className="mySwiper2 w-80 h-80 lg:w-[500px] lg:h-[500px] bg-white select-none rounded-md mt-8 md:mt-0"
+          className="mySwiper2 w-80 h-80 lg:w-[500px] lg:h-[500px] bg-white select-none rounded-md"
         >
           {image.map(src => {
             return (
@@ -92,7 +92,7 @@ const GalleryImage = ({ image }) => {
           watchSlidesProgress={true}
           modules={[FreeMode, Navigation, Thumbs]}
           //onSwiper={setThumbsSwiper}
-          className="mySwiper w-full py-3 h-28 select-none opacity-50 mt-4"
+          className="mySwiper w-full py-3 h-28 select-none opacity-50"
         >
           {image.map(src => {
             return (

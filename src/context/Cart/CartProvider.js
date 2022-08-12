@@ -1,8 +1,10 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
+import setLocalStorage from "../../utils/setLocalStorage"
+
 const CartContext = createContext()
 const CartContextDispatcher = createContext()
 
-let initialState = {
+const initialState = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem("cart")) : {
   cart: [],
   total: 0,
 }
@@ -19,6 +21,7 @@ const reduser = (state, action) => {
         updatedItem.quantity++;
         updatedCart[updatedindex] = updatedItem
       }
+      setLocalStorage("cart", { ...state, cart: updatedCart, total: state.total + parseInt(action.payload.offPrice || action.payload.price) })
       return { ...state, cart: updatedCart, total: state.total + parseInt(action.payload.offPrice || action.payload.price) };
     }
     case "Increment": {
@@ -27,7 +30,8 @@ const reduser = (state, action) => {
       const updatedItem = { ...updatedCart[indexItem] }
       updatedItem.quantity++;
       updatedCart[indexItem] = updatedItem;
-      return { ...state, cart: updatedCart, total: state.total + parseInt(action.payload.offPrice || action.payload.price) }
+      setLocalStorage("cart", { ...state, cart: updatedCart, total: state.total + parseInt(action.payload.offPrice || action.payload.price) })
+      return { ...state, cart: updatedCart, total: state.total + parseInt(action.payload.offPrice || action.payload.price) };
     }
     case "Decrement": {
       let updatedCart = [...state.cart]
@@ -39,6 +43,7 @@ const reduser = (state, action) => {
       } else {
         updatedCart = state.cart.filter(p => p.id !== action.payload.id)
       }
+      setLocalStorage("cart", { ...state, cart: updatedCart, total: state.total - parseInt(action.payload.offPrice || action.payload.price) })
       return { ...state, cart: updatedCart, total: state.total - parseInt(action.payload.offPrice || action.payload.price) }
     }
     default:
