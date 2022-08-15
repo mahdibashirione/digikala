@@ -86,7 +86,7 @@ const FeatureHome = () => {
       {/*backdrop*/}
       <span ref={backdrop} className="md:block hidden duration-300 w-screen h-screen fixed top-full right-0 z-40 bg-zinc-900/80"></span>
       {/*More Page*/}
-      <article ref={morePage} className="md:w-[500px] md:h-[400px] md:rounded-lg md:shadow md:border md:right-1/2 md:translate-x-1/2 duration-300 px-4 z-50 w-screen h-screen fixed top-full right-0 bg-white flex flex-col justify-start items-center">
+      <article ref={morePage} className="md:w-[500px] md:h-[400px] overflow-hidden md:rounded-lg md:shadow md:border md:right-1/2 md:translate-x-1/2 duration-300 px-4 z-50 w-screen h-screen fixed top-full right-0 bg-white flex flex-col justify-start items-center">
         <div className="w-full flex justify-between items-center py-4 border-b">
           <span className="font-bold">خدمات دیجی کالا</span>
           <FiX onClick={() => handleMorePage("cluse")} className="cursor-pointer text-2xl text-gray-500" />
