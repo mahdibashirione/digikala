@@ -36,7 +36,7 @@ const HeaderMobile = ({ panelCity, myCity, logOutAccount, openNavbar }) => {
   }
 
   return (
-    <header className="w-full bg-white">
+    <header className="w-full bg-white md:hidden">
       <div className="w-full px-4">
         <div className="w-full flex justify-between items-center py-3 border-b">
           <BiMenu onClick={openNavbar} className="text-2xl cursor-pointer" />

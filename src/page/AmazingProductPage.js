@@ -170,13 +170,13 @@ const AmazingProductsPage = () => {
   return (
     <>
       {/*sort*/}
-      <div className="sticky md:top-[75px] top-[105px] z-30 bg-white w-full flex items-center justify-start gap-x-3 p-4 text-sm shadow">
-        <FiSliders className="text-red-500 text-2xl" />
-        <div className='gap-x-4 flex items-center'>
-          <span onClick={(e) => sortHandler(e)} name="sort" value="Bestselling" className={`${filter.sort === "پرفروش ترین" && "font-bold text-lg text-slate-900"} whitespace-nowrap cursor-pointer w-full md:w-auto block`}>پرفروش ترین</span>
-          <span onClick={(e) => sortHandler(e)} name="sort" value="MostVisited" className={`${filter.sort === "پربازدید ترین" && "font-bold text-lg text-slate-900"} whitespace-nowrap cursor-pointer w-full md:w-auto block`}>پربازدید ترین</span>
-          <span onClick={(e) => sortHandler(e)} name="sort" value="MostExpensive" className={`${filter.sort === "گرانترین" && "font-bold text-lg text-slate-900"} whitespace-nowrap cursor-pointer w-full md:w-auto block`}>گرانترین</span>
-          <span onClick={(e) => sortHandler(e)} name="sort" value="Ceapest" className={`${filter.sort === "ارزان ترین" && "font-bold text-lg text-slate-900"} whitespace-nowrap cursor-pointer w-full md:w-auto block`}>ارزان ترین</span>
+      <div className="sticky md:top-[64px] top-0 z-30 w-full flex items-center justify-start gap-x-3 p-4 text-sm bg-red-500">
+        <FiSliders className="text-2xl" />
+        <div className='gap-x-4 flex items-center text-white'>
+          <span onClick={(e) => sortHandler(e)} name="sort" value="Bestselling" className={`${filter.sort === "پرفروش ترین" && "font-bold text-lg text-white opacity-100"} opacity-50 whitespace-nowrap cursor-pointer w-full md:w-auto block`}>پرفروش ترین</span>
+          <span onClick={(e) => sortHandler(e)} name="sort" value="MostVisited" className={`${filter.sort === "پربازدید ترین" && "font-bold text-lg text-white opacity-100"} opacity-50 whitespace-nowrap cursor-pointer w-full md:w-auto block`}>پربازدید ترین</span>
+          <span onClick={(e) => sortHandler(e)} name="sort" value="MostExpensive" className={`${filter.sort === "گرانترین" && "font-bold text-lg text-white opacity-100"} opacity-50 whitespace-nowrap cursor-pointer w-full md:w-auto block`}>گرانترین</span>
+          <span onClick={(e) => sortHandler(e)} name="sort" value="Ceapest" className={`${filter.sort === "ارزان ترین" && "font-bold text-lg text-white opacity-100"} opacity-50 whitespace-nowrap cursor-pointer w-full md:w-auto block`}>ارزان ترین</span>
         </div>
       </div>
       <section className="container w-full">

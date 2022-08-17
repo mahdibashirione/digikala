@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState, Fragment } from 'react';
 import { BiBasket, BiMenu, BiSearch, BiLogIn, BiCaretDown } from "react-icons/bi";
-import { FiUser, FiLogOut, FiNavigation, FiZap, FiChevronLeft, FiX, FiShoppingCart, FiAlertOctagon, FiDivideCircle, FiTag } from "react-icons/fi";
+import { FiUser, FiLogOut, FiMapPin, FiZap, FiChevronLeft, FiX, FiShoppingCart, FiDivideCircle, FiTag } from "react-icons/fi";
 import { useCart } from "../../context/Cart/CartProvider"
 import { useAuth, useAuthAction } from "../../context/Auth/AuthProvider";
 import { Menu, Transition } from '@headlessui/react'
@@ -70,27 +70,30 @@ const Header = () => {
 
   return (
     <>
-      {isMobile ? <HeaderMobile openNavbar={openNavHandler} logOutAccount={handleLogoutAcount} panelCity={panelCity} myCity={myCity} /> : <header className="sticky top-0 w-fyll pt-4 md:pb-4 px-2 bg-white z-40">
-        <div className="gap-y-4 container pb-2 md:pb-0 font-sans text-xl w-full flex flex-wrap md:flex-nowrap items-center justify-center">
-          <button className="md:hidden w-1/3 flex justify-start">
-            <BiMenu onClick={openNavHandler} className="text-2xl" />
-          </button>
-          <Link to={'/'} className="md:ml-6 md:w-auto w-1/3 flex items-center justify-center">
-            <img className="max-w-[100px]" src={"/image/logo/logo.svg"} alt="logo" />
+      <HeaderMobile openNavbar={openNavHandler} logOutAccount={handleLogoutAcount} panelCity={panelCity} myCity={myCity} />
+      <header className="w-full bg-white sticky top-0 right-0 z-40 hidden md:block">
+        <div className="container flex justify-between items-center gap-x-4 py-2">
+          <Link to="/" className="block w-full max-w-[120px]">
+            <img alt="digikala-logo" src="/image/logo/logo.svg" className="w-full object-cover" />
           </Link>
-          <button className="md:hidden w-1/3 flex justify-end">
-            <FiAlertOctagon className="text-2xl" />
-          </button>
-          <div className="relative md:right-0 md:top-0 md:w-full w-2/3 h-full flex items-center justify-start">
-            <BiSearch className="absolute right-3 text-[#A1A3A8] text-2xl" />
-            <input type={"text"} className="bg-[#F0F0F1] pl-4 text-gray-600 pr-12 py-3 w-full max-w-[300px] rounded-lg outline-none text-sm" placeholder="جسنوجو" />
+          <div className="rounded-lg bg-[#F0F0F1] p-3 flex items-center gap-x-2 w-full max-w-[600px]">
+            <BiSearch className="text-[#A1A3A8] text-2xl" />
+            <input type={"text"} className="bg-[#F0F0F1] text-[#A1A3A8] text-sm outline-none" placeholder="جستوجو" />
           </div>
-          <div className="px-2 h-[44px] flex items-center justify-end md:w-auto w-1/3">
-            {auth ? <Menu as="div" className="ml-5 relative inline-block text-left">
+          <div className="w-full flex items-center justify-end">
+            <Menu as="div" className="relative inline-block text-left">
               <div>
-                <Menu.Button className="flex items-center justify-center w-full rounded-lg bg-black bg-opacity-20 p-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-                  <FiUser className="h-5 w-5 text-white hover:text-violet-100" />
-                  <BiCaretDown />
+                <Menu.Button className="border rounded-lg inline-flex w-full justify-center items-center px-4 py-2 text-sm font-medium text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+                  {auth ?
+                    <>
+                      <FiUser className="h-6 w-6 text-gray-600" />
+                      <BiCaretDown className="text-gray-600" />
+                    </> :
+                    <>
+                      <BiLogIn className="text-2xl text-gray-600" />
+                      ورود | ثبت‌نام
+                    </>
+                  }
                 </Menu.Button>
               </div>
               <Transition
@@ -102,62 +105,71 @@ const Header = () => {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <Menu.Items className="absolute left-0 mt-2 w-44 origin-top-right divide-y divide-gray-200 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <div className="p-1 ">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <Link to={`/user/${auth.token}`}
-                          className={`${active ? 'bg-blue-400 text-white' : 'text-gray-900'
-                            } group flex w-full items-center rounded-md px-2 py-3 text-sm`}
-                        >
-                          {active ? <UserPageActiveIcon aria-hidden="true" /> : <UserPageIcon aria-hidden="true" />}
-                          حساب کاربری
-                        </Link>
-                      )}
-                    </Menu.Item>
-                  </div>
-                  <div className="p-1">
-                    <Menu.Item>
-                      {({ active }) => (
-                        <button onClick={handleLogoutAcount}
-                          className={`${active ? 'bg-red-400 text-white' : 'text-gray-900'
-                            } group flex w-full items-center rounded-md px-2 py-3 text-sm`}
-                        >
-                          {active ? <OutActiveIcon aria-hidden="true" /> : <OutIcon aria-hidden="true" />}
-                          خروج از حساب
-                        </button>
-                      )}
-                    </Menu.Item>
+                <Menu.Items className="z-40 absolute left-0 mt-2 w-36 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                  <div className="px-1 py-1 ">
+                    {auth ?
+                      <>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <Link to={`/user/${auth.token}`}
+                              className={`${active ? 'bg-blue-400 text-white' : 'text-gray-900'
+                                } group flex w-full items-center rounded-md px-2 py-3 text-sm`}
+                            >
+                              {active ? <UserPageActiveIcon aria-hidden="true" /> : <UserPageIcon aria-hidden="true" />}
+                              حساب کاربری
+                            </Link>
+                          )}
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <button
+                              onClick={handleLogoutAcount}
+                              className={`${active ? 'bg-red-400 text-white' : 'text-gray-900'
+                                } group flex w-full items-center rounded-md px-2 py-3 text-sm`}
+                            >
+                              {active ? <OutActiveIcon aria-hidden="true" /> : <OutIcon aria-hidden="true" />}
+                              خروج از حساب
+                            </button>
+                          )}
+                        </Menu.Item>
+                      </>
+                      :
+                      <>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <Link to={"/user/login"}
+                              className={`${active ? 'bg-red-500 text-white' : 'text-gray-900'
+                                } group flex w-full items-center rounded-md px-2 py-3 text-sm`}
+                            >
+                              ورود
+                            </Link>
+                          )}
+                        </Menu.Item>
+                        <Menu.Item>
+                          {({ active }) => (
+                            <Link to={"/user/register"}
+                              className={`${active ? 'bg-red-500 text-white' : 'text-gray-900'
+                                } group flex w-full items-center rounded-md px-2 py-3 text-sm`}
+                            >
+                              ثبت نام
+                            </Link>
+                          )}
+                        </Menu.Item>
+                      </>
+                    }
                   </div>
                 </Menu.Items>
               </Transition>
-            </Menu> :
-              <>
-                <div className="md:ml-10 group cursor-pointer hidden after:content-['|'] after:h-full after:w-2 after:top-0.5 after:absolute after:-left-7 after:text-gray-300 after: relative md:flex items-center justify-center py-2 px-6 border rounded-lg border-gray-400">
-                  <BiLogIn className="text-2xl" />
-                  <span className="text-sm whitespace-nowrap">ورود | ثبت نام</span>
-                  <div className="group-hover:flex hidden flex-col w-full border absolute top-full right-0 bg-white text-sm rounded-lg shadow">
-                    <Link to={"/user/login"} className="p-2 hover:text-red-500" >ورود</Link>
-                    <Link to={"/user/register"} className="border-t p-2 hover:text-red-500">ثبت نام</Link>
-                  </div>
-                </div>
-                <div className="ml-5 group cursor-pointer relative flex mr-6 md:hidden justify-center items-center">
-                  <BiLogIn className="text-2xl" />
-                  <span className="text-sm font-sans text-slate-800">ورود</span>
-                  <div className="group-hover:flex hidden flex-col w-28 border absolute top-full left-0 bg-white text-sm rounded-lg shadow">
-                    <Link to={"/user/login"} className="p-3 hover:text-red-500" >ورود</Link>
-                    <Link to={"/user/register"} className="border-t p-3 hover:text-red-500">ثبت نام</Link>
-                  </div>
-                </div>
-              </>
-            }
-            <Link to={"cart"} className="relative w-[25px] h-[25px] min-w-[25px] min-h-[25px]">
-              <FiShoppingCart className="text-2xl" />
+            </Menu>
+            <span className="block h-7 w-[1.5px] bg-gray-300 mr-3 ml-5"></span>
+            <Link to={"/cart"} className="relative">
+              <FiShoppingCart className="text-2xl text-gray-700" />
               {cartState.cart.length >= 1 && <span className="absolute bottom-2 left-3 bg-red-500 rounded-full w-6 h-6 text-white text-sm flex justify-center items-center">{cartState.cart.length}</span>}
             </Link>
           </div>
         </div>
-      </header>}
+      </header>
+      {/*menu*/}
       <nav className="w-full border-b shadow">
         <div ref={nav} className="duration-300 transition-all md:relative md:top-auto md:right-0 md:w-full w-3/4 bg-white -right-[600px] top-0 fixed h-screen md:h-14 md:z-30 z-50 flex justify-between items-center container">
           <ul className="flex w-full md:text-[12px] lg:text-[12.5px] h-screen md:h-auto flex-col-reverse md:flex-row items-start md:items-center px-4 md:px-0 justify-end md:justify-start text-sm font-sans text-gray-700">
@@ -237,10 +249,10 @@ const Header = () => {
               </div>
             </li>
           </ul>
-          <ul className="lg:block hidden h-full text-[12px] font-sans text-gray-700">
-            <li onClick={() => panelCity.current.classList.replace("top-full", "top-0")} className="whitespace-nowrap cursor-pointer h-full flex items-center px-2 ">
-              <FiNavigation className="text-xl" />
-              <span className="text-[0.9rem] mx-2">{!myCity ? "لطفا شهر خود را انتخاب کنید" : myCity}</span>
+          <ul className="lg:block hidden h-full font-sans text-gray-700 text-[12px]">
+            <li onClick={() => panelCity.current.classList.replace("bottom-full", "bottom-0")} className="whitespace-nowrap cursor-pointer h-full flex items-center px-2 ">
+              <FiMapPin className="text-lg text-orange-500" />
+              <span className="mx-2">{!myCity ? "لطفا شهر خود را انتخاب کنید" : myCity}</span>
             </li>
           </ul>
         </div>

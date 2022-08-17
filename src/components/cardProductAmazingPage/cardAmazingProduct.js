@@ -8,7 +8,7 @@ const CardAmazingProduct = ({ product }) => {
     <Link to={`/product/${product.title}/${product.id}`} state={{ state: product }} className="md:border duration-300 md:hover:scale-105 bg-white hover:shadow p-2 flex md:flex-col md:justify-start justify-between items-center w-full border-b select-none">
       {/*image*/}
       <div className="md:w-full w-32 h-32 min-w-[8rem] md:h-64 ml-4 md:ml-0 flex items-center justify-center">
-        <img src={product.image} alt={""} className="h-full object-cover" />
+        <img src={product.image[0]} alt={""} className="h-full object-cover" />
       </div>
       <div className="flex flex-col w-full h-full text-sm">
         {/*name*/}
