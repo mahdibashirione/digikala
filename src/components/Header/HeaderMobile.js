@@ -2,14 +2,16 @@ import { useAuth } from "../../context/Auth/AuthProvider";
 import { useCart } from "../../context/Cart/CartProvider";
 import { Link } from 'react-router-dom'
 import { BiMenu, BiSearch, BiCaretDown, BiLogIn } from "react-icons/bi"
-import { FiAlertOctagon, FiLogOut, FiUser, FiShoppingCart, FiChevronDown, FiMapPin } from "react-icons/fi"
+import { FiAlertOctagon, FiChevronLeft, FiArrowRight, FiAward, FiLogOut, FiUser, FiShoppingCart, FiChevronDown, FiMapPin } from "react-icons/fi"
 import { Menu, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import { Fragment, useRef } from 'react'
 
 const HeaderMobile = ({ panelCity, myCity, logOutAccount, openNavbar }) => {
 
   const cartState = useCart()
   const auth = useAuth()
+  const pageSearch = useRef()
+  const inputSearch = useRef()
 
   function UserPageIcon() {
     return (
@@ -35,6 +37,11 @@ const HeaderMobile = ({ panelCity, myCity, logOutAccount, openNavbar }) => {
     )
   }
 
+  const openSearch = () => {
+    pageSearch.current.classList.replace("top-full", "top-0")
+    inputSearch.current.focus()
+  }
+
   return (
     <header className="w-full bg-white md:hidden">
       <div className="w-full px-4">
@@ -44,9 +51,9 @@ const HeaderMobile = ({ panelCity, myCity, logOutAccount, openNavbar }) => {
           <FiAlertOctagon className="text-2xl cursor-pointer" />
         </div>
         <div className="w-full flex justify-between items-center py-2 border-b">
-          <div className="rounded-lg bg-[#F0F0F1] p-2 flex items-center gap-x-2 w-[65%]">
+          <div onClick={openSearch} className="rounded-lg bg-[#F0F0F1] p-2 flex items-center gap-x-2 w-[65%]">
             <BiSearch className="text-[#A1A3A8] text-2xl" />
-            <input type={"text"} className="bg-[#F0F0F1] text-[#A1A3A8] text-sm outline-none" placeholder="جستوجو" />
+            <input onFocus={openSearch} type={"text"} className="bg-[#F0F0F1] text-[#A1A3A8] text-sm outline-none" placeholder="جستوجو" />
           </div>
           <Menu as="div" className="relative inline-block text-left">
             <div>
@@ -139,6 +146,42 @@ const HeaderMobile = ({ panelCity, myCity, logOutAccount, openNavbar }) => {
             {myCity ? `ارسال به ${myCity}` : "لطفا شهر خود را انتخاب کنید!!!"}
           </div>
           <FiChevronDown className="text-xl text-gray-600" />
+        </div>
+      </div>
+      <div ref={pageSearch} className="duration-300 w-screen h-screen bg-white fixed top-full right-0 z-50 flex flex-col justify-start px-4">
+        <div className="w-full border-b border-blue-500 py-4 flex items-center justify-start gap-x-4">
+          <FiArrowRight onClick={() => pageSearch.current.classList.replace("top-0", "top-full")} className="text-2xl cursor-pointer" />
+          <input ref={inputSearch} type={"search"} className="outline-none text-sm w-full" placeholder="جستوجو" />
+        </div>
+        <div className="w-full flex justify-start items-center gap-x-2 mt-8 select-none">
+          <FiAward className="text-2xl cursor-pointer" />
+          <span>جستوجوهاس پرطرفدار</span>
+        </div>
+        <div className="w-full flex items-center flex-nowrap overflow-x-scroll scrollbar-hidden py-5 gap-x-2">
+          <span className="whitespace-nowrap text-gray-600 flex items-center p-2 border rounded-full gap-x-2 select-none cursor-pointer">
+            ربات هوشمند
+            <FiChevronLeft className="text-slate-900" />
+          </span>
+          <span className="whitespace-nowrap text-gray-600 flex items-center p-2 border rounded-full gap-x-2 select-none cursor-pointer">
+            صابون کاغذی
+            <FiChevronLeft className="text-slate-900" />
+          </span>
+          <span className="whitespace-nowrap text-gray-600 flex items-center p-2 border rounded-full gap-x-2 select-none cursor-pointer">
+            ربات
+            <FiChevronLeft className="text-slate-900" />
+          </span>
+          <span className="whitespace-nowrap text-gray-600 flex items-center p-2 border rounded-full gap-x-2 select-none cursor-pointer">
+            فرش 6 متری
+            <FiChevronLeft className="text-slate-900" />
+          </span>
+          <span className="whitespace-nowrap text-gray-600 flex items-center p-2 border rounded-full gap-x-2 select-none cursor-pointer">
+            جاکفشی
+            <FiChevronLeft className="text-slate-900" />
+          </span>
+          <span className="whitespace-nowrap text-gray-600 flex items-center p-2 border rounded-full gap-x-2 select-none cursor-pointer">
+            مبل چستر
+            <FiChevronLeft className="text-slate-900" />
+          </span>
         </div>
       </div>
     </header >
