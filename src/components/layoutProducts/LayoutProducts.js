@@ -37,7 +37,8 @@ const LayoutProducts = () => {
 
   useEffect(() => {
     allProduct && setPageCount(Math.ceil(allProduct.length / productPerPage))
-  }, [allProduct])
+    pageCount && window.scrollTo({ top: 0, behavior: "smooth" })
+  }, [allProduct, pageCount])
 
   const [dataFilters, setDataFilters] = useState({
     brands: [
@@ -105,10 +106,10 @@ const LayoutProducts = () => {
   }
 
   return (
-    <section className="w-full min-h-screen bg-[#eee]">
+    <section className="w-full h-full bg-[#eee]">
       {/*backDrop*/}
       <span onClick={handleClusePopUp} ref={backDrop} className='md:hidden w-screen h-[calc(100vh-60%)] z-40 bg-zinc-900/90 -top-[500px] transition-all duration-300 fixed'></span>
-      <div className="md:container w-full flex-col md:flex-row py-4 flex items-start justify-center gap-4">
+      <div className="md:py-4 md:container w-full flex-col md:flex-row flex items-start justify-start gap-4">
         {/*filter*/}
         <div className='md:w-[35%] lg:w-[25%] w-full md:h-auto h-auto md:sticky md:top-24 flex items-start justify-center'>
           <article ref={panelFilter} className="md:static h-full md:h-auto md:max-h-[450px] text-sm md:text-base fixed bottom-0 rounded-t-lg md:bottom-auto overflow-hidden z-40 md:z-10 w-full max-h-0  duration-300 transition-all  md:block">
@@ -192,7 +193,7 @@ const LayoutProducts = () => {
         </div>
         <div className='md:w-full w-full flex flex-col justify-start items-center gap-y-4'>
           {/*sort*/}
-          <article className="w-full text-sm md:text-base py-2 md:py-0 z-30 md:z-10 md:py-auto fixed top-[105px] md:top-auto bg-white md:bg-transparent h-[70px] md:h-auto md:relative md:row-[1/2] px-4 md:px-0 gap-x-2 flex items-center justify-between">
+          <article className="w-full border-b md:border-b-0 -mt-4 md:mt-0 text-sm md:text-base py-2 md:py-0 z-30 md:z-10 md:py-auto sticky top-0 md:top-auto bg-white md:bg-transparent h-[70px] md:h-auto md:relative md:row-[1/2] px-4 md:px-0 gap-x-2 flex items-center justify-between">
             <div className="border md:border-0 px-4 select-none md:w-full w-1/2 h-full flex text-sm lg:text-[1rem] items-center rounded-lg bg-white justify-start gap-x-4 text-gray-400">
               <FiSliders className="text-red-500 text-2xl" />
               <div ref={sort} className='h-full fixed duration-300 transition-all md:border-0 overflow-hidden md:relative bg-white w-full border-t md:w-auto max-h-0 md:h-full md:max-h-full right-0 flex-col md:flex-row bottom-0 z-40 md:z-10  md:flex items-center justify-center gap-4'>
@@ -209,7 +210,7 @@ const LayoutProducts = () => {
             </div>
           </article>
           {/*products*/}
-          <article className="mt-12 md:mt-0 z-10 px-4 md:px-0 rounded-lg grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
+          <article className="w-full px-4 z-10 md:px-0 rounded-lg grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
             {allProduct ? currentProduct.map(p => <CardProduct product={p} />) : <LoadProduct />}
           </article>
         </div>

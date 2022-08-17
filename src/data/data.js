@@ -352,64 +352,58 @@ export const data = {
   ],
   sliderHome: [
     {
-      "img": "/image/sliderHome/1.jpg",
+      "images": { imageMobile: "/image/sliderHome/mobile1.jpg", imagePc: "/image/sliderHome/pc1.jpg" },
       "url": "#",
       "alt": "عکس 1",
       "id": 1
     },
     {
-      "img": "/image/sliderHome/2.jpg",
+      "images": { imageMobile: "/image/sliderHome/mobile2.jpg", imagePc: "/image/sliderHome/pc2.jpg" },
       "url": "#",
       "alt": "عکس 2",
       "id": 2
     },
     {
-      "img": "/image/sliderHome/3.jpg",
+      "images": { imageMobile: "/image/sliderHome/mobile3.jpg", imagePc: "/image/sliderHome/pc3.jpg" },
       "url": "#",
       "alt": "عکس 3",
       "id": 3
     },
     {
-      "img": "/image/sliderHome/4.jpg",
+      "images": { imageMobile: "/image/sliderHome/mobile4.jpg", imagePc: "/image/sliderHome/pc4.jpg" },
       "url": "#",
       "alt": "عکس 4",
       "id": 4
     },
     {
-      "img": "/image/sliderHome/5.jpg",
+      "images": { imageMobile: "/image/sliderHome/mobile5.jpg", imagePc: "/image/sliderHome/pc5.jpg" },
       "url": "#",
       "alt": "عکس 5",
       "id": 5
     },
     {
-      "img": "/image/sliderHome/6.jpg",
+      "images": { imageMobile: "/image/sliderHome/mobile6.jpg", imagePc: "/image/sliderHome/pc6.jpg" },
       "url": "#",
       "alt": "عکس 6",
       "id": 6
     },
     {
-      "img": "/image/sliderHome/7.jpg",
+      "images": { imageMobile: "/image/sliderHome/mobile7.jpg", imagePc: "/image/sliderHome/pc7.jpg" },
       "url": "#",
       "alt": "عکس 7",
       "id": 7
     },
     {
-      "img": "/image/sliderHome/8.jpg",
+      "images": { imageMobile: "/image/sliderHome/mobile8.jpg", imagePc: "/image/sliderHome/pc8.jpg" },
       "url": "#",
       "alt": "عکس 8",
       "id": 8
     },
     {
-      "img": "/image/sliderHome/9.jpg",
+      "images": { imageMobile: "/image/sliderHome/mobile9.jpg", imagePc: "/image/sliderHome/pc9.jpg" },
       "url": "#",
       "alt": "عکس 9",
       "id": 9
-    },
-    {
-      "img": "/image/sliderHome/10.jpg",
-      "url": "#",
-      "alt": "عکس 10",
-      "id": 10
     }
   ],
   digiPlus: [

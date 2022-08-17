@@ -6,94 +6,10 @@ import { FiAlertOctagon, FiLogOut, FiUser, FiShoppingCart, FiChevronDown, FiMapP
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 
-const HeaderMobile = ({ panelCity, myCity }) => {
+const HeaderMobile = ({ panelCity, myCity, logOutAccount, openNavbar }) => {
 
   const cartState = useCart()
   const auth = useAuth()
-
-  function EditInactiveIcon(props) {
-    return (
-      <svg
-        {...props}
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M4 13V16H7L16 7L13 4L4 13Z"
-          fill="#EDE9FE"
-          stroke="#A78BFA"
-          strokeWidth="2"
-        />
-      </svg>
-    )
-  }
-
-  function EditActiveIcon(props) {
-    return (
-      <svg
-        {...props}
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M4 13V16H7L16 7L13 4L4 13Z"
-          fill="#8B5CF6"
-          stroke="#C4B5FD"
-          strokeWidth="2"
-        />
-      </svg>
-    )
-  }
-
-  function DuplicateInactiveIcon(props) {
-    return (
-      <svg
-        {...props}
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M4 4H12V12H4V4Z"
-          fill="#EDE9FE"
-          stroke="#A78BFA"
-          strokeWidth="2"
-        />
-        <path
-          d="M8 8H16V16H8V8Z"
-          fill="#EDE9FE"
-          stroke="#A78BFA"
-          strokeWidth="2"
-        />
-      </svg>
-    )
-  }
-
-  function DuplicateActiveIcon(props) {
-    return (
-      <svg
-        {...props}
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M4 4H12V12H4V4Z"
-          fill="#8B5CF6"
-          stroke="#C4B5FD"
-          strokeWidth="2"
-        />
-        <path
-          d="M8 8H16V16H8V8Z"
-          fill="#8B5CF6"
-          stroke="#C4B5FD"
-          strokeWidth="2"
-        />
-      </svg>
-    )
-  }
 
   function UserPageIcon() {
     return (
@@ -123,9 +39,9 @@ const HeaderMobile = ({ panelCity, myCity }) => {
     <header className="w-full bg-white">
       <div className="w-full px-4">
         <div className="w-full flex justify-between items-center py-3 border-b">
-          <BiMenu className="text-2xl" />
+          <BiMenu onClick={openNavbar} className="text-2xl cursor-pointer" />
           <img alt="digikala-logo" src="/image/logo/logo.svg" className="w-24" />
-          <FiAlertOctagon className="text-2xl" />
+          <FiAlertOctagon className="text-2xl cursor-pointer" />
         </div>
         <div className="w-full flex justify-between items-center py-2 border-b">
           <div className="rounded-lg bg-[#F0F0F1] p-2 flex items-center gap-x-2 w-[65%]">
@@ -134,11 +50,11 @@ const HeaderMobile = ({ panelCity, myCity }) => {
           </div>
           <Menu as="div" className="relative inline-block text-left">
             <div>
-              <Menu.Button className="inline-flex w-full justify-center px-4 py-2 text-sm font-medium text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+              <Menu.Button className="inline-flex w-full justify-center items-center px-4 py-2 text-sm font-medium text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                 {auth ?
                   <>
-                    <FiUser className="h-5 w-5 text-white hover:text-violet-100" />
-                    <BiCaretDown />
+                    <FiUser className="h-6 w-6 text-gray-600" />
+                    <BiCaretDown className="text-gray-600" />
                   </> :
                   <>
                     <BiLogIn className="text-2xl text-gray-600" />
@@ -174,6 +90,7 @@ const HeaderMobile = ({ panelCity, myCity }) => {
                       <Menu.Item>
                         {({ active }) => (
                           <button
+                            onClick={logOutAccount}
                             className={`${active ? 'bg-red-400 text-white' : 'text-gray-900'
                               } group flex w-full items-center rounded-md px-2 py-3 text-sm`}
                           >
@@ -188,20 +105,9 @@ const HeaderMobile = ({ panelCity, myCity }) => {
                       <Menu.Item>
                         {({ active }) => (
                           <Link to={"/user/login"}
-                            className={`${active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                            className={`${active ? 'bg-red-500 text-white' : 'text-gray-900'
                               } group flex w-full items-center rounded-md px-2 py-3 text-sm`}
                           >
-                            {active ? (
-                              <EditActiveIcon
-                                className="mr-2 h-5 w-5"
-                                aria-hidden="true"
-                              />
-                            ) : (
-                              <EditInactiveIcon
-                                className="mr-2 h-5 w-5"
-                                aria-hidden="true"
-                              />
-                            )}
                             ورود
                           </Link>
                         )}
@@ -209,20 +115,9 @@ const HeaderMobile = ({ panelCity, myCity }) => {
                       <Menu.Item>
                         {({ active }) => (
                           <Link to={"/user/register"}
-                            className={`${active ? 'bg-violet-500 text-white' : 'text-gray-900'
+                            className={`${active ? 'bg-red-500 text-white' : 'text-gray-900'
                               } group flex w-full items-center rounded-md px-2 py-3 text-sm`}
                           >
-                            {active ? (
-                              <DuplicateActiveIcon
-                                className="mr-2 h-5 w-5"
-                                aria-hidden="true"
-                              />
-                            ) : (
-                              <DuplicateInactiveIcon
-                                className="mr-2 h-5 w-5"
-                                aria-hidden="true"
-                              />
-                            )}
                             ثبت نام
                           </Link>
                         )}
@@ -238,7 +133,7 @@ const HeaderMobile = ({ panelCity, myCity }) => {
             {cartState.cart.length >= 1 && <span className="absolute bottom-2 left-3 bg-red-500 rounded-full w-6 h-6 text-white text-sm flex justify-center items-center">{cartState.cart.length}</span>}
           </Link>
         </div>
-        <div onClick={() => panelCity.current.classList.replace("top-full", "top-0")} className="flex justify-between items-center cursor-pointer w-full py-3 text-sm">
+        <div onClick={() => panelCity.current.classList.replace("bottom-full", "bottom-0")} className="flex justify-between items-center cursor-pointer w-full py-3 text-sm">
           <div className="flex items-center gap-x-2 text-gray-700">
             <FiMapPin className="text-lg text-orange-500" />
             {myCity ? `ارسال به ${myCity}` : "لطفا شهر خود را انتخاب کنید!!!"}

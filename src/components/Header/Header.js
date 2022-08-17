@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState, Fragment } from 'react';
 import { BiBasket, BiMenu, BiSearch, BiLogIn, BiCaretDown } from "react-icons/bi";
-import { FiUser, FiLogOut, FiNavigation, FiZap, FiX, FiShoppingCart, FiAlertOctagon, FiDivideCircle, FiTag } from "react-icons/fi";
+import { FiUser, FiLogOut, FiNavigation, FiZap, FiChevronLeft, FiX, FiShoppingCart, FiAlertOctagon, FiDivideCircle, FiTag } from "react-icons/fi";
 import { useCart } from "../../context/Cart/CartProvider"
 import { useAuth, useAuthAction } from "../../context/Auth/AuthProvider";
 import { Menu, Transition } from '@headlessui/react'
@@ -47,6 +47,7 @@ const Header = () => {
   const openNavHandler = () => {
     nav.current.classList.replace("-right-[600px]", "right-0")
     cluseNavbar.current.classList.replace("-left-[500px]", "left-0")
+    cluseNavbar.current.classList.replace("bg-opacity-0", "bg-opacity-80")
   }
 
   const cluseNavHandler = () => {
@@ -56,7 +57,7 @@ const Header = () => {
 
   const handleSelectCity = (e) => {
     setMycity(e.target.innerText)
-    panelCity.current.classList.replace("top-0", "top-full")
+    panelCity.current.classList.replace("bottom-0", "bottom-full")
   }
 
   const handleLogoutAcount = () => {
@@ -69,7 +70,7 @@ const Header = () => {
 
   return (
     <>
-      {isMobile ? <HeaderMobile panelCity={panelCity} myCity={myCity} /> : <header className="sticky top-0 w-fyll pt-4 md:pb-4 px-2 bg-white z-40">
+      {isMobile ? <HeaderMobile openNavbar={openNavHandler} logOutAccount={handleLogoutAcount} panelCity={panelCity} myCity={myCity} /> : <header className="sticky top-0 w-fyll pt-4 md:pb-4 px-2 bg-white z-40">
         <div className="gap-y-4 container pb-2 md:pb-0 font-sans text-xl w-full flex flex-wrap md:flex-nowrap items-center justify-center">
           <button className="md:hidden w-1/3 flex justify-start">
             <BiMenu onClick={openNavHandler} className="text-2xl" />
@@ -228,14 +229,8 @@ const Header = () => {
             <li className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
               فروشنده شوید!
             </li>
-            <li className="lg:mr-4 w-full hover:text-red-500 md:w-auto min-h-[3rem] flex justify-start items-center">
-              <span className="hidden ml-4 lg:block w-0.5 h-8 bg-gray-300 rounded"></span>
-              <Link to="/dashboard" className="block md:h-full">
-                پنل مدیریت
-              </Link>
-            </li>
             <li className="w-full py-4 flex items-center justify-between border-b md:hidden">
-              <div className="w-full flex items-center justify-center">
+              <div className="w-full flex items-center justify-start">
                 <div className="max-w-[95px] w-full">
                   <img className="w-full object-cover" src="/image/logo/digikala-logo.png" />
                 </div>
@@ -250,17 +245,21 @@ const Header = () => {
           </ul>
         </div>
       </nav>
-      <span onClick={cluseNavHandler} ref={cluseNavbar} className="duration-400 transition-all md:hidden cursor-pointer fixed z-50 top-0 -left-[500px] w-1/4 h-screen bg-[rgba(0,0,0,0.8)]"></span>
-
+      {/*bakdrop*/}
+      <span onClick={cluseNavHandler} ref={cluseNavbar} className="duration-400 transition-all md:hidden cursor-pointer fixed z-50 top-0 -left-[500px] w-1/4 h-screen bg-zinc-900 bg-opacity-0"></span>
       {/*Panel Select City*/}
-      <div ref={panelCity} className="duration-300 absolute top-full right-0 z-40 w-screen h-screen bg-gray-900/60 ">
+      <div ref={panelCity} className="duration-300 fixed bottom-full right-0 z-40 w-screen h-screen bg-gray-900/60 ">
         <div className="w-full overflow-hidden h-full bg-white p-4">
           <div className="select-none w-full border-b pb-4 font-bold flex justify-between items-center">
             <span>انتخاب شهر</span>
-            <FiX onClick={() => panelCity.current.classList.replace("top-0", "top-full")} className="text-xl cursor-pointer" />
+            <FiX onClick={() => panelCity.current.classList.replace("bottom-0", "bottom-full")} className="text-xl cursor-pointer" />
           </div>
           <ul className="w-full px-2 pb-8 h-full overflow-y-scroll flex flex-col items-start justify-start">
-            {allCity.map(c => <li key={c.id} onClick={handleSelectCity} className="odd:bg-gray-100 cursor-pointer block w-full py-4 border-b hover:bg-blue-500 hover:text-white px-2">{c.name}</li>)}
+            {allCity.map(c => <li key={c.id} onClick={handleSelectCity} className="odd:bg-gray-100 cursor-pointer flex justify-between items-center w-full py-2 hover:text-red-500 px-2 rounded">
+              {c.name}
+              <FiChevronLeft className="text-lg" />
+            </li>
+            )}
           </ul>
         </div >
       </div >

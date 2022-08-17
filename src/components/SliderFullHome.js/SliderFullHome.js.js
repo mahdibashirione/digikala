@@ -1,7 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import { BiChevronRight } from "react-icons/bi"
-import { BiChevronLeft } from "react-icons/bi"
-import { http } from "../../services/httpService";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
@@ -21,8 +18,7 @@ const SliderFullHome = () => {
   const isNavigation = window.innerWidth > 600;
 
   return (
-    <section className="select-none relative w-full xl:h-[400px] lg:h-[350px] md:h-[280px] h-[160px] max-w-[1550px] mx-auto">
-
+    <section className="select-none relative w-full xl:h-[400px] h-[275px] max-w-[1550px] mx-auto">
       <div className="scrollbar-hidden snap-x span-start touch-pan-x w-full h-full overflow-x-scroll flex justify-start items-center flex-nowrap">
         {!dataSlider ? <span className="w-full h-full bg-slate-400 animate-pulse flex items-center justify-center">loading...</span> :
           <Swiper
@@ -42,8 +38,9 @@ const SliderFullHome = () => {
             {dataSlider && dataSlider.map(data => {
               return (
                 <SwiperSlide key={data.id} className="w-full">
-                  <a href={data.url} className="min-w-full h-full overflow-hidden block mx-auto">
-                    <img className="object-cover h-full" src={data.img} alt={dataSlider[0].id} />
+                  <a href={data.url} className="min-w-full max-w-full h-full overflow-hidden block mx-auto">
+                    <img className="object-cover w-full h-full md:hidden mx-auto" src={data.images.imageMobile} alt={data.id} />
+                    <img className="object-cover h-full hidden md:inline-block" src={data.images.imagePc} alt={data.id} />
                   </a>
                 </SwiperSlide>
               )
