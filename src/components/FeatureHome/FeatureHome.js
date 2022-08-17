@@ -51,21 +51,15 @@ const FeatureHome = () => {
   }
 
   const handleMorePage = (dispatch) => {
-    const isMobile = window.innerWidth < 768;
     if (dispatch === "open") {
-      backdrop.current.classList.replace("top-full", "top-0")
-      isMobile ? morePage.current.classList.replace("top-full", "top-0")
-        : morePage.current.classList.replace("top-full", "top-1/4")
+      morePage.current.classList.replace("top-full", "top-0")
     } else {
-      backdrop.current.classList.replace("top-0", "top-full")
-      isMobile ? morePage.current.classList.replace("top-0", "top-full")
-        : morePage.current.classList.replace("top-1/4", "top-full")
+      morePage.current.classList.replace("top-0", "top-full")
     }
   }
 
   return (
     <section className="font-sans text-sm py-10 w-full container  grid grid-cols-4 lg:grid-cols-8  gap-y-6">
-
       {!dataFeature ? <LoadingFeature /> :
         dataFeature.map(data => {
           return (
@@ -83,27 +77,27 @@ const FeatureHome = () => {
         </div>
         <span>بیشتر</span>
       </button>
-      {/*backdrop*/}
-      <span ref={backdrop} className="md:block hidden duration-300 w-screen h-screen fixed top-full right-0 z-40 bg-zinc-900/80"></span>
       {/*More Page*/}
-      <article ref={morePage} className="md:w-[500px] md:h-[400px] overflow-hidden md:rounded-lg md:shadow md:border md:right-1/2 md:translate-x-1/2 duration-300 px-4 z-50 w-screen h-screen fixed top-full right-0 bg-white flex flex-col justify-start items-center">
-        <div className="w-full flex justify-between items-center py-4 border-b">
-          <span className="font-bold">خدمات دیجی کالا</span>
-          <FiX onClick={() => handleMorePage("cluse")} className="cursor-pointer text-2xl text-gray-500" />
-        </div>
-        <div className="w-full h-full scrollbar-hidden">
-          {dataFeature && dataFeature.map(data => {
-            return (
-              <Link key={data.id} to={data.url} className="flex items-start justify-between gap-x-3 w-full py-2 border-b">
-                <img className="w-full max-w-[50px]" src={data.icon} alt={data.alt} />
-                <div className="h-full flex flex-col justify-between items-start w-full gap-y-1">
-                  <span className="whitespace-nowrap text-base">{data.title}</span>
-                  <span className="whitespace-nowrap text-[12px] text-gray-500">{data.title}</span>
-                </div>
-                <FiArrowLeft className="text-3xl text-gray-500" />
-              </Link>
-            )
-          })}
+      <article ref={morePage} className="duration-300 z-50 w-screen h-screen fixed top-full right-0 bg-zinc-900/70 flex justify-center">
+        <div className="bg-white w-full h-full md:max-w-[500px] flex flex-col justify-start px-4">
+          <div className="w-full flex justify-between items-center py-4 border-b">
+            <span className="font-bold">خدمات دیجی کالا</span>
+            <FiX onClick={() => handleMorePage("cluse")} className="cursor-pointer text-2xl text-gray-500" />
+          </div>
+          <div className="w-full h-full scrollbar-hidden">
+            {dataFeature && dataFeature.map(data => {
+              return (
+                <Link key={data.id} to={data.url} className="flex items-start justify-between gap-x-3 w-full py-2 border-b">
+                  <img className="w-full max-w-[50px]" src={data.icon} alt={data.alt} />
+                  <div className="h-full flex flex-col justify-between items-start w-full gap-y-1">
+                    <span className="whitespace-nowrap text-base">{data.title}</span>
+                    <span className="whitespace-nowrap text-[12px] text-gray-500">{data.title}</span>
+                  </div>
+                  <FiArrowLeft className="text-3xl text-gray-500" />
+                </Link>
+              )
+            })}
+          </div>
         </div>
       </article>
     </section>

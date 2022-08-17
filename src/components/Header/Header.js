@@ -260,14 +260,14 @@ const Header = () => {
       {/*bakdrop*/}
       <span onClick={cluseNavHandler} ref={cluseNavbar} className="duration-400 transition-all md:hidden cursor-pointer fixed z-50 top-0 -left-[500px] w-1/4 h-screen bg-zinc-900 bg-opacity-0"></span>
       {/*Panel Select City*/}
-      <div ref={panelCity} className="duration-300 fixed bottom-full right-0 z-40 w-screen h-screen bg-gray-900/60 ">
-        <div className="w-full overflow-hidden h-full bg-white p-4">
+      <div ref={panelCity} className="duration-300 fixed bottom-full right-0 z-40 w-screen h-screen bg-gray-900/60 flex justify-center ">
+        <div className="w-full overflow-hidden h-full md:max-w-[500px] bg-white p-4">
           <div className="select-none w-full border-b pb-4 font-bold flex justify-between items-center">
             <span>انتخاب شهر</span>
             <FiX onClick={() => panelCity.current.classList.replace("bottom-0", "bottom-full")} className="text-xl cursor-pointer" />
           </div>
           <ul className="w-full px-2 pb-8 h-full overflow-y-scroll flex flex-col items-start justify-start">
-            {allCity.map(c => <li key={c.id} onClick={handleSelectCity} className="odd:bg-gray-100 cursor-pointer flex justify-between items-center w-full py-2 hover:text-red-500 px-2 rounded">
+            {allCity.map(c => <li key={c.id} onClick={handleSelectCity} className="odd:bg-gray-100 cursor-pointer flex justify-between items-center w-full py-3 hover:text-red-500 px-2 rounded">
               {c.name}
               <FiChevronLeft className="text-lg" />
             </li>
