@@ -5,6 +5,7 @@ import { FiUser, FiLogOut, FiNavigation, FiZap, FiX, FiShoppingCart, FiAlertOcta
 import { useCart } from "../../context/Cart/CartProvider"
 import { useAuth, useAuthAction } from "../../context/Auth/AuthProvider";
 import { Menu, Transition } from '@headlessui/react'
+import HeaderMobile from "./HeaderMobile";
 
 const Header = () => {
 
@@ -47,6 +48,7 @@ const Header = () => {
     nav.current.classList.replace("-right-[600px]", "right-0")
     cluseNavbar.current.classList.replace("-left-[500px]", "left-0")
   }
+
   const cluseNavHandler = () => {
     nav.current.classList.replace("right-0", "-right-[600px]")
     cluseNavbar.current.classList.replace("left-0", "-left-[500px]")
@@ -54,7 +56,7 @@ const Header = () => {
 
   const handleSelectCity = (e) => {
     setMycity(e.target.innerText)
-    panelCity.current.classList.replace("flex", "hidden")
+    panelCity.current.classList.replace("top-0", "top-full")
   }
 
   const handleLogoutAcount = () => {
@@ -62,10 +64,13 @@ const Header = () => {
     setAuth(null)
   }
 
+  let isMobile = window.innerWidth < 768;
+
+
   return (
     <>
-      <header className="sticky top-0 w-fyll pt-4 md:pb-4 px-2 bg-white z-40">
-        <div className="gap-y-3 container pb-2 md:pb-0 font-sans text-xl w-full flex flex-wrap md:flex-nowrap items-center justify-center">
+      {isMobile ? <HeaderMobile panelCity={panelCity} myCity={myCity} /> : <header className="sticky top-0 w-fyll pt-4 md:pb-4 px-2 bg-white z-40">
+        <div className="gap-y-4 container pb-2 md:pb-0 font-sans text-xl w-full flex flex-wrap md:flex-nowrap items-center justify-center">
           <button className="md:hidden w-1/3 flex justify-start">
             <BiMenu onClick={openNavHandler} className="text-2xl" />
           </button>
@@ -76,17 +81,14 @@ const Header = () => {
             <FiAlertOctagon className="text-2xl" />
           </button>
           <div className="relative md:right-0 md:top-0 md:w-full w-2/3 h-full flex items-center justify-start">
-            <BiSearch className="absolute right-3 text-gray-400 text-2xl" />
-            <input type={"text"} className="bg-gray-100 pl-4 text-gray-600 pr-12 py-3 w-full max-w-[600px] rounded-lg outline-none text-sm" placeholder="جسنوجو" />
+            <BiSearch className="absolute right-3 text-[#A1A3A8] text-2xl" />
+            <input type={"text"} className="bg-[#F0F0F1] pl-4 text-gray-600 pr-12 py-3 w-full max-w-[300px] rounded-lg outline-none text-sm" placeholder="جسنوجو" />
           </div>
           <div className="px-2 h-[44px] flex items-center justify-end md:w-auto w-1/3">
             {auth ? <Menu as="div" className="ml-5 relative inline-block text-left">
               <div>
                 <Menu.Button className="flex items-center justify-center w-full rounded-lg bg-black bg-opacity-20 p-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-                  <FiUser
-                    className="h-5 w-5 text-white hover:text-violet-100"
-                    aria-hidden="true"
-                  />
+                  <FiUser className="h-5 w-5 text-white hover:text-violet-100" />
                   <BiCaretDown />
                 </Menu.Button>
               </div>
@@ -107,7 +109,7 @@ const Header = () => {
                           className={`${active ? 'bg-blue-400 text-white' : 'text-gray-900'
                             } group flex w-full items-center rounded-md px-2 py-3 text-sm`}
                         >
-                          {active ? <EditActiveIcon aria-hidden="true" /> : <EditInactiveIcon aria-hidden="true" />}
+                          {active ? <UserPageActiveIcon aria-hidden="true" /> : <UserPageIcon aria-hidden="true" />}
                           حساب کاربری
                         </Link>
                       )}
@@ -120,7 +122,7 @@ const Header = () => {
                           className={`${active ? 'bg-red-400 text-white' : 'text-gray-900'
                             } group flex w-full items-center rounded-md px-2 py-3 text-sm`}
                         >
-                          {active ? <ArchiveActiveIcon aria-hidden="true" /> : <ArchiveInactiveIcon aria-hidden="true" />}
+                          {active ? <OutActiveIcon aria-hidden="true" /> : <OutIcon aria-hidden="true" />}
                           خروج از حساب
                         </button>
                       )}
@@ -154,7 +156,7 @@ const Header = () => {
             </Link>
           </div>
         </div>
-      </header>
+      </header>}
       <nav className="w-full border-b shadow">
         <div ref={nav} className="duration-300 transition-all md:relative md:top-auto md:right-0 md:w-full w-3/4 bg-white -right-[600px] top-0 fixed h-screen md:h-14 md:z-30 z-50 flex justify-between items-center container">
           <ul className="flex w-full md:text-[12px] lg:text-[12.5px] h-screen md:h-auto flex-col-reverse md:flex-row items-start md:items-center px-4 md:px-0 justify-end md:justify-start text-sm font-sans text-gray-700">
@@ -241,7 +243,7 @@ const Header = () => {
             </li>
           </ul>
           <ul className="lg:block hidden h-full text-[12px] font-sans text-gray-700">
-            <li onClick={() => panelCity.current.classList.replace("hidden", "flex")} className="whitespace-nowrap cursor-pointer h-full flex items-center px-2 ">
+            <li onClick={() => panelCity.current.classList.replace("top-full", "top-0")} className="whitespace-nowrap cursor-pointer h-full flex items-center px-2 ">
               <FiNavigation className="text-xl" />
               <span className="text-[0.9rem] mx-2">{!myCity ? "لطفا شهر خود را انتخاب کنید" : myCity}</span>
             </li>
@@ -249,12 +251,13 @@ const Header = () => {
         </div>
       </nav>
       <span onClick={cluseNavHandler} ref={cluseNavbar} className="duration-400 transition-all md:hidden cursor-pointer fixed z-50 top-0 -left-[500px] w-1/4 h-screen bg-[rgba(0,0,0,0.8)]"></span>
+
       {/*Panel Select City*/}
-      <div ref={panelCity} className="fixed top-0 right-0 z-40 w-screen h-screen hidden items-center justify-center bg-gray-900/60 ">
-        <div className="w-[400px] overflow-hidden h-[calc(100vh-25%)] bg-white p-4 rounded-lg">
+      <div ref={panelCity} className="duration-300 absolute top-full right-0 z-40 w-screen h-screen bg-gray-900/60 ">
+        <div className="w-full overflow-hidden h-full bg-white p-4">
           <div className="select-none w-full border-b pb-4 font-bold flex justify-between items-center">
             <span>انتخاب شهر</span>
-            <FiX onClick={() => panelCity.current.classList.replace("flex", "hidden")} className="text-xl cursor-pointer" />
+            <FiX onClick={() => panelCity.current.classList.replace("top-0", "top-full")} className="text-xl cursor-pointer" />
           </div>
           <ul className="w-full px-2 pb-8 h-full overflow-y-scroll flex flex-col items-start justify-start">
             {allCity.map(c => <li key={c.id} onClick={handleSelectCity} className="odd:bg-gray-100 cursor-pointer block w-full py-4 border-b hover:bg-blue-500 hover:text-white px-2">{c.name}</li>)}
@@ -264,25 +267,25 @@ const Header = () => {
     </>
   );
 
-  function EditInactiveIcon() {
+  function UserPageIcon() {
     return (
       <FiUser className="text-xl text-blue-500 mx-2" />
     )
   }
 
-  function EditActiveIcon() {
+  function UserPageActiveIcon() {
     return (
       <FiUser className="text-xl text-white mx-2" />
     )
   }
 
-  function ArchiveInactiveIcon() {
+  function OutIcon() {
     return (
       <FiLogOut className="text-xl text-red-500 mx-2" />
     )
   }
 
-  function ArchiveActiveIcon() {
+  function OutActiveIcon() {
     return (
       <FiLogOut className="text-xl text-white mx-2" />
     )
