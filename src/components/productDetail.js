@@ -214,12 +214,12 @@ const ProductDetail = (props) => {
       <article className="bg-white border-t-2 font-sans lg:hidden flex gap-y-3 flex-wrap items-center justify-between w-full fixed bottom-0 right-0 px-4 py-2 z-30">
         <div className="flex items-center justify-between w-full">
           <div>
-            <span className="text-red-600 font-bold text-lg mr-4">{state.state.offPrice || state.state.price}</span>
+            <span className="text-red-600 font-bold text-lg mr-4">{separate(state.state.offPrice) || separate(state.state.price)}</span>
             <span className="text-red-600 mr-1">تومان</span>
           </div>
           {state.state.discount > 0 && <div className="select-none text-white gap-x-3 w-full flex justify-end items-center">
             <span className="bg-red-500 rounded-full py-1 px-2 text-sm">{state.state.discount}%</span>
-            <span className="text-gray-500 line-through">{state.state.price}</span>
+            <span className="text-gray-500 line-through">{separate(state.state.price)}</span>
           </div>}
         </div>
         {checkInCart(cart, state.state) ? <Link to={"/cart"} className="flex items-center justify-center w-full bg-red-500 text-white py-3 rounded-lg"> رفتن به سبد خرید </Link>
