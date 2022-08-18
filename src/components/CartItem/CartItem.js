@@ -3,6 +3,7 @@ import { FiPlus } from "react-icons/fi";
 import { FiMinus } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useCartActions } from "../../context/Cart/CartProvider";
+import { separate } from "../../utils/separate";
 
 const CartItem = ({ product }) => {
   const cartDispatch = useCartActions()
@@ -31,8 +32,8 @@ const CartItem = ({ product }) => {
           </div>
         </div>
         <div className="select-none text-white gap-x-2 flex justify-between items-center">
-          <p className="text-red-500 font-bold">{product.discount > 0 ? product.offPrice : product.price} تومان</p>
-          {product.discount > 0 && <span className="text-gray-500 line-through">{product.price}</span>}
+          <p className="text-red-500 font-bold">{product.discount > 0 ? separate(product.offPrice) : separate(product.price)} تومان</p>
+          {product.discount > 0 && <span className="text-gray-500 line-through">{separate(product.price)}</span>}
         </div>
       </div>
     </div>

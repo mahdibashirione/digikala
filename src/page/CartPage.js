@@ -3,6 +3,7 @@ import CartItem from "../components/CartItem/CartItem";
 import { useCart } from "../context/Cart/CartProvider";
 import Footer from "../components/footer/Footer"
 import { useEffect } from "react";
+import { separate } from "../utils/separate";
 const CartPage = () => {
 
   const cartState = useCart()
@@ -41,7 +42,7 @@ const CartPage = () => {
             <div className="w-full p-3 pb-8 lg:pb-3 bg-white border shadow rounded-lg select-none flex flex-col gap-y-4">
               <div className="flex items-center justify-between w-full">
                 <span>مجموع قیمت :</span>
-                <span className="text-red-500">{cartState.total} تومان</span>
+                <span className="text-red-500">{separate(cartState.total)} تومان</span>
               </div>
               {/*<div className="flex justify-between items-center w-full">
               <span className="whitespace-nowrap">کد تخفیف</span>

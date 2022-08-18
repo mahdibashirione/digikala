@@ -25,13 +25,13 @@ const HeaderMobile = ({ panelCity, myCity, logOutAccount, openNavbar }) => {
     )
   }
 
-  function OutIcon() {
+  function LogOutAccountIcon() {
     return (
       <FiLogOut className="text-xl text-red-500 mx-2" />
     )
   }
 
-  function OutActiveIcon() {
+  function LogOutAccountActiveIcon() {
     return (
       <FiLogOut className="text-xl text-white mx-2" />
     )
@@ -55,7 +55,7 @@ const HeaderMobile = ({ panelCity, myCity, logOutAccount, openNavbar }) => {
             <BiSearch className="text-[#A1A3A8] text-2xl" />
             <input onFocus={openSearch} type={"text"} className="bg-[#F0F0F1] text-[#A1A3A8] text-sm outline-none" placeholder="جستوجو" />
           </div>
-          <Menu as="div" className="relative inline-block text-left">
+          <Menu as="div" className="relative inline-block text-LoglefAccountt">
             <div>
               <Menu.Button className="inline-flex w-full justify-center items-center px-4 py-2 text-sm font-medium text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
                 {auth ?
@@ -101,7 +101,7 @@ const HeaderMobile = ({ panelCity, myCity, logOutAccount, openNavbar }) => {
                             className={`${active ? 'bg-red-400 text-white' : 'text-gray-900'
                               } group flex w-full items-center rounded-md px-2 py-3 text-sm`}
                           >
-                            {active ? <OutActiveIcon aria-hidden="true" /> : <OutIcon aria-hidden="true" />}
+                            {active ? <LogOutAccountActiveIcon aria-hidden="true" /> : <LogOutAccountIcon aria-hidden="true" />}
                             خروج از حساب
                           </button>
                         )}

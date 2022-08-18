@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { Tab } from '@headlessui/react'
 import { Toaster, toast } from "react-hot-toast";
 import GalleryImage from "./galleryImage/GalleryImage";
+import { separate } from "../utils/separate";
 
 const ProductDetail = (props) => {
 
@@ -199,9 +200,9 @@ const ProductDetail = (props) => {
             <div className="w-full flex justify-between flex-wrap text-red-600 select-none mt-10">
               {state.state.discount > 0 && <div className="text-white mb-2 w-full flex justify-between items-center">
                 <span className="bg-red-500 rounded-full py-1 px-2">{state.state.discount}%</span>
-                <span className="text-gray-500 line-through">{state.state.price}</span>
+                <span className="text-gray-500 line-through">{separate(state.state.price)}</span>
               </div>}
-              <p className="font-bold text-xl">{state.state.discount > 0 ? state.state.offPrice : state.state.price}</p>
+              <p className="font-bold text-xl">{state.state.discount > 0 ? separate(state.state.offPrice) : separate(state.state.price)}</p>
               <span className="mr-1">تومان</span>
             </div>
             {checkInCart(cart, state.state) ? <Link to={"/cart"} className="flex items-center justify-center w-full bg-red-500 text-white py-3 rounded-lg"> رفتن به سبد خرید </Link>

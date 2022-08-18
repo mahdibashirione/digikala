@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FiStar, FiHome } from "react-icons/fi";
+import { separate } from "../../utils/separate";
 
 
 
@@ -30,11 +31,11 @@ const CardAmazingProduct = ({ product }) => {
             <span className="text-white px-2 py-1 bg-red-500 rounded-full">{product.discount}%</span>
           </div>
           <div className="w-1/2 flex items-center justify-end gap-x-2">
-            <span className="text-lg">{product.offPrice}</span>
+            <span className="text-lg">{separate(product.offPrice)}</span>
             <span>تومان</span>
           </div>
           <div className="w-full flex items-center justify-end gap-x-2">
-            <span className="text-gray-400 line-through ml-11">{product.price}</span>
+            <span className="text-gray-400 line-through ml-11">{separate(product.price)}</span>
           </div>
         </div>
       </div>

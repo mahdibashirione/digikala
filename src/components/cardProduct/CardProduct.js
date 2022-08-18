@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { separate } from "../../utils/separate";
 
 const CardProduct = ({ product }) => {
   return (
@@ -14,7 +15,7 @@ const CardProduct = ({ product }) => {
         {product.discount > 0 && <span className="text-gray-500 line-through w-full block text-left">{product.price}</span>}
       </div>
       <div className="text-red-500 w-full flex items-center justify-end">
-        <p className="font-bold">{product.discount > 0 ? product.offPrice : product.price}</p>
+        <p className="font-bold">{product.discount > 0 ? separate(product.offPrice) : separate(product.price)}</p>
         <p className="text-sm mr-1">تومان</p>
       </div>
       <button className="w-full border-t py-2 text-sm text-gray-500">مشاهده و خرید</button>
