@@ -4,6 +4,7 @@ import { FiChevronLeft } from "react-icons/fi"
 import { useEffect, useState } from "react";
 import { http } from "../../services/httpService";
 import { data } from "../../data/data";
+import { separate } from "../../utils/separate";
 
 
 const EmazingSliderHome = () => {
@@ -100,12 +101,12 @@ const EmazingSliderHome = () => {
           <div className="w-full flex items-center justify-between">
             <span className="bg-red-600 text-white rounded-full px-1 text-sm">{product.discount}%</span>
             <span className="font-sans text-md font-bold flex items-center justify-center">
-              {product.offPrice}
+              {separate(product.offPrice)}
               <span className="text-[13px] text-gray-600">تومان</span>
             </span>
           </div>
           <div className="w-full flex items-center justify-end pl-8 mt-1">
-            <span className="font-sans text-md line-through text-gray-400">{product.price}</span>
+            <span className="font-sans text-md line-through text-gray-400">{separate(product.price)}</span>
           </div>
         </article>
       </Link>
