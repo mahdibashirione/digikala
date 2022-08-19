@@ -21,7 +21,9 @@ const CartItem = ({ product }) => {
         <div className="text-zinc-800 w-full flex items-center justify-between gap-x-2" >
           <div className="flex items-center justify-start gap-x-2">
             رنگ :
-            <span style={{ backgroundColor: `${product.color}`, color: `${product.color}`, }} className={`w-5 h-5 rounded-full shadow`}></span>
+            <span style={{ backgroundColor: `${product.colors.color}` }} className={`${product.colors.colorName === "سفید" ? "text-slate-900 border" : "text-white"} py-1 px-3 rounded-full shadow`}>
+              {product.colors.colorName}
+            </span>
           </div>
           {/*increment dicrement delete*/}
           <div className="py-2 px-3 select-none text-red-500 border rounded-lg flex justify-center items-center gap-x-3">

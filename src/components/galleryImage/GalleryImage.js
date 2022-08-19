@@ -3,7 +3,7 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { Swiper, SwiperSlide } from "swiper/react"
-import { FreeMode, Navigation, Thumbs } from "swiper";
+import { FreeMode, Navigation, Thumbs, Pagination } from "swiper";
 import { useEffect, useState, useRef } from "react"
 import { FiX } from "react-icons/fi";
 
@@ -29,15 +29,15 @@ const GalleryImage = ({ image }) => {
         }}
         loop={true}
         spaceBetween={10}
-        navigation={false}
+        navigation={true}
         thumbs={{ swiper: thumbsSwiper }}
-        modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2 w-64 h-64 border border-zinc-900 rounded-lg select-none"
+        modules={[FreeMode, Pagination, Navigation, Thumbs]}
+        className="mySwiper2 w-full h-[300px] md:w-64 md:h-full md:border border-zinc-900 rounded-lg select-none"
       >
         {image.map(src => {
           return (
             <SwiperSlide onClick={handleOpenGalleryWithe} className="cursor-pointer w-full h-full flex items-center justify-center">
-              <img className="w-full object-cover" src={src} alt="image product" />
+              <img className="w-full h-full object-cover" src={src} alt="image product" />
             </SwiperSlide>
           )
         })}
@@ -50,7 +50,7 @@ const GalleryImage = ({ image }) => {
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
         //onSwiper={setThumbsSwiper}
-        className="mySwiper w-64 py-3 h-28 select-none"
+        className="mySwiper w-64 py-3 h-28 select-none hidden md:flex"
       >
         {image.map(src => {
           return (
