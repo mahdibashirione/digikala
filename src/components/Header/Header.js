@@ -9,6 +9,88 @@ import HeaderMobile from "./HeaderMobile";
 
 const Header = () => {
 
+  const [category, setCategory] = useState([
+    {
+      menu: "کالای دیجیتال",
+      addres: "",
+      backMenu: [
+        { title: "لوازم جانبی گوشی موبایل", addres: "" },
+        { title: "لوازم جانبی گوشی موبایل", addres: "" },
+        { title: "لوازم جانبی گوشی موبایل", addres: "" },
+        { title: "لوازم جانبی گوشی موبایل", addres: "" },
+      ]
+    },
+    {
+      menu: "ابزار و تجهیزات صنعتی",
+      addres: "",
+      backMenu: [
+        { title: "خودروهاس ایرانی و خارجی", addres: "" },
+        { title: "خودروهاس ایرانی و خارجی", addres: "" },
+        { title: "خودروهاس ایرانی و خارجی", addres: "" },
+        { title: "خودروهاس ایرانی و خارجی", addres: "" },
+      ]
+    },
+    {
+      menu: "مد و پوشاک",
+      addres: "",
+      backMenu: [
+        { title: "مردانه", addres: "" },
+        { title: "مردانه", addres: "" },
+        { title: "مردانه", addres: "" },
+        { title: "مردانه", addres: "" },
+      ]
+    },
+    {
+      menu: "کودک و نوزاد",
+      addres: "",
+      backMenu: [
+        { title: "کالا های اساسی و خوار و بار", addres: "" },
+        { title: "کالا های اساسی و خوار و بار", addres: "" },
+        { title: "کالا های اساسی و خوار و بار", addres: "" },
+        { title: "کالا های اساسی و خوار و بار", addres: "" },
+      ]
+    },
+    {
+      menu: "کالا های سوپرمارکتی",
+      addres: "",
+      backMenu: [
+        { title: "اسباب بازی", addres: "" },
+        { title: "اسباب بازی", addres: "" },
+        { title: "اسباب بازی", addres: "" },
+        { title: "اسباب بازی", addres: "" },
+      ]
+    },
+    {
+      menu: "زیبایی و سلامت",
+      addres: "",
+      backMenu: [
+        { title: "ظروف سنتی", addres: "" },
+        { title: "ظروف سنتی", addres: "" },
+        { title: "ظروف سنتی", addres: "" },
+        { title: "ظروف سنتی", addres: "" },
+      ]
+    },
+    {
+      menu: "خانه و آشپزخانه",
+      addres: "",
+      backMenu: [
+        { title: "لوازم بهداشتی", addres: "" },
+        { title: "لوازم بهداشتی", addres: "" },
+        { title: "لوازم بهداشتی", addres: "" },
+        { title: "لوازم بهداشتی", addres: "" },
+      ]
+    },
+    {
+      menu: "لوازم و تحریر",
+      addres: "",
+      backMenu: [
+        { title: "صوتی و تصویری", addres: "" },
+        { title: "صوتی و تصویری", addres: "" },
+        { title: "صوتی و تصویری", addres: "" },
+        { title: "صوتی و تصویری", addres: "" },
+      ]
+    },
+  ])
   const cartState = useCart()
   const cluseNavbar = useRef()
   const panelCity = useRef()
@@ -46,13 +128,13 @@ const Header = () => {
 
   const openNavHandler = () => {
     nav.current.classList.replace("-right-[600px]", "right-0")
-    cluseNavbar.current.classList.replace("-left-[500px]", "left-0")
+    cluseNavbar.current.classList.replace("left-full", "left-0")
     cluseNavbar.current.classList.replace("bg-opacity-0", "bg-opacity-80")
   }
 
   const cluseNavHandler = () => {
     nav.current.classList.replace("right-0", "-right-[600px]")
-    cluseNavbar.current.classList.replace("left-0", "-left-[500px]")
+    cluseNavbar.current.classList.replace("left-0", "left-full")
   }
 
   const handleSelectCity = (e) => {
@@ -171,74 +253,65 @@ const Header = () => {
       </header>
       {/*menu*/}
       <nav className="w-full border-b shadow">
-        <div ref={nav} className="duration-300 transition-all md:relative md:top-auto md:right-0 md:w-full w-3/4 bg-white -right-[600px] top-0 fixed h-screen md:h-14 md:z-30 z-50 flex justify-between items-center container">
-          <ul className="flex w-full md:text-[12px] lg:text-[12.5px] h-screen md:h-auto flex-col-reverse md:flex-row items-start md:items-center px-4 md:px-0 justify-end md:justify-start text-sm font-sans text-gray-700">
+        <div ref={nav} className="duration-300 transition-all md:relative md:top-auto md:right-0 md:w-full w-3/4 bg-white -right-[600px] top-0 fixed h-screen md:h-[46px] md:z-30 z-50 flex justify-between items-center container">
+          <ul className="flex w-full md:text-[14px] h-screen md:h-full flex-col-reverse md:flex-row items-start md:items-center px-4 md:px-0 justify-end md:justify-start text-sm font-sans text-gray-700">
             <li className="md:menu gap-x-2 flex hover:text-red-500  md:hidden pt-5 md:pt-0 w-full overflow-y-auto md:w-auto md:hover:text-red-500 border-t md:border-0 cursor-pointer whitespace-nowrap md:h-14 font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 md:flex-row items-start md:items-center">
               <BiMenu className="text-xl select-none" />
               <Link to="/categories">
                 دسته بندی کالا ها
               </Link>
             </li>
-            <li className="md:menu gap-x-2 hidden md:flex pt-5 md:pt-0 w-full h-full overflow-y-auto md:w-auto md:hover:text-red-500 border-t md:border-0 cursor-pointer whitespace-nowrap md:h-14 font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex-col md:flex-row items-start md:items-center">
-              <BiMenu className="text-xl ml-1 select-none hidden md:block" />
-              <Link to="/categories">
+            <li className="md:menu gap-x-1 hidden md:flex pt-5 pl-3 md:pt-0 w-full h-full overflow-y-auto md:w-auto md:hover:text-red-500 border-t md:border-0 cursor-pointer whitespace-nowrap font-bold text-slate-800 flex-col md:flex-row items-start md:items-center">
+              <BiMenu className="text-xl select-none hidden md:block" />
+              <Link to="/categories" className="h-full flex items-center justify-center">
                 دسته بندی کالا ها
               </Link>
-              <ul className="menu-hover hidden text-slate-800 md:shadow md:rounded-br-lg md:border-l border-slate-800 mt-2 md:mt-0 w-full flex-col font-normal md:absolute md:right-0 md:top-full md:w-auto z-30 md:bg-white">
-                <li className="z-10 md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
-                  کالای دیجیتال
-                  <ul className="hidden md:flex xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">1</ul>
-                </li>
-                <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
-                  ابزار و تجهیزات صنعتی
-                  <ul className="menu-hover hidden z-20  xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">2</ul>
-                </li>
-                <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
-                  مد و پوشاک
-                  <ul className="menu-hover hidden z-20  xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">3</ul>
-                </li>
-                <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
-                  کودک و نوزاد
-                  <ul className="menu-hover hidden z-20  xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">4</ul>
-                </li>
-                <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
-                  کالاهای سوپرمارکتی
-                  <ul className="menu-hover hidden z-20  xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">5</ul>
-                </li>
-                <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
-                  زیبایی و سلامت
-                  <ul className="menu-hover hidden z-20  xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">6</ul>
-                </li>
-                <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
-                  خانه و اشپزخانه
-                  <ul className="menu-hover hidden z-20  xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">7</ul>
-                </li>
-                <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
-                  لوازم و التحریر
-                  <ul className="menu-hover hidden z-20  xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border bg-white shadow">8</ul>
-                </li>
+              <span className="lg:block w-[1px] h-4 bg-gray-400 mr-3 hidden"></span>
+              <ul className="menu-hover hidden text-slate-800 md:rounded-br-lg md:border-l border-gray-400 mt-2 md:mt-0 w-full flex-col font-normal md:absolute md:right-0 md:top-full md:w-auto z-30 md:bg-white">
+                {category.map(item => {
+                  return (
+                    <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
+                      {item.menu}
+                      <ul className="gap-x-4 gap-y-3 text-slate-900 menu-hover hidden flex-wrap items-start justify-start z-20 xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border border-gray-400 bg-white">
+                        <Link to={item.addres} className="w-full text-gray-600 hover:text-red-500 flex items-center">
+                          همه ی محصولات {item.menu}
+                          <FiChevronLeft />
+                        </Link>
+                        {item.backMenu.map(itemBackMeun => {
+                          return (
+                            <Link to={itemBackMeun.addres} className="font-bold hover:text-red-500 flex items-center">
+                              <span className="lg:block w-[2px] h-4 bg-red-500 ml-2 hidden"></span>
+                              {itemBackMeun.title}
+                              <FiChevronLeft className="text-lg" />
+                            </Link>
+                          )
+                        })}
+                      </ul>
+                    </li>
+                  )
+                })}
               </ul>
             </li>
-            <li className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
+            <li className="w-full h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center text-gray-500 ">
               <BiBasket className="text-lg text-gray-400" />
               سوپرمارکت
             </li>
-            <li className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
+            <li className="w-full h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center text-gray-500 ">
               <FiZap className="text-lg text-gray-400" />
               پرفروش ترین
             </li>
-            <li className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
+            <li className="w-full h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center text-gray-500 ">
               <FiTag className="text-lg text-gray-400 ml-1" />
               تخفیف ها
             </li>
-            <li className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:after:absolute after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:hidden after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 flex items-center">
+            <li className="w-full h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center text-gray-500  relative after:absolute after:content-[''] md:after:w-[1px] after:rounded-full after:bg-gray-400 after:h-5 after:left-0 after:top-[50%] after:-translate-y-[50%]">
               <FiDivideCircle className="text-lg text-gray-400" />
               شگفت انگیزها
             </li>
-            <li className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
+            <li className="w-full h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center text-gray-500 ">
               سوالی دارید؟
             </li>
-            <li className="w-full min-h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center">
+            <li className="w-full h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center text-gray-500 ">
               فروشنده شوید!
             </li>
             <li className="w-full py-4 flex items-center justify-between border-b md:hidden">
@@ -249,16 +322,16 @@ const Header = () => {
               </div>
             </li>
           </ul>
-          <ul className="lg:block hidden h-full font-sans text-gray-700 text-[12px]">
-            <li onClick={() => panelCity.current.classList.replace("bottom-full", "bottom-0")} className="whitespace-nowrap cursor-pointer h-full flex items-center px-2 ">
-              <FiMapPin className="text-lg text-orange-500" />
+          <ul className="lg:block hidden h-full font-sans text-gray-600 text-[13px]">
+            <li onClick={() => panelCity.current.classList.replace("bottom-full", "bottom-0")} className="whitespace-nowrap cursor-pointer h-full flex items-center">
+              <FiMapPin className="text-lg  text-orange-500 md:text-gray-600" />
               <span className="mx-2">{!myCity ? "لطفا شهر خود را انتخاب کنید" : myCity}</span>
             </li>
           </ul>
         </div>
       </nav>
       {/*bakdrop*/}
-      <span onClick={cluseNavHandler} ref={cluseNavbar} className="duration-400 transition-all md:hidden cursor-pointer fixed z-50 top-0 -left-[500px] w-1/4 h-screen bg-zinc-900 bg-opacity-0"></span>
+      <span onClick={cluseNavHandler} ref={cluseNavbar} className="duration-300 transition-all md:hidden cursor-pointer fixed z-50 top-0 left-full w-1/4 h-screen bg-zinc-900 bg-opacity-0"></span>
       {/*Panel Select City*/}
       <div ref={panelCity} className="duration-300 fixed bottom-full right-0 z-40 w-screen h-screen bg-gray-900/60 flex justify-center ">
         <div className="w-full overflow-hidden h-full md:max-w-[500px] bg-white p-4">

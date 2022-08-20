@@ -1,8 +1,11 @@
 @font-face {
   font-family: shabnab;
   src: url("../public/font/Shabnam.ttf");
+  font-family: yekan;
+  src: url("../public/font/Yekan.ttf");
 }
 
 body {
-  font-family: shabnam !important;
+  font-size: 62.5%;
+  font-family: "yekan" !important;
 }
