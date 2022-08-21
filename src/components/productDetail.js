@@ -91,8 +91,8 @@ const ProductDetail = (props) => {
             {/* Detail Product */}
             <div className="select-none w-full flex flex-col justify-center items-center">
               <div className="lg:border-b lg:pb-6 lg:flex-row lg:w-full flex flex-col items-center lg:items-start justify-start gap-2">
-                <h2 className="text-slate-800 font-sans text-lg font-bold mt-8 lg:mt-0">{state.state.title}</h2>
-                <h2 className="text-gray-400 font-sans text-lg font-bold">{state.state.nameEN}</h2>
+                <h2 className="text-slate-800 text-lg font-bold mt-8 lg:mt-0">{state.state.title}</h2>
+                <h2 className="text-gray-400">{state.state.nameEN}</h2>
               </div>
               <div className="pr-4 md:pr-0 w-full flex flex-col items-start gap-y-2 lg:justify-start lg:gap-x-4 my-6">
                 <span>انتخاب رنگ :</span>
@@ -116,7 +116,7 @@ const ProductDetail = (props) => {
                   <span className="font-sans font-bold">ارسال توسط :</span>
                   <span className="font-sans text-sm">انبار تهران</span>
                 </div>
-                <div className="mt-5 rounded-lg gap-y-4 lg:bg-white lg:p-0 bg-[#f4f4f4] p-4 w-full flex flex-col justify-start items-start font-sans text-slate-800">
+                <div className="mt-5 rounded-lg gap-y-4 lg:bg-white lg:p-0 bg-[#f7f7f7] border lg:border-0 border-gray-300 p-4 w-full flex flex-col justify-start items-start font-sans text-slate-800">
                   <span className="font-bold">ویژگی های کالا :</span>
                   <div className="w-full flex flex-col items-start gap-y-1">
                     <span>حافظه داخلی :</span>
@@ -135,7 +135,7 @@ const ProductDetail = (props) => {
             </div>
           </article>
           {/*Discrpshen*/}
-          <article className="w-full py-4 bg-[#f4f4f4] rounded-lg mt-3">
+          <article className="w-full py-4 rounded-lg mt-3 bg-[#F7F7F7] border border-gray-300">
             <div className="w-full lg:px-4 sm:px-0">
               <Tab.Group >
                 <Tab.List className="flex w-[60%] mx-auto  space-x-1 rounded-full bg-gray-900/20 p-1">
@@ -179,13 +179,8 @@ const ProductDetail = (props) => {
                               <li>{post.text}</li>
                             </ul>
 
-                            <a
-                              href="#"
-                              className={classNames(
-                                'absolute inset-0 rounded-md',
-                                'ring-blue-400 focus:z-10 focus:outline-none focus:ring-2'
-                              )}
-                            />
+                            <span className={classNames('absolute inset-0 rounded-md',)}>
+                            </span>
                           </li>
                         ))}
                       </ul>

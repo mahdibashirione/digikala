@@ -32,7 +32,7 @@ const GalleryImage = ({ image }) => {
         navigation={true}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Pagination, Navigation, Thumbs]}
-        className="mySwiper2 w-full h-[300px] md:w-64 md:h-full md:border border-zinc-900 rounded-lg select-none"
+        className="mySwiper2 w-full h-[300px] md:w-64 md:h-full md:border border-gray-400 rounded-lg select-none"
       >
         {image.map(src => {
           return (
@@ -54,7 +54,7 @@ const GalleryImage = ({ image }) => {
       >
         {image.map(src => {
           return (
-            <SwiperSlide className="cursor-pointer h-full flex items-center justify-center border rounded-lg">
+            <SwiperSlide onClick={handleOpenGalleryWithe} className="cursor-pointer h-full flex items-center justify-center border rounded-lg">
               <img className="h-full object-cover" src={src} alt="image product" />
             </SwiperSlide>
           )

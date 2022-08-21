@@ -91,6 +91,7 @@ const Header = () => {
       ]
     },
   ])
+
   const cartState = useCart()
   const cluseNavbar = useRef()
   const panelCity = useRef()
@@ -252,8 +253,8 @@ const Header = () => {
         </div>
       </header>
       {/*menu*/}
-      <nav className="w-full border-b shadow">
-        <div ref={nav} className="duration-300 transition-all md:relative md:top-auto md:right-0 md:w-full w-3/4 bg-white -right-[600px] top-0 fixed h-screen md:h-[46px] md:z-30 z-50 flex justify-between items-center container">
+      <nav className="w-full bg-white border-b shadow">
+        <div ref={nav} className="duration-300 transition-all md:z-30 z-50 md:relative md:top-auto md:right-0 md:w-full w-3/4 bg-white -right-[600px] top-0 fixed h-screen md:h-[46px] flex justify-between items-center container">
           <ul className="flex w-full md:text-[14px] h-screen md:h-full flex-col-reverse md:flex-row items-start md:items-center px-4 md:px-0 justify-end md:justify-start text-sm font-sans text-gray-700">
             <li className="md:menu gap-x-2 flex hover:text-red-500  md:hidden pt-5 md:pt-0 w-full overflow-y-auto md:w-auto md:hover:text-red-500 border-t md:border-0 cursor-pointer whitespace-nowrap md:h-14 font-bold text-slate-800 after:content-[''] after:w-[1px] after:rounded-full after:bg-gray-300 after:h-[25px] after:absolute after:left-0 after:top-[50%] after:-translate-y-[50%] pl-4 md:flex-row items-start md:items-center">
               <BiMenu className="text-xl select-none" />
@@ -261,37 +262,45 @@ const Header = () => {
                 دسته بندی کالا ها
               </Link>
             </li>
-            <li className="md:menu gap-x-1 hidden md:flex pt-5 pl-3 md:pt-0 w-full h-full overflow-y-auto md:w-auto md:hover:text-red-500 border-t md:border-0 cursor-pointer whitespace-nowrap font-bold text-slate-800 flex-col md:flex-row items-start md:items-center">
+            <li className="backdrop md:menu gap-x-1 hidden md:flex pt-5 pl-3 md:pt-0 w-full h-full overflow-y-auto md:w-auto md:hover:text-red-500 border-t md:border-0 cursor-pointer whitespace-nowrap font-bold text-slate-800 flex-col md:flex-row items-start md:items-center">
               <BiMenu className="text-xl select-none hidden md:block" />
               <Link to="/categories" className="h-full flex items-center justify-center">
                 دسته بندی کالا ها
               </Link>
               <span className="lg:block w-[1px] h-4 bg-gray-400 mr-3 hidden"></span>
-              <ul className="menu-hover hidden text-slate-800 md:rounded-br-lg md:border-l border-gray-400 mt-2 md:mt-0 w-full flex-col font-normal md:absolute md:right-0 md:top-full md:w-auto z-30 md:bg-white">
+              <ul className="menu-hover hidden text-slate-800 md:rounded-br-lg md:border border-gray-400 mt-2 md:mt-0 w-full flex-col font-normal md:absolute md:right-0 md:top-full md:w-auto z-30 md:bg-white">
                 {category.map(item => {
                   return (
                     <li className="md:menu w-full py-4 md:hover:bg-gray-200 hover:text-red-500 pr-2 md:px-5">
                       {item.menu}
-                      <ul className="gap-x-4 gap-y-3 text-slate-900 menu-hover hidden flex-wrap items-start justify-start z-20 xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-[416px] p-4 absolute right-full top-0 border border-gray-400 bg-white">
-                        <Link to={item.addres} className="w-full text-gray-600 hover:text-red-500 flex items-center">
-                          همه ی محصولات {item.menu}
-                          <FiChevronLeft />
-                        </Link>
-                        {item.backMenu.map(itemBackMeun => {
-                          return (
-                            <Link to={itemBackMeun.addres} className="font-bold hover:text-red-500 flex items-center">
-                              <span className="lg:block w-[2px] h-4 bg-red-500 ml-2 hidden"></span>
-                              {itemBackMeun.title}
-                              <FiChevronLeft className="text-lg" />
-                            </Link>
-                          )
-                        })}
+                      <ul className="gap-x-4 gap-y-3 text-slate-900 menu-hover hidden flex-col items-start justify-start z-20 xl:w-[1100px] lg:w-[855px]  md:w-[585px] h-full p-4 absolute right-full -top-[1px] border border-gray-400 bg-white">
+                        <li>
+                          <Link to={item.addres} className="w-full text-gray-600 hover:text-red-500 flex items-center">
+                            همه ی محصولات {item.menu}
+                            <FiChevronLeft />
+                          </Link>
+                        </li>
+                        <ul className="w-full h-full grid grid-cols-3 lg:grid-cols-4 xl:col-span-5 items-start justify-start">
+                          {item.backMenu.map(itemBackMeun => {
+                            return (
+                              <li>
+                                <Link to={itemBackMeun.addres} className="font-bold hover:text-red-500 flex items-center">
+                                  <span className="lg:block w-[2px] h-4 bg-red-500 ml-2 hidden"></span>
+                                  {itemBackMeun.title}
+                                  <FiChevronLeft className="text-lg" />
+                                </Link>
+                              </li>
+                            )
+                          })}
+                        </ul>
                       </ul>
                     </li>
                   )
                 })}
               </ul>
             </li>
+            {/*bakdropMenu*/}
+            <span className="backdrop-hover hidden cursor-pointer fixed z-20 bottom-0 left-0 w-screen h-[calc(100vh-110px)] bg-zinc-900/80"></span>
             <li className="w-full h-[3rem] md:w-auto hover:text-red-500 cursor-pointer whitespace-nowrap md:h-full md:px-2 flex items-center text-gray-500 ">
               <BiBasket className="text-lg text-gray-400" />
               سوپرمارکت

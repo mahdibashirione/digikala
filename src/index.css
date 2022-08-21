@@ -22,4 +22,8 @@
   .menu:hover > .menu-hover {
     display: flex !important;
   }
+
+  .backdrop:hover ~ .backdrop-hover {
+    display: block !important;
+  }
 }
