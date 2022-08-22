@@ -37,7 +37,7 @@ const GalleryImage = ({ image }) => {
         {image.map(src => {
           return (
             <SwiperSlide onClick={handleOpenGalleryWithe} className="cursor-pointer w-full h-full flex items-center justify-center">
-              <img className="w-full h-full object-cover" src={src} alt="image product" />
+              <img className="md:w-full h-full object-cover" src={src} alt="image product" />
             </SwiperSlide>
           )
         })}

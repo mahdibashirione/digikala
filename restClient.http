@@ -22,3 +22,5 @@ Content-Type: application/json
 }
 
 ###
+
+GET https://testapi.io/api/mahdibashiri/products HTTP/1.1

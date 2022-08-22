@@ -3,7 +3,7 @@ import './App.css';
 import Home from './page/Home';
 import LoginPage from './page/LoginPage';
 import Layout from "./layout/Layout"
-import ProductDetail from './components/productDetail';
+import ProductDetail from './components/ProductDetail/productDetail';
 import CartPage from './page/CartPage';
 import CategoriesPage from './page/CategoriesPage';
 import Register from './components/register/register';

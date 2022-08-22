@@ -1,11 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
-import { useCart, useCartActions } from "../context/Cart/CartProvider";
+import { useCart, useCartActions } from "../../context/Cart/CartProvider";
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react'
 import { Tab } from '@headlessui/react'
 import { Toaster, toast } from "react-hot-toast";
-import GalleryImage from "./galleryImage/GalleryImage";
-import { separate } from "../utils/separate";
+import GalleryImage from "../galleryImage/GalleryImage";
+import { separate } from "../../utils/separate";
 
 const ProductDetail = (props) => {
 
@@ -118,18 +118,7 @@ const ProductDetail = (props) => {
                 </div>
                 <div className="mt-5 rounded-lg gap-y-4 lg:bg-white lg:p-0 bg-[#f7f7f7] border lg:border-0 border-gray-300 p-4 w-full flex flex-col justify-start items-start font-sans text-slate-800">
                   <span className="font-bold">ویژگی های کالا :</span>
-                  <div className="w-full flex flex-col items-start gap-y-1">
-                    <span>حافظه داخلی :</span>
-                    <p className="font-bold">128 گیگابایت</p>
-                  </div>
-                  <div className="w-full flex flex-col items-start gap-y-1">
-                    <span>اندازه صفحه نمایش :</span>
-                    <p className="font-bold">6.1 اینچ</p>
-                  </div>
-                  <div className="w-full flex flex-col items-start gap-y-1">
-                    <span>شبکه های ارتباطی :</span>
-                    <p className="font-bold">2G 3G 4G 5G</p>
-                  </div>
+                  {state.state.productFeatures.map(feature => <p className="text-gray-700"> - {feature} </p>)}
                 </div>
               </div>
             </div>
